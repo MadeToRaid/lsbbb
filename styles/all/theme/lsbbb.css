@@ -8,375 +8,417 @@
 /**
  * Colors for Vana'diel days
  */
-.Firesday { color: #DD0000; }
-.Earthsday { color: #AAAA00; }
-.Watersday{ color: #0000DD; }
-.Windsday{ color: #00AA22; }
-.Iceday{ color: #7799FF; }
-.Lightningday{ color: #AA00AA; }
-.Lightsday{ color: #AAAAAA; }
-.Darksday{ color: #333333; }
+.Firesday {
+    color: #dd0000;
+}
+
+.Earthsday {
+    color: #aaaa00;
+}
+
+.Watersday {
+    color: #0000dd;
+}
+
+.Windsday {
+    color: #00aa22;
+}
+
+.Iceday {
+    color: #7799ff;
+}
+
+.Lightningday {
+    color: #aa00aa;
+}
+
+.Lightsday {
+    color: #aaaaaa;
+}
+
+.Darksday {
+    color: #333333;
+}
 
 /**
  * Styling maps on Zone pages
  */
 .ximaps {
-	text-align: center;
-	padding-bottom: 5px;
+    text-align: center;
+    padding-bottom: 5px;
 }
+
 .ximaps img {
-	width: 128px;
-	max-width: 20%;
-  	opacity: 0.7;
-	padding: 2px;
+    width: 128px;
+    max-width: 20%;
+    opacity: 0.7;
+    padding: 2px;
 }
+
 .mapmodal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	padding-top: 100px;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgb(0,0,0);
-	background-color: rgba(0,0,0,0.9);
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
 }
+
 .mapmodal a {
-	display: block;
-	margin: auto;
-	width: 512px;
-	max-width: 90%;
+    display: block;
+    margin: auto;
+    width: 512px;
+    max-width: 90%;
 }
+
 .mapmodal img {
-	width: 100%;
+    width: 100%;
 }
+
 .mapthumbs {
-	display: inline-block;
-	margin: 0 auto;
+    display: inline-block;
+    margin: 0 auto;
 }
+
 .mapclose {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
 }
+
 .ximaps img:hover,
 .ximaps img:focus,
 .mapclose:hover,
 .mapclose:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-  opacity: 1.0;
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1.0;
 }
 
 /**
  * World Map styling
  */
 .worldmaptitle {
-	font-size: 1.2em;
-	font-weight: bold;
-}
-.xiconquest {
-	position: relative;
-	background-image: url('/ext/madetoraid/lsbbb/styles/all/theme/images/maps/world_map.png');
-	width: 980px;
-	height: 580px;
-	margin: auto;
-}
-.xicampaign {
-	position: relative;
-	background-image: url('/ext/madetoraid/lsbbb/styles/all/theme/images/maps/campaign_map.png');
-	width: 626px;
-	height: 580px;
-	margin: auto;
-}
-.ximapregion {
-	position: absolute;
-	margin: 2px;
-	padding: 6px 2px 2px 2px;
-	font-size: 0.7em;
-	color: #000;
-	background-color: rgba(202,220,235,0.8);
-	white-space: nowrap;
-	border-radius: 7px;
-}
-.ximapregion a {
-	color: #105289;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
-.ximapregion:hover, .ximapregion:focus {
-	font-size: 1.0em;
-	z-index: 1;
-	background-color: rgba(202,220,235,1.0);
+.xiconquest {
+    position: relative;
+    /* @todo Fix this background image url to something better for an extension */
+    background-image: url('/ext/madetoraid/lsbbb/styles/all/theme/images/maps/world_map.png');
+    width: 980px;
+    height: 580px;
+    margin: auto;
 }
+
+.xicampaign {
+    position: relative;
+    /* @todo Fix this background image url to something better for an extension */
+    background-image: url('/ext/madetoraid/lsbbb/styles/all/theme/images/maps/campaign_map.png');
+    width: 626px;
+    height: 580px;
+    margin: auto;
+}
+
+.ximapregion {
+    position: absolute;
+    margin: 2px;
+    padding: 6px 2px 2px 2px;
+    font-size: 0.7em;
+    color: #000;
+    background-color: rgba(202, 220, 235, 0.8);
+    white-space: nowrap;
+    border-radius: 7px;
+}
+
+.ximapregion a {
+    color: #105289;
+}
+
+.ximapregion:hover,
+.ximapregion:focus {
+    font-size: 1.0em;
+    z-index: 1;
+    background-color: rgba(202, 220, 235, 1.0);
+}
+
 .ximapregion ul {
-	margin-left: 10px;
+    margin-left: 10px;
 }
 
 img.regioncontrol {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	height: 16px;
-	width: 16px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 16px;
+    width: 16px;
 }
 
 /**
  * Absolute positions of each region on the World Map
  */
 #sandoria {
-	top: 95px;
-	left: 140px;
+    top: 95px;
+    left: 140px;
 }
 
 #bastok {
-	top: 400px;
-	left: 270px
+    top: 400px;
+    left: 270px
 }
 
 #movalpolos {
-	top: 340px;
-	left: 260px
+    top: 340px;
+    left: 260px
 }
 
 #gustaberg {
-	top: 345px;
-	left: 170px;
+    top: 345px;
+    left: 170px;
 }
 
 #windurst {
-	top: 400px;
-	left: 370px;
+    top: 400px;
+    left: 370px;
 }
 
 #ronfaure {
-	top: 150px;
-	left: 110px;
+    top: 150px;
+    left: 110px;
 }
 
 #zulkheim {
-	top: 245px;
-	left: 103px;
+    top: 245px;
+    left: 103px;
 }
 
 #derfland {
-	top: 260px;
-	left: 205px;
+    top: 260px;
+    left: 205px;
 }
 
 #norvallen {
-	top: 150px;
-	left: 205px;
+    top: 150px;
+    left: 205px;
 }
 
 #sarutabaruta {
-	top: 295px;
-	left: 350px;
+    top: 295px;
+    left: 350px;
 }
 
 #aragoneu {
-	top: 200px;
-	left: 400px;
+    top: 200px;
+    left: 400px;
 }
 
 #jeuno {
-	top: 200px;
-	left: 310px
+    top: 200px;
+    left: 310px
 }
 
 #qufim {
-	top: 120px;
-	left: 315px;
+    top: 120px;
+    left: 315px;
 }
 
 #vollbow {
-	top: 330px;
-	left: 65px;
+    top: 330px;
+    left: 65px;
 }
 
 #kolshushu {
-	top: 300px;
-	left: 460px;
+    top: 300px;
+    left: 460px;
 }
 
 #litelor {
-	top: 195px;
-	left: 520px;
+    top: 195px;
+    left: 520px;
 }
 
 #tulia {
-	top: 50px;
-	left: 355px;
+    top: 50px;
+    left: 355px;
 }
 
 #lumoria {
-	top: 40px;
-	left: 460px;
+    top: 40px;
+    left: 460px;
 }
 
 #limbus {
-	top: 100px;
-	left: 500px;
+    top: 100px;
+    left: 500px;
 }
 
 #elshimolowlands {
-	top: 485px;
-	left: 450px;
+    top: 485px;
+    left: 450px;
 }
 
 #elshimouplands {
-	top: 390px;
-	left: 510px;
+    top: 390px;
+    left: 510px;
 }
 
 #kuzotz {
-	top: 400px;
-	left: 25px;
+    top: 400px;
+    left: 25px;
 }
 
 #valdeaunia {
-	top: 15px;
-	left: 110px;
+    top: 15px;
+    left: 110px;
 }
 
 #fauregandi {
-	top: 15px;
-	left: 220px;
+    top: 15px;
+    left: 220px;
 }
 
 #tavnazia {
-	top: 225px;
-	left: 0px;
+    top: 225px;
+    left: 0px;
 }
 
 #ahturhgan {
-	top: 200px;
-	left: 850px;
+    top: 200px;
+    left: 850px;
 }
 
 #mamooljasavagelands {
-	top: 300px;
-	left: 750px;
+    top: 300px;
+    left: 750px;
 }
 
 #halvung {
-	top: 150px;
-	left: 650px;
+    top: 150px;
+    left: 650px;
 }
 
 #arrapago {
-	top: 40px;
-	left: 670px;
+    top: 40px;
+    left: 670px;
 }
 
 #alzadaal {
-	top: 75px;
-	left: 830px;
+    top: 75px;
+    left: 830px;
 }
 
 #dynamis {
-	top: 15px;
-	left: 3px;
+    top: 15px;
+    left: 3px;
 }
 
 #emptiness {
-	bottom: 0px;
-	right: 125px;
+    bottom: 0px;
+    right: 125px;
 }
 
 #transportation {
-	bottom: 0px;
-	right: 0px;
+    bottom: 0px;
+    right: 0px;
 }
 
 #ronfaure_s {
-	top: 140px;
-	left: 140px;
+    top: 140px;
+    left: 140px;
 }
 
 #norvallen_s {
-	top: 140px;
-	left: 240px;
+    top: 140px;
+    left: 240px;
 }
 
 #derfland_s {
-	top: 270px;
-	left: 240px;
+    top: 270px;
+    left: 240px;
 }
 
 #gustaberg_s {
-	top: 370px;
-	left: 200px;
+    top: 370px;
+    left: 200px;
 }
 
 #sarutabaruta_s {
-	top: 350px;
-	left: 390px;
+    top: 350px;
+    left: 390px;
 }
 
 #aragoneu_s {
-	top: 240px;
-	left: 390px;
+    top: 240px;
+    left: 390px;
 }
 
 #valdeaunia_s {
-	top: 40px;
-	left: 170px;
+    top: 40px;
+    left: 170px;
 }
 
 #fauregandi_s {
-	top: 70px;
-	left: 290px;
+    top: 70px;
+    left: 290px;
 }
 
 #threshold_s {
-	top: 30px;
-	right: 50px;
+    top: 30px;
+    right: 50px;
 }
 
 /**
  * Map tooltip
  */
 .maptooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    /* If you want dots under the hoverable text */
 }
-.maptooltip img {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
+.maptooltip img {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
 }
 
 .maptooltip:hover {
-  visibility: visible;
+    visibility: visible;
 }
 
 /**
  * Census data containers
  */
 .censusnation {
-	width: 49%;
-	display: inline-block;
+    width: 49%;
+    display: inline-block;
 }
+
 .censusrace {
-	width: 49%;
-	display: inline-block;
+    width: 49%;
+    display: inline-block;
 }
+
 .censusrace div {
-	height: 50px;
+    height: 50px;
 }
