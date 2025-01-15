@@ -135,10 +135,6 @@ class char_controller
 			));			
 		} else {
 			if(sizeof($char_data) > 0) {
-					$this->template->assign_block_vars('navlinks', array(
-							'FORUM_NAME' => ucwords($char_id),
-							'U_VIEW_FORUM' => append_sid('/xi/char/'.$char_id),
-					));
 					foreach($char_data as $char_row) {
 							$this->template->assign_block_vars('charrow', $char_row);
 					}
