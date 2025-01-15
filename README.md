@@ -24,12 +24,20 @@ Welcome to lsbBB, an open source extension for phpBB that provides integrations 
 * Item pages for every item in the XI database showing recipes, drop information and fishing information
 * Search for any item
 
-## Getting Started
-Install phpBB into a new database on the same database server as your XI database. Grant your phpBB forum user the necessary permissions to your XI database.
+## Requirements
+* You must already have a working install of [phpBB](https://github.com/phpbb/phpbb) version >=3.3
+* You must have the [LandSandBoat](https://github.com/LandSandBoat/server) database installed on the same server as phpBB's database
 
-Copy the extension to the ext/madetoraid/lsbbb folder in your phpBB installation.
+## Installation
+`git clone https://github.com/MadeToRaid/lsbbb.git phpbbroot/ext/madetoraid/lsbbb`
 
-Go to "ACP" > "Customise" > "Extensions" and enable the "lsbBB" extension.
+You will need a set of icons for all items in game. FFXIAH conveniently hosts them [here](https://www.ffxiah.com/dev/), or you can source your own.
+`tar -xf icons.tgz -C phpbbroot/ext/madetoraid/lsbbb/styles/all/theme/images/icons/`
+
+If you want maps to work, you will need to source the images. The [Remapster](https://github.com/AkadenTK/remapster_maps) project has created new maps for many areas. Download their "1024" maps and place them in:
+`phpbbroot/ext/madetoraid/lsbbb/styles/all/theme/images/maps/1024/`
+
+Go to your phpBB admin control panel's Customize tab and enabled the lsbBB extension
 
 ### Demo
 You can see a working copy of lsbBB at the [Made to Raid Forums](https://forums.madetoraid.com).
