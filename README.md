@@ -48,4 +48,4 @@ lsbBB is licensed under [GNU GPL v3](https://github.com/MadeToRaid/lsbBB/blob/ba
 
 ## Thanks
 
-Thanks to the maintainers of [LandSandBoat](https://github.com/LandSandBoat/). This project does not exist without their hard work.
+Thanks to the maintainers of [LandSandBoat](https://github.com/LandSandBoat/) and [phpBB](https://github.com/phpbb/phpbb). This project does not exist without their hard work.
