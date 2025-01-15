@@ -1,0 +1,99 @@
+imports:
+    - { resource: parameters.yml }
+
+services:
+    madetoraid.lsbbb.controller.main:
+        class: madetoraid\lsbbb\controller\main_controller
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+
+    madetoraid.lsbbb.controller.item:
+        class: madetoraid\lsbbb\controller\item_controller
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+            - '@request'
+
+    madetoraid.lsbbb.controller.ah:
+        class: madetoraid\lsbbb\controller\ah_controller
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+            - '@request'
+            - '@user'
+
+    madetoraid.lsbbb.controller.zone:
+        class: madetoraid\lsbbb\controller\zone_controller
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+            - '%core.root_path%'
+
+    madetoraid.lsbbb.controller.char:
+        class: madetoraid\lsbbb\controller\char_controller
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+            - '@user'
+
+    madetoraid.lsbbb.controller.acp:
+        class: madetoraid\lsbbb\controller\acp_controller
+        arguments:
+            - '@config'
+            - '@language'
+            - '@log'
+            - '@request'
+            - '@template'
+            - '@user'
+
+    madetoraid.lsbbb.controller.mcp:
+        class: madetoraid\lsbbb\controller\mcp_controller
+        arguments:
+            - '@language'
+            - '@request'
+            - '@template'
+
+    madetoraid.lsbbb.controller.ucp:
+        class: madetoraid\lsbbb\controller\ucp_controller
+        arguments:
+            - '@dbal.conn'
+            - '@language'
+            - '@request'
+            - '@template'
+            - '@user'
+
+    madetoraid.lsbbb.service:
+        class: madetoraid\lsbbb\service
+        arguments:
+            - '@user'
+            - '%madetoraid.lsbbb.tables.lsbbb_table%'
+
+    madetoraid.lsbbb.listener:
+        class: madetoraid\lsbbb\event\main_listener
+        arguments:
+            - '@language'
+            - '@controller.helper'
+            - '@template'
+            - '%core.php_ext%'
+        tags:
+            - { name: event.listener }
+
+    madetoraid.lsbbb.notification.type.sample:
+        class: madetoraid\lsbbb\notification\type\sample
+        shared: false # service MUST not be shared for this to work!
+        parent: notification.type.base
+        calls:
+            - [set_controller_helper, ['@controller.helper']]
+        tags:
+            - { name: notification.type }

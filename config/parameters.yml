@@ -1,0 +1,2 @@
+parameters:
+    madetoraid.lsbbb.tables.lsbbb_table: '%core.table_prefix%madetoraid_lsbbb_table'

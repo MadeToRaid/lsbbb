@@ -1,0 +1,33 @@
+<!-- IF fishrow -->
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive">
+			<thead>
+				<tr>
+					<th class="name">Zone</th>
+					<th class="active">Area</th>
+					<th class="active">Skill</th>
+					<th class="info">Lure</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN fishrow -->
+				<tr class="reciperow<!-- IF fishrow.rownum is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+					<td><a href="/xi/zone/{fishrow.zoneid}" class="forumtitle">{fishrow.zone_name}</a></td>
+					<td>{fishrow.area_name}</td>
+					<td>{fishrow.skill_level}</td>
+					<td>
+						<ul class="recipe_ingredients">
+							<!-- BEGIN fishrow.lures -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{fishrow.lures.lureid}.png"> <a href="/xi/item/{fishrow.lures.lureid}">{fishrow.lures.lure_name}</a></li>
+							<!-- END fishrow.lures -->
+						</ul>
+					</td>
+				</tr>
+				<!-- END fishrow -->
+			</tbody>
+		</table>
+	</div>
+</div>
+<script type="text/javascript" src="https://api.ffxiah.com/core/?load=%2Fjs%2Flib%2FAH.js&amp;ver=1.0.0" id="ffxiah-js-js"></script>
+<!-- ENDIF -->

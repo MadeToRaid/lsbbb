@@ -1,0 +1,43 @@
+madetoraid_lsbbb_controller_default:
+    path: /xi/
+    defaults: { _controller: madetoraid.lsbbb.controller.main:handle }
+
+madetoraid_lsbbb_controller_item:
+    path: /xi/item/
+    defaults: { _controller: madetoraid.lsbbb.controller.item:handle }
+
+madetoraid_lsbbb_controller_item_id:
+    path: /xi/item/{item_id}
+    defaults: { _controller: madetoraid.lsbbb.controller.item:handle }
+    requirements:
+      item_id: \d+
+
+madetoraid_lsbbb_controller_ah:
+    path: /xi/ah/
+    defaults: { _controller: madetoraid.lsbbb.controller.ah:handle }
+
+madetoraid_lsbbb_controller_ah_id:
+    path: /xi/ah/{category_id}
+    defaults: { _controller: madetoraid.lsbbb.controller.ah:handle }
+    requirements:
+      category_id: \d+
+
+madetoraid_lsbbb_controller_zone:
+    path: /xi/zone/
+    defaults: { _controller: madetoraid.lsbbb.controller.zone:handle }
+
+madetoraid_lsbbb_controller_zone_id:
+    path: /xi/zone/{zone_id}
+    defaults: { _controller: madetoraid.lsbbb.controller.zone:handle }
+    requirements:
+      zone_id: \d+
+
+madetoraid_lsbbb_controller_char:
+    path: /xi/char/
+    defaults: { _controller: madetoraid.lsbbb.controller.char:handle }
+
+madetoraid_lsbbb_controller_char_name:
+    path: /xi/char/{char_id}
+    defaults: { _controller: madetoraid.lsbbb.controller.char:handle }
+    requirements:
+      char_id: \d+

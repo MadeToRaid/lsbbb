@@ -1,0 +1,25 @@
+<!-- IF mobrow -->
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive">
+			<thead>
+				<tr>
+					<th class="name">Name</th>
+					<th class="info">Family</th>
+					<th class="active">Level</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN mobrow -->
+				<tr class="<!-- IF mobrow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+					<td><a href="" class="forumtitle">{mobrow.group_name}</a>
+						<!-- IF mobrow.mobtype == 2 --><b>(NM)</b><!-- ENDIF --></td>
+					<td class="info">{mobrow.super_family_name}</td>
+					<td class="active">{mobrow.minlevel}<!-- IF mobrow.minlevel != mobrow.maxlevel --> - {mobrow.maxlevel}<!-- ENDIF --></td>
+				</tr>
+				<!-- END mobrow -->
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- ENDIF -->

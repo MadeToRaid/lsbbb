@@ -1,0 +1,324 @@
+<!-- INCLUDE overall_header.html -->
+
+<p class="{S_CONTENT_FLOW_END} responsive-center time<!-- IF S_USER_LOGGED_IN --> rightside<!-- ENDIF -->"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME} / <span id="vTime"></span><!-- ENDIF --></p>
+<!-- IF S_USER_LOGGED_IN --><p class="responsive-center time">{CURRENT_TIME} / <span id="vTime"></span></p><!-- ENDIF -->
+<div class="vTimedetails" id="Details" style="display: none;"></div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<span class="worldmaptitle">Server Stats</span>
+<!-- BEGIN censusdata -->
+<div class="censusrow">
+	<div class="censusnation">
+		<canvas id="nationChart" style="width: 100%; max-width: 700px; max-height: 400px; margin: 0px auto;"></canvas>
+		<script>
+			// Chart.defaults.global.legend.display = false;
+			const xValues = ["San d'Oria", "Bastok", "Windurst"];
+			const yValues = [{censusdata.sandoria_population}, {censusdata.bastok_population}, {censusdata.windurst_population}];
+			const barColors = [
+			  "#b22222",
+			  "#2d68c4",
+			  "#03c03c",
+			];
+			
+			new Chart("nationChart", {
+				type: "doughnut",
+				data: {
+					labels: xValues,
+					datasets: [{
+						backgroundColor: [
+							'rgba(178, 34,  34,  0.5)',	// san
+							'rgba(45,  104, 196, 0.5)',	// bas
+							'rgba(3,   192, 60,  0.5)',	// win
+						],
+						borderColor: [
+							'rgb(178, 34,  34)',	// san
+							'rgb(45,  104, 196)',	// bas
+							'rgb(3,   192, 60)',	// win
+						],
+			      			data: yValues
+			    		}]
+			  	},
+				options: {
+					plugins: {
+						title: {
+							display: true,
+							text: "Home Nation Distribution"
+						}
+					}
+				},
+			});
+		</script>
+	</div>
+	<div class="censusnation">
+		<canvas id="jobChart" style="width: 100%; max-width: 700px; margin: 0px auto;"></canvas>
+		<script>
+			const labels = ['war','mnk','whm','blm','rdm','thf','pld', 'drk', 'bst', 'brd', 'rng', 'sam', 'nin', 'drg', 'smn', 'blu', 'cor', 'pup', 'sch', 'dnc'];
+			const data = {
+				labels: labels,
+				datasets: [{
+					label: 'Levels',
+					data: [
+						{censusdata.war_total},
+						{censusdata.mnk_total},
+						{censusdata.whm_total},
+						{censusdata.blm_total},
+						{censusdata.rdm_total},
+						{censusdata.thf_total},
+						{censusdata.pld_total},
+						{censusdata.drk_total},
+						{censusdata.bst_total},
+						{censusdata.brd_total},
+						{censusdata.rng_total},
+						{censusdata.sam_total},
+						{censusdata.nin_total},
+						{censusdata.drg_total},
+						{censusdata.smn_total},
+						{censusdata.blu_total},
+						{censusdata.cor_total},
+						{censusdata.pup_total},
+						{censusdata.sch_total},
+						{censusdata.dnc_total},
+					],
+					backgroundColor: [
+						'rgba(255, 99,  132, 0.5)',	// war
+						'rgba(255, 159, 64,  0.5)',	// mnk
+						'rgba(196, 203, 202, 0.5)',	// whm
+						'rgba(10,  15,  13,  0.5)',	// blm
+						'rgba(255, 17,  35,  0.5)',	// rdm
+						'rgba(0,   137, 38,  0.5)',	// thf
+						'rgba(103, 109, 108, 0.5)',	// pld
+						'rgba(18,  19,  33,  0.5)',	// drk
+						'rgba(79,  65,  8,   0.5)',	// bst
+						'rgba(168, 96,  8,   0.5)',	// brd
+						'rgba(0,   53,  8,   0.5)',	// rng
+						'rgba(207, 85,  8,   0.5)',	// sam
+						'rgba(68,  68,  194, 0.5)',	// nin
+						'rgba(153, 102, 255, 0.5)',	// drg
+						'rgba(192, 206, 211, 0.5)',	// smn
+						'rgba(0,   55,  162, 0.5)',	// blu
+						'rgba(173, 71,  0,   0.5)',	// cor
+						'rgba(173, 167, 255, 0.5)',	// pup
+						'rgba(18,  19,  10,  0.5)',	// sch
+						'rgba(255, 99,  132, 0.5)'	// dnc
+					],
+					borderColor: [
+						'rgb(255, 99,  132)',	// war
+						'rgb(255, 159, 64)',	// mnk
+						'rgb(196, 203, 202)',	// whm
+						'rgb(10,  15,  13)',	// blm
+						'rgb(255, 17,  35)',	// rdm
+						'rgb(0,   137, 38)',	// thf
+						'rgb(103, 109, 108)',	// pld
+						'rgb(18,  19,  33)',	// drk
+						'rgb(79,  65,  8)',	// bst
+						'rgb(168, 96,  8)',	// brd
+						'rgb(0,   53,  8)',	// rng
+						'rgb(207, 85,  8)',	// sam
+						'rgb(68,  68,  194)',	// nin
+						'rgb(153, 102, 255)',	// drg
+						'rgb(192, 206, 211)',	// smn
+						'rgb(0,   55,  162)',	// blu
+						'rgb(173, 71,  0)',	// cor
+						'rgb(173, 167, 255)',	// pup
+						'rgb(18,  19,  10)',	// sch
+						'rgb(255, 99,  132)'	// dnc
+					],
+					borderWidth: 1
+				}]
+			};
+			new Chart("jobChart", {
+				type: 'bar',
+				data: data,
+				options: {
+					plugins: {
+						legend: {
+							display: false
+						},
+						title: {
+							display: true,
+							text: "Job Distribution"
+						},
+					},
+					scales: {
+						y: {
+							ticks: {
+								display: false
+							},
+							beginAtZero: true
+						},
+					},
+				},
+			});
+		</script>
+	</div>
+</div>
+<div class="censusrow" style="text-align: top;">
+	<div class="censusnation">
+		<canvas id="raceChart" style="width:100%; max-width: 700px; max-height: 400px; margin: 0px auto;"></canvas>
+		<script>
+			const xRaceValues = ["Hume", "Elvaan", "Tarutaru", "Mithra", "Galka"];
+			const yRaceValues = [{censusdata.hume_percentage}, {censusdata.elvaan_percentage}, {censusdata.tarutaru_percentage}, {censusdata.mithra_percentage}, {censusdata.galka_percentage}];
+			const raceBarColors = [
+						'rgba(45,  104, 196, 0.5)',	// bas
+						'rgba(178, 34,  34,  0.5)',	// san
+						'rgba(3,   192, 60,  0.5)',	// win
+						'rgba(168, 96,  8,   0.5)',
+						'rgba(153, 102, 255, 0.5)',
+			];
+			const raceBorderColors = [
+						'rgb(45,  104, 196)',	// bas
+						'rgb(178, 34,  34)',	// san
+						'rgb(3,   192, 60)',	// win
+						'rgb(168, 96,  8)',
+						'rgb(153, 102, 255)',
+			];
+			
+			new Chart("raceChart", {
+			  type: "polarArea",
+			  data: {
+			    labels: xRaceValues,
+			    datasets: [{
+			      backgroundColor: raceBarColors,
+			      borderColor: raceBorderColors,
+			      data: yRaceValues
+			    }]
+			  },
+				options: {
+					plugins: {
+						title: {
+							display: true,
+							text: "Race Distribution"
+						}
+					}
+				}
+			});
+		</script>
+	</div>
+	<div class="censusnation">
+		<table class="censusstats" style="margin: 0px auto;">
+			<tr>
+				<td>
+					<img src="https://www.madetoraid.com/ffxiimg/icon/65535.png" style="vertical-align: middle;">
+				</td>
+				<td>
+					<span class="totalgil countup">{censusdata.total_gil}</span> gil possessed
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="totalgil"><i class="icon fa-gavel fa-fw" style="font-size: 32px;" aria-hidden="true"></i></span>
+				</td>
+				<td>
+					<span class="totalgil countup">{censusdata.ah_count}</span> items for sale
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="totalgil"><i class="icon fa-plane fa-fw" style="font-size: 32px;" aria-hidden="true"></i></span>
+				</td>
+				<td>
+					<span class="totalgil countup">{distance_travelled}</span> distance travelled
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="totalgil"><i class="icon fa-hand-rock-o fa-fw" style="font-size: 32px;" aria-hidden="true"></i></span>
+				</td>
+				<td>
+					<span class="totalgil countup">{battles_fought}</span> battles fought
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="totalgil"><i class="icon fa-paw fa-fw" style="font-size: 32px;" aria-hidden="true"></i></span>
+				</td>
+				<td>
+					<span class="totalgil countup">{enemies_defeated}</span> enemies vanquished
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="totalgil"><i class="icon fa-ambulance fa-fw" style="font-size: 32px;" aria-hidden="true"></i></span>
+				</td>
+				<td>
+					<span class="totalgil countup">{times_knocked_out}</span> adventurer K.O.s
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="totalgil"><i class="icon fa-pied-piper fa-fw" style="font-size: 32px;" aria-hidden="true"></i></span>
+				</td>
+				<td>
+					<span class="totalgil countup">{spells_cast}</span> spells cast
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<!-- END censusdata -->
+
+<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
+	<form method="post" action="{S_LOGIN_ACTION}" class="headerspace">
+	<h3><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a><!-- IF S_REGISTER_ENABLED -->&nbsp; &bull; &nbsp;<a href="{U_REGISTER}">{L_REGISTER}</a><!-- ENDIF --></h3>
+		<fieldset class="quick-login">
+			<label for="username"><span>{L_USERNAME}{L_COLON}</span> <input type="text" tabindex="1" name="username" id="username" size="10" class="inputbox" title="{L_USERNAME}" autocomplete="username" /></label>
+			<label for="password"><span>{L_PASSWORD}{L_COLON}</span> <input type="password" tabindex="2" name="password" id="password" size="10" class="inputbox" title="{L_PASSWORD}" autocomplete="current-password" /></label>
+			<!-- IF U_SEND_PASSWORD -->
+				<a href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a>
+			<!-- ENDIF -->
+			<!-- IF S_AUTOLOGIN_ENABLED -->
+				<span class="responsive-hide">|</span> <label for="autologin">{L_LOG_ME_IN} <input type="checkbox" tabindex="4" name="autologin" id="autologin" /></label>
+			<!-- ENDIF -->
+			<input type="submit" tabindex="5" name="login" value="{L_LOGIN}" class="button2" />
+			{S_LOGIN_REDIRECT}
+			{S_FORM_TOKEN_LOGIN}
+		</fieldset>
+	</form>
+<!-- ENDIF -->
+
+<!-- EVENT index_body_stat_blocks_before -->
+
+<!-- IF S_DISPLAY_ONLINE_LIST -->
+	<div class="stat-block online-list">
+		<!-- IF U_VIEWONLINE --><h3><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a></h3><!-- ELSE --><h3>{L_WHO_IS_ONLINE}</h3><!-- ENDIF -->
+		<p>
+			<!-- EVENT index_body_block_online_prepend -->
+			{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}<br /> 
+			<!-- IF U_VIEWONLINE -->
+				<br />{LOGGED_IN_USER_LIST}
+				<!-- IF LEGEND --><br /><em>{L_LEGEND}{L_COLON} {LEGEND}</em><!-- ENDIF -->
+			<!-- ENDIF -->
+			<!-- EVENT index_body_block_online_append -->
+		</p>
+	</div>
+<!-- ENDIF -->
+
+<!-- EVENT index_body_birthday_block_before -->
+
+<!-- IF S_DISPLAY_BIRTHDAY_LIST -->
+	<div class="stat-block birthday-list">
+		<h3>{L_BIRTHDAYS}</h3>
+		<p>
+			<!-- EVENT index_body_block_birthday_prepend -->
+			<!-- IF .birthdays -->{L_CONGRATULATIONS}{L_COLON} <strong><!-- BEGIN birthdays -->{birthdays.USERNAME}<!-- IF birthdays.AGE !== '' --> ({birthdays.AGE})<!-- ENDIF --><!-- IF not birthdays.S_LAST_ROW -->, <!-- ENDIF --><!-- END birthdays --></strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF -->
+			<!-- EVENT index_body_block_birthday_append -->
+		</p>
+	</div>
+<!-- ENDIF -->
+
+<!-- IF NEWEST_USER -->
+	<div class="stat-block statistics">
+		<h3>{L_STATISTICS}</h3>
+		<p>
+			<!-- EVENT index_body_block_stats_prepend -->
+			{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}
+			<!-- EVENT index_body_block_stats_append -->
+		</p>
+	</div>
+<!-- ENDIF -->
+
+<!-- EVENT index_body_stat_blocks_after -->
+{% INCLUDEJS '@madetoraid_lsbbb/timer4.js' %}
+{% INCLUDEJS '@madetoraid_lsbbb/lsbbb.js' %}
+<!-- INCLUDE overall_footer.html -->

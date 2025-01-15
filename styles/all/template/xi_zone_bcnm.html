@@ -1,0 +1,48 @@
+<!-- IF bcnmrow -->
+		<div class="forabg">
+			<div class="inner">
+			<ul class="topiclist">
+				<li class="header">
+					<dl class="row-item">
+						<dt class="itemname"><div class="list-inner">BCNM Name</div></dt>
+						<dd class="mobname">Character</dd>
+						<dd class="topics">Party</dd>
+						<dd class="lastpost">Record</dd>
+					</dl>
+				</li>
+			</ul>
+			<ul class="topiclist forums">
+
+<!-- BEGIN bcnmrow -->
+		<li class="row">
+			<dl class="row-item">
+				<dt class="itemname">
+					<div class="list-inner">
+						<a href="#{bcnmrow.bcnmid}" class="forumtitle">{bcnmrow.name}</a>
+						<br /><a href="https://ffxiclopedia.fandom.com/wiki/{bcnmrow.name}" target="_new">FFXIclopedia</a>
+					</div>
+				</dt>
+					<dd class="mobname">{bcnmrow.fastestname}</dd>
+					<dd class="topics">{bcnmrow.fastestpartysize}<!-- IF mobrow.minlevel != mobrow.maxlevel --> - {mobrow.maxlevel}<!-- ENDIF --></dd>
+					<dd class="lastpost">{bcnmrow.fastesttime}</dd>
+			</dl>
+		</li>
+<!-- END bcnmrow -->
+
+			</ul>
+
+			</div>
+		</div>
+<!-- ELSE -->
+
+
+
+<div class="panel" id="message">
+	<div class="inner">
+	<h2 class="message-title">Information</h2>
+	<p>That item could not be found.</p>
+		</div>
+</div>
+
+
+<!-- ENDIF -->

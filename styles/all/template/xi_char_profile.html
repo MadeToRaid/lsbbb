@@ -1,0 +1,155 @@
+<!-- IF chardata -->
+		<div class="forabg">
+			<div class="inner">
+			<ul class="topiclist">
+				<li class="header">
+					<dl class="row-item">
+						<dt class="charname"><div class="list-inner">Character</div></dt>
+					</dl>
+				</li>
+			</ul>
+			<ul class="topiclist forums">
+
+<!-- BEGIN chardata -->
+		<li class="row">
+			<div class="charprofile" style="background-image: url('https://www.madetoraid.com/ffxiimg/nation{chardata.nation}.jpg');">
+				<div class="profileleft">
+					<h1>{chardata.charname} <span style="font-size: 0.5em">{chardata.mainjob}{chardata.mlvl}<!-- IF chardata.slvl --> / {chardata.subjob}{chardata.slvl}<!-- ENDIF --><span></h1>
+					<h2>{chardata.title}</h2>
+					<!-- IF chardata.primaryls_name --><h3 style="color: {chardata.primaryls_color}; margin: 0px;">&#9673; {chardata.primaryls_name} <br><span style="font-size: 8px; font-weight: normal;">{chardata.primaryls_message}</span></h3> <!-- ENDIF -->
+						<!-- IF chardata.secondaryls_name --><h3 style="color: {chardata.secondaryls_color}; margin: 0px;">&#9673; {chardata.secondaryls_name} <br><span style="font-size: 8px; font-weight: normal;">{chardata.secondaryls_message}</span></h3><!-- ENDIF -->
+				</div>
+				<div class="profileright">
+				<img class="charprofileimage" src="https://www.madetoraid.com/ffxiimg/faces/{chardata.char_image}" title="{chardata.charname}">
+				<table class="geartable">
+					<tbody>
+						<tr>
+							<td><!-- IF chardata.mainid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.mainid}.png" title="{chardata.mainname}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.subid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.subid}.png" title="{chardata.subname}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.rangeid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.rangeid}.png" title="{chardata.rangename}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.ammoid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.ammoid}.png" title="{chardata.ammoname}"><!-- ENDIF --></td>
+						</tr>
+						<tr>
+							<td><!-- IF chardata.headid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.headid}.png" title="{chardata.headname}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.neckid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.neckid}.png" title="{chardata.neckname}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.ear1id --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.ear1id}.png" title="{chardata.ear1name}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.ear2id --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.ear2id}.png" title="{chardata.ear2name}"><!-- ENDIF --></td>
+						</tr>
+						<tr>
+						<tr>
+							<td><!-- IF chardata.bodyid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.bodyid}.png" title="{chardata.bodyname}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.handsid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.handsid}.png" title="{chardata.handsname}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.ring1id --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.ring1id}.png" title="{chardata.ring1name}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.ring2id --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.ring2id}.png" title="{chardata.ring2name}"><!-- ENDIF --></td>
+						</tr>
+						<tr>
+						<tr>
+							<td><!-- IF chardata.backid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.backid}.png" title="{chardata.backname}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.waistid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.waistid}.png" title="{chardata.waistname}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.legsid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.legsid}.png" title="{chardata.legsname}"><!-- ENDIF --></td>
+							<td><!-- IF chardata.feetid --><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.feetid}.png" title="{chardata.feetname}"><!-- ENDIF --></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+				<div class="jobwrap">
+				<table class="jobtable">
+					<thead>
+						<tr>
+							<th>FSH</th>
+							<th>CRP</th>
+							<th>BSM</th>
+							<th>GSM</th>
+							<th>WVR</th>
+							<th>LTW</th>
+							<th>BNC</th>
+							<th>ALC</th>
+							<th>CUL</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{chardata.guild_fishing}</td>
+							<td>{chardata.guild_woodworking}</td>
+							<td>{chardata.guild_smithing}</td>
+							<td>{chardata.guild_goldsmithing}</td>
+							<td>{chardata.guild_weaving}</td>
+							<td>{chardata.guild_leathercraft}</td>
+							<td>{chardata.guild_bonecraft}</td>
+							<td>{chardata.guild_alchemy}</td>
+							<td>{chardata.guild_cooking}</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="jobtable">
+					<thead>
+						<tr>
+							<th>WAR</th>
+							<th>MNK</th>
+							<th>WHM</th>
+							<th>BLM</th>
+							<th>RDM</th>
+							<th>THF</th>
+							<th>PLD</th>
+							<th>DRK</th>
+							<th>BST</th>
+							<th>BRD</th>
+							<th>RNG</th>
+							<th>SAM</th>
+							<th>NIN</th>
+							<th>DRG</th>
+							<th>SMN</th>
+							<th>BLU</th>
+							<th>COR</th>
+							<th>PUP</th>
+							<th>DNC</th>
+							<th>SCH</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{chardata.war}</td>
+							<td>{chardata.mnk}</td>
+							<td>{chardata.whm}</td>
+							<td>{chardata.blm}</td>
+							<td>{chardata.rdm}</td>
+							<td>{chardata.thf}</td>
+							<td>{chardata.pld}</td>
+							<td>{chardata.drk}</td>
+							<td>{chardata.bst}</td>
+							<td>{chardata.brd}</td>
+							<td>{chardata.rng}</td>
+							<td>{chardata.sam}</td>
+							<td>{chardata.nin}</td>
+							<td>{chardata.drg}</td>
+							<td>{chardata.smn}</td>
+							<td>{chardata.blu}</td>
+							<td>{chardata.cor}</td>
+							<td>{chardata.pup}</td>
+							<td>{chardata.dnc}</td>
+							<td>{chardata.sch}</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			</div>
+		</li>
+<!-- END chardata -->
+
+			</ul>
+
+			</div>
+		</div>
+<!-- ELSE -->
+
+
+
+<div class="panel" id="message">
+	<div class="inner">
+	<h2 class="message-title">Information</h2>
+	<p>That character could not be found.</p>
+		</div>
+</div>
+
+
+<!-- ENDIF -->

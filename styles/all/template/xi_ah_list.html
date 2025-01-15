@@ -1,0 +1,106 @@
+{% include 'overall_header.html' %}
+
+<p class="{S_CONTENT_FLOW_END} responsive-center time<!-- IF S_USER_LOGGED_IN --> rightside<!-- ENDIF -->">
+	<!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME} / <span id="vTime"></span><!-- ENDIF -->
+</p>
+<!-- IF S_USER_LOGGED_IN -->
+<p class="responsive-center time">{CURRENT_TIME} / <span id="vTime"></span></p><!-- ENDIF -->
+<div class="action-bar compact">
+	<div class="jumpbox dropdown-container dropdown-container-right dropdown-down dropdown-left dropdown-button-control"
+		id="jumpbox">
+		<span title="Jump to" class="button button-secondary dropdown-trigger dropdown-select">
+			<span>Auction Category</span>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer">
+				<div class="pointer-inner"></div>
+			</div>
+			<ul class="dropdown-contents">
+				<!-- BEGIN ahcatrow -->
+				<!-- IF ahcatrow.id -->
+				<li><a href="/xi/ah/{ahcatrow.id}" class="jumpbox-sub-link"><span class="spacer"></span>
+						<span>&#8627; &nbsp; {ahcatrow.name}</span></a></li>
+				<!-- ELSE -->
+				<li><a href="#" class="jumpbox-cat-link"><span class="spacer"></span> <span>{ahcatrow.name}</span></a>
+				</li>
+				<!-- ENDIF -->
+				<!-- END ahcatrow -->
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- IF is_category -->
+<!-- IF hide_unlisted -->
+<a href="/xi/ah/{catid}&h=0">Show Unlisted Items</a>
+<!-- ELSE -->
+<a href="/xi/ah/{catid}">Hide Unlisted Items</a>
+<!-- ENDIF -->
+<!-- ENDIF -->
+<!-- IF ahrow -->
+<div class="forabg">
+	<div class="inner">
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="row-item">
+					<dt>
+						<div class="list-inner">Item</div>
+					</dt>
+					<dd class="topics">Level</dd>
+					<dd class="topics">For Sale</dd>
+					<dd class="topics">Average</dd>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist forums">
+			<!-- BEGIN ahrow -->
+			<li class="row">
+				<dl class="row-item">
+					<dt>
+						<div class="list-inner">
+							<span class="forum-image" style="margin-left: -45px; padding-bottom: 10px;"><img
+									src="https://www.madetoraid.com/ffxiimg/icon/{ahrow.itemid}.png"
+									title="{ahrow.name}"></span>
+							<a href="/xi/item/{ahrow.itemid}" class="forumtitle">{ahrow.name}</a>
+							<!-- IF ahrow.stack -->({ahrow.stacksize})<!-- ENDIF -->
+							<br /><a href="/xi/ah/{ahrow.catid}">{ahrow.category}</a>
+							<!-- IF catid == 999 -->
+							<form action="" method="post" id="return{ahrow.ahid}" style="display: block; float: right;">
+								<input type="hidden" name="returnid" value="{ahrow.ahid}">
+								<a class="button" title="Return Item" onclick="returnItem({ahrow.ahid});">
+									<span>Return Item</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+								</a>
+							</form>
+							<!-- ENDIF -->
+							<br /><a href="https://www.ffxiah.com/item/{ahrow.itemid}" target="_new">FFXIAH</a> | <a
+								href="https://ffxiclopedia.fandom.com/wiki/{ahrow.sortname}"
+								target="_new">FFXIclopedia</a>
+						</div>
+					</dt>
+					<dd class="topics">{ahrow.level}</dd>
+					<dd class="topics">{ahrow.icount}</dd>
+					<dd class="topics">{ahrow.avgprice}</dd>
+				</dl>
+			</li>
+			<!-- BEGINELSE -->
+			<!-- END ahrow -->
+		</ul>
+	</div>
+</div>
+<script type="text/javascript" src="https://api.ffxiah.com/core/?load=%2Fjs%2Flib%2FAH.js&amp;ver=1.0.0" id="ffxiah-js-js"></script>
+<script type="text/javascript">
+	function returnItem(ahid) {
+			if(window.confirm("Do you really want to return this item?")) {
+					document.getElementById("return" + ahid).submit();
+			};
+	};
+</script>
+<!-- ELSE -->
+<div class="panel" id="message">
+	<div class="inner">
+		<h2 class="message-title">Information</h2>
+		<p>The auction house category you selected is empty or does not exist.</p>
+	</div>
+</div>
+<!-- ENDIF -->
+{% include 'overall_footer.html' %}
