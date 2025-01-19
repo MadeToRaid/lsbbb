@@ -125,6 +125,7 @@ class zone_controller
 				'FORUM_NAME' => $zone_data[0]['zone_name'],
 				'U_VIEW_FORUM' => append_sid('/xi/zone/' . $zone_id),
 			));
+			$this->template->assign_var('ZONE_NAME', $zone_data[0]['zone_name']);
 		} else {
 			$conquest_data = $this->zone->xi_conquest_info();
 			foreach ($conquest_data as $conquest_row) {
@@ -134,6 +135,7 @@ class zone_controller
 			foreach ($all_zones_data as $all_zones_row) {
 				$this->template->assign_block_vars('allzonesrow', $all_zones_row);
 			}
+			$this->template->assign_var('ZONE_NAME', $this->language->lang('LSBBB_VANADIEL'));
 		}
 		page_header($page_title);
 		return $this->helper->render('@madetoraid_lsbbb/xi_zone_body.html', $zone_id);

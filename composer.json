@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "LandSandBoat extension for phpBB",
     "homepage": "https://madetoraid.com",
-    "version": "0.1",
-    "time": "2025-01-14",
+    "version": "0.2",
+    "time": "2025-01-19",
     "license": "GPL-3.0",
     "authors": [
         {

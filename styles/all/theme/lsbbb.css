@@ -6,6 +6,15 @@
  */
 
 /**
+ * Set up the public domain Ferrum font from
+ * https://www.fontspace.com/ferrum-font-f6281
+ **/
+@font-face {
+    font-family: 'FinalFantasy';
+    src: url(Ferrum-wy99.otf);
+}
+
+/**
  * Colors for Vana'diel days
  */
 .Firesday {
@@ -41,8 +50,42 @@
 }
 
 /**
+ * Install pages
+ **/
+.install-os {
+    text-align: center;
+    margin: 15px;
+}
+
+.install-os img {
+    height: 100px;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+    max-width: 80%;
+}
+
+.install-os img:hover {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+}
+
+/**
  * Styling maps on Zone pages
  */
+
+h1.xi-zone-name {
+    font-family: FinalFantasy;
+    text-transform: uppercase;
+}
+
+h1.xi-zone-name {
+    color: #555555;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 3em;
+}
+
 .ximaps {
     text-align: center;
     padding-bottom: 5px;
@@ -381,25 +424,14 @@ img.regioncontrol {
 /**
  * Map tooltip
  */
-.maptooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-    /* If you want dots under the hoverable text */
+.tooltip {
+    display: none;
+    position: absolute;
+    padding: 8px 0 0 8px;
 }
 
-.maptooltip img {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
+img.tooltip-map {
+    width: 512px;
 }
 
 .maptooltip:hover {

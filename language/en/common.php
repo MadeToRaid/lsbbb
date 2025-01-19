@@ -1,38 +1,20 @@
 <?php
+
 /**
- *
- * PHPBB XI Server Integration. An extension for the phpBB Forum Software package.
- *
- * @copyright (c) 2025, Ganiman, https://ganiman.com
- * @license GNU General Public License, version 2 (GPL-2.0)
- *
+ * lsbBB - LandSandBoat extension for phpBB
+ * @author Ganiman <ganiman@ganiman.com>
+ * @copyright (c) 2025, Made to Raid, https://madetoraid.com
+ * @license GNU GPL-3.0
  */
 
-if (!defined('IN_PHPBB'))
-{
+
+if (!defined('IN_PHPBB')) {
 	exit;
 }
 
-if (empty($lang) || !is_array($lang))
-{
+if (empty($lang) || !is_array($lang)) {
 	$lang = [];
 }
-
-// DEVELOPERS PLEASE NOTE
-//
-// All language files should use UTF-8 as their encoding and the files must not contain a BOM.
-//
-// Placeholders can now contain order information, e.g. instead of
-// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
-// translators to re-order the output of data while ensuring it remains correct
-//
-// You do not need this where single placeholders are used, e.g. 'Message %d' is fine
-// equally where a string contains only two placeholders which are used to wrap text
-// in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
-//
-// Some characters you may want to copy&paste:
-// ’ » “ ” …
-//
 
 $lang = array_merge($lang, [
 
@@ -47,7 +29,7 @@ $lang = array_merge($lang, [
 	'LSBBB_NOTIFICATION'			=> 'lsbBB notification',
 
 	'LSBBB_PAGE'				=> 'FFXI',
-	'LSBBB_AH'				=> 'Auction House',
+	'LSBBB_AH'					=> 'Auction House',
 	'LSBBB_MY_LISTINGS'			=> 'My Listings',
 	'LSBBB_CHARACTER'			=> 'Character',
 	'LSBBB_CHARACTERS'			=> 'Characters',
@@ -57,8 +39,8 @@ $lang = array_merge($lang, [
 	'LSBBB_ITEM'				=> 'Item',
 	'LSBBB_PARTY'				=> 'Party',
 	'LSBBB_RECORD'				=> 'Record',
-	'LSBBB_NPC'				=> 'NPC',
-	'LSBBB_MOB'				=> 'Mob',
+	'LSBBB_NPC'					=> 'NPC',
+	'LSBBB_MOB'					=> 'Mob',
 	'LSBBB_FAMILY'				=> 'Family',
 	'LSBBB_LEVEL'				=> 'Level',
 	'LSBBB_FOR_SALE'			=> 'For Sale',
@@ -73,11 +55,26 @@ $lang = array_merge($lang, [
 	'LSBBB_RETURN_ITEM'			=> 'Return Item',
 	'LSBBB_BATTLEFIELD'			=> 'Battlefield',
 
-	'VIEWING_LSBBB'				=> 'Viewing lsbBB',
-	'VIEWING_LSBBB_ITEM'			=> 'Viewing Item',
-	'VIEWING_LSBBB_AH'			=> 'Viewing Auction House',
-	'VIEWING_LSBBB_ZONE'			=> 'Viewing Zone',
-	'VIEWING_LSBBB_MAP'			=> 'Viewing World Map',
-	'VIEWING_LSBBB_MOB'			=> 'Viewing Mob',
+	'LSBBB_WINDOWS'				=> "Windows",
+	'LSBBB_LINUX'				=> "Linux",
+	'LSBBB_STEAMDECK'			=> "Steam Deck",
 
+	'LSBBB_VANADIEL'			=> "Vana'diel",
+
+	'LSBBB_NAV_INDEX'			=> 'FFXI',
+	'LSBBB_NAV_INSTALL'			=> 'Install',
+	'LSBBB_NAV_WORLDMAP'		=> 'World Map',
+	'LSBBB_NAV_AUCTIONHOUSE'	=> 'Auction House',
+	'LSBBB_NAV_CHARACTERS'		=> 'Characters',
+	'LSBBB_NAV_MYLISTINGS'		=> 'My Listings',
+
+	'LSBBB_VIEWING_INDEX'			=> '[lsbBB] Index',
+	'LSBBB_VIEWING_INSTALL'			=> '[lsbBB] Install',
+	'LSBBB_VIEWING_ITEM'			=> '[lsbBB] Item',
+	'LSBBB_VIEWING_AUCTIONHOUSE'	=> '[lsbBB] Auction House',
+	'LSBBB_VIEWING_ZONE'			=> '[lsbBB] Zone',
+	'LSBBB_VIEWING_WORLDMAP'		=> '[lsbBB] World Map',
+	'LSBBB_VIEWING_CHARACTER'		=> '[lsbBB] Character',
+	'LSBBB_VIEWING_MOB'				=> '[lsbBB] Mob',
+	'LSBBB_VIEWING_NPC'				=> '[lsbBB] NPC',
 ]);

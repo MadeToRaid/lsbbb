@@ -12,7 +12,7 @@
 			<tbody>
 				<!-- BEGIN mobrow -->
 				<tr class="<!-- IF mobrow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
-					<td><a href="" class="forumtitle">{mobrow.group_name}</a>
+					<td><a href="#{mobrow.groupid}" class="forumtitle">{mobrow.group_name}</a>
 						<!-- IF mobrow.mobtype == 2 --><b>(NM)</b><!-- ENDIF --></td>
 					<td class="info">{mobrow.super_family_name}</td>
 					<td class="active">{mobrow.minlevel}<!-- IF mobrow.minlevel != mobrow.maxlevel --> - {mobrow.maxlevel}<!-- ENDIF --></td>

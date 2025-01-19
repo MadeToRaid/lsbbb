@@ -10,6 +10,14 @@ services:
             - '@template'
             - '@language'
 
+    madetoraid.lsbbb.controller.install:
+        class: madetoraid\lsbbb\controller\install_controller
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+
     madetoraid.lsbbb.controller.item:
         class: madetoraid\lsbbb\controller\item_controller
         arguments:
@@ -85,6 +93,7 @@ services:
             - '@language'
             - '@controller.helper'
             - '@template'
+            - '@symfony_request'
             - '%core.php_ext%'
         tags:
             - { name: event.listener }

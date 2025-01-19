@@ -2,6 +2,14 @@ madetoraid_lsbbb_controller_default:
     path: /xi/
     defaults: { _controller: madetoraid.lsbbb.controller.main:handle }
 
+madetoraid_lsbbb_controller_install:
+    path: /xi/install/
+    defaults: { _controller: madetoraid.lsbbb.controller.install:handle }
+
+madetoraid_lsbbb_controller_install_page:
+    path: /xi/install/{page}
+    defaults: { _controller: madetoraid.lsbbb.controller.install:handle }
+
 madetoraid_lsbbb_controller_item:
     path: /xi/item/
     defaults: { _controller: madetoraid.lsbbb.controller.item:handle }
