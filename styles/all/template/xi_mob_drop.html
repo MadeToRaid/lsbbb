@@ -1,0 +1,22 @@
+<!-- IF droprow -->
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive">
+			<thead>
+				<tr>
+					<th class="name">Item Name</th>
+					<th class="info">Drop Rate</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN droprow -->
+				<tr class="droprow <!-- IF droprow.rownum is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+					<td><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/icon/{droprow.itemid}.png"> <a class="forumtitle" href="/xi/item/{droprow.itemid}">{droprow.name}</a></td>
+					<td>{droprow.itemrate}%</td>
+				</tr>
+				<!-- END droprow -->
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- ENDIF -->

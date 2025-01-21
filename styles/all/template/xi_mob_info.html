@@ -1,0 +1,61 @@
+<!-- IF mobrow -->
+<div class="forabg">
+	<div class="inner">
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="row-item">
+					<dt class="itemname">
+						<div class="list-inner">Mob Name</div>
+					</dt>
+					<dd class="zonename">Zone</dd>
+					<dd class="mobname">Level</dd>
+					<dd class="topics">Family</dd>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist forums">
+			<!-- BEGIN mobrow -->
+			<!--
+				'name' => $this->xi->xi_ucwords($mob['name']),
+				'zone' => str_replace('_', ' ', $mob['zone']),
+				'groupid' => $mob['groupid'],
+				'zoneid' => $mob['zoneid'],
+				'familyid' => $mob['familyid'],
+				'family' => $mob['family'],
+				'mjob' => $mob['mjob'],
+				'sjob' => $mob['sjob'],
+				'aggro' => $mob['aggro'],
+				'true_detection' => $mob['true_detection'],
+				'links' => $mob['links'],
+				'mobtype' => $mob['mobtype'],
+				'flag' => $mob['flag'],
+				'respawntime' => $mob['respawntime'],
+				'spawntype' => $mob['spawntype'],
+				'minlevel' => $mob['minlevel'],
+				'maxlevel' => $mob['maxlevel'],
+			-->
+			<dl class="row-item">
+				<dt class="itemname">
+					<div class="list-inner">
+						<a href="/xi/zone/{mobrow.zoneid}/mob/{mobrow.groupid}" class="forumtitle">{mobrow.name}</a>
+						<!-- IF mobrow.aggro > 0 -->
+						<!-- BEGIN mobrow.detects -->
+						<span class="mobaggro" title="{mobrow.detects.detect}"><i class="fa {mobrow.detects.icon}" aria-hidden="true"></i></span>
+						<!-- END mobrow.detects -->		 
+						<!-- ENDIF -->
+						<!-- IF mobrow.links > 0 --><span class="moblinks" title="Links"><i class="fa fa-link" aria-hidden="true"></i></span><!-- ENDIF -->
+						<!-- IF mobrow.true_detection > 0 --><span class="mobtruedetection" title="True Detection"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span><!-- ENDIF -->
+
+						<br /><a href="https://ffxiclopedia.fandom.com/wiki/{mobrow.name}" target="_new">FFXIclopedia</a>
+					</div>
+				</dt>
+				<dd class="zonename"><a href="/xi/zone/{mobrow.zoneid}">{mobrow.zone}</a></dd>
+				<dd class="mobname">{mobrow.minlevel}<!-- IF mobrow.minlevel != mobrow.maxlevel --> - {mobrow.maxlevel}<!-- ENDIF --></dd>
+				<dd class="topics">{mobrow.family}</dd>
+			</dl>
+			</li>
+			<!-- END mobrow -->
+		</ul>
+	</div>
+</div>
+<!-- ENDIF -->

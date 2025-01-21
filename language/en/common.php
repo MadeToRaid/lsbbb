@@ -51,15 +51,17 @@ $lang = array_merge($lang, [
 	'LSBBB_SALE'				=> 'Sale',
 	'LSBBB_SELLER'				=> 'Seller',
 	'LSBBB_BUYER'				=> 'Buyer',
-	'LSBBB_SALE_HISTORY'			=> 'Sale History',
+	'LSBBB_SALE_HISTORY'		=> 'Sale History',
 	'LSBBB_RETURN_ITEM'			=> 'Return Item',
 	'LSBBB_BATTLEFIELD'			=> 'Battlefield',
 
-	'LSBBB_WINDOWS'				=> "Windows",
-	'LSBBB_LINUX'				=> "Linux",
-	'LSBBB_STEAMDECK'			=> "Steam Deck",
+	'LSBBB_WINDOWS'				=> 'Windows',
+	'LSBBB_LINUX'				=> 'Linux',
+	'LSBBB_STEAMDECK'			=> 'Steam Deck',
 
 	'LSBBB_VANADIEL'			=> "Vana'diel",
+	'LSBBB_MOBGROUP'			=> 'Mob',
+
 
 	'LSBBB_NAV_INDEX'			=> 'FFXI',
 	'LSBBB_NAV_INSTALL'			=> 'Install',

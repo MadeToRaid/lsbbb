@@ -136,7 +136,7 @@ class functions_item
 		$return = array();
 		if (is_numeric($item_id)) {
 			$sql_array = array(
-				'SELECT'	=> 'REPLACE(ib.name,"_", " ") item_name, ib.sortname, mg.name mob_name, z.zoneid, z.name zone_name, md.itemRate rate, mg.minLevel, mg.maxLevel, ib.itemid',
+				'SELECT'	=> 'REPLACE(ib.name,"_", " ") item_name, ib.sortname, mg.name mob_name, z.zoneid, z.name zone_name, md.itemRate rate, mg.groupid, mg.minLevel, mg.maxLevel, ib.itemid',
 				'FROM'		=> array(
 					'xidb.item_basic' => 'ib',
 				),
@@ -175,6 +175,7 @@ class functions_item
 					'minLevel' => $item['minLevel'],
 					'maxLevel' => $item['maxLevel'],
 					'itemid' => $item['itemid'],
+					'groupid' => $item['groupid'],
 					'rate' => $item['rate'] / 10,
 					'rownum' => $key,
 				);

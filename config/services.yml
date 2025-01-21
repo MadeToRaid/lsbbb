@@ -55,6 +55,14 @@ services:
             - '@language'
             - '@user'
 
+    madetoraid.lsbbb.controller.mob:
+        class: madetoraid\lsbbb\controller\mob_controller
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+
     madetoraid.lsbbb.controller.acp:
         class: madetoraid\lsbbb\controller\acp_controller
         arguments:
