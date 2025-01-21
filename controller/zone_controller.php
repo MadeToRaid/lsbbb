@@ -81,9 +81,7 @@ class zone_controller
 	public function handle(int $zone_id = 0)
 	{
 		$page_title = "Vana'diel World Map";
-
-		$l_message = !$this->config['madetoraid_lsbbb_goodbye'] ? 'LSBBB_HELLO' : 'LSBBB_GOODBYE';
-		$this->template->assign_var('LSBBB_MESSAGE', $this->language->lang($l_message, $zone_id));
+		
 		$this->template->assign_block_vars('navlinks', array(
 			'FORUM_NAME' => "Vana'diel",
 			'U_VIEW_FORUM' => append_sid('/xi/zone/'),

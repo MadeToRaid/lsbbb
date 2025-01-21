@@ -8,7 +8,7 @@ madetoraid_lsbbb_controller_install:
 
 madetoraid_lsbbb_controller_install_page:
     path: /xi/install/{page}
-    defaults: { _controller: madetoraid.lsbbb.controller.install:handle }
+    defaults: { _controller: madetoraid.lsbbb.controller.install:handle, page: '' }
 
 madetoraid_lsbbb_controller_item:
     path: /xi/item/
@@ -16,7 +16,7 @@ madetoraid_lsbbb_controller_item:
 
 madetoraid_lsbbb_controller_item_id:
     path: /xi/item/{item_id}
-    defaults: { _controller: madetoraid.lsbbb.controller.item:handle }
+    defaults: { _controller: madetoraid.lsbbb.controller.item:handle, item_id: 0 }
     requirements:
       item_id: \d+
 
@@ -26,7 +26,7 @@ madetoraid_lsbbb_controller_ah:
 
 madetoraid_lsbbb_controller_ah_id:
     path: /xi/ah/{category_id}
-    defaults: { _controller: madetoraid.lsbbb.controller.ah:handle }
+    defaults: { _controller: madetoraid.lsbbb.controller.ah:handle, category_id: 0 }
     requirements:
       category_id: \d+
 
@@ -36,9 +36,16 @@ madetoraid_lsbbb_controller_zone:
 
 madetoraid_lsbbb_controller_zone_id:
     path: /xi/zone/{zone_id}
-    defaults: { _controller: madetoraid.lsbbb.controller.zone:handle }
+    defaults: { _controller: madetoraid.lsbbb.controller.zone:handle, zone_id: 0 }
     requirements:
       zone_id: \d+
+
+madetoraid_lsbbb_controller_mob_group:
+    path: /xi/zone/{zone_id}/mob/{group_id}
+    defaults: { _controller: madetoraid.lsbbb.controller.mob:handle, zone_id: 0, group_id: 0}
+    requirements:
+      zone_id: \d+
+      group_id: \d+
 
 madetoraid_lsbbb_controller_char:
     path: /xi/char/
@@ -46,6 +53,8 @@ madetoraid_lsbbb_controller_char:
 
 madetoraid_lsbbb_controller_char_name:
     path: /xi/char/{char_id}
-    defaults: { _controller: madetoraid.lsbbb.controller.char:handle }
+    defaults: { _controller: madetoraid.lsbbb.controller.char:handle, char_id: 0 }
     requirements:
       char_id: \d+
+
+
