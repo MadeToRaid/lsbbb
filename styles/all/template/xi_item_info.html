@@ -20,6 +20,7 @@
 					<div class="list-inner">
 						<span class="forum-image" style="margin-left: -45px; padding-bottom: 10px;"><img src="https://www.madetoraid.com/ffxiimg/icon/{itemrow.itemid}.png" title="{itemrow.item_name}"></span>
 						<a href="/xi/item/{itemrow.itemid}" class="forumtitle">{itemrow.name}</a><!-- IF itemrow.stack --> ({itemrow.stacksize})<!-- ENDIF -->
+						<!-- BEGIN itemrow.flags --><span class="itemflag item{itemrow.flags.class}" title="{itemrow.flags.flag}">{itemrow.flags.flag}</span> <!-- END itemrow.flags -->
 						<!-- IF itemrow.category_id --><br>{itemrow.parent} > <a href="/xi/ah/{itemrow.category_id}">{itemrow.category}</a><!-- ENDIF -->
 						<br /><a href="https://www.ffxiah.com/item/{itemrow.itemid}" target="_new">FFXIAH</a> | <a href="https://ffxiclopedia.fandom.com/wiki/{itemrow.sortname}" target="_new">FFXIclopedia</a>
 					</div>
