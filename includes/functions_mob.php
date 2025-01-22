@@ -61,10 +61,10 @@ class functions_mob
         foreach ($mob_data as $mob) {
 
             $detects = array();
-            if($mob['detects'] & 1) { $detects[] = array('detect' => 'Sight', 'icon' => 'fa-eye'); }
-            if($mob['detects'] & 2) { $detects[] = array('detect' => 'Sound', 'icon' => 'fa-volume-up'); }
-            if($mob['detects'] & 4) { $detects[] = array('detect' => 'Low HP', 'icon' => 'fa-heart'); }
-            if($mob['detects'] & 32) { $detects[] = array('detect' => 'Magic', 'icon' => 'fa-magic'); }
+            if($mob['detects'] & 1) { $detects[] = array('detect' => 'Sight', 'class' => 'sight'); }
+            if($mob['detects'] & 2) { $detects[] = array('detect' => 'Sound', 'class' => 'sound'); }
+            if($mob['detects'] & 4) { $detects[] = array('detect' => 'Low HP', 'class' => 'lowhp'); }
+            if($mob['detects'] & 32) { $detects[] = array('detect' => 'Magic', 'class' => 'magic'); }
 
             $return[] = array(
                 'name' => $this->xi->xi_ucwords($mob['name']),

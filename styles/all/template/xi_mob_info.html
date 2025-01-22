@@ -40,12 +40,10 @@
 						<a href="/xi/zone/{mobrow.zoneid}/mob/{mobrow.groupid}" class="forumtitle">{mobrow.name}</a>
 						<!-- IF mobrow.aggro > 0 -->
 						<!-- BEGIN mobrow.detects -->
-						<span class="mobaggro" title="{mobrow.detects.detect}"><i class="fa {mobrow.detects.icon}" aria-hidden="true"></i></span>
+						<span class="mobaggro aggro{mobrow.detects.class}" title="{mobrow.detects.detect}"><!-- IF mobrow.true_detection > 0 -->True <!-- ENDIF -->{mobrow.detects.detect}</span>
 						<!-- END mobrow.detects -->		 
 						<!-- ENDIF -->
-						<!-- IF mobrow.links > 0 --><span class="moblinks" title="Links"><i class="fa fa-link" aria-hidden="true"></i></span><!-- ENDIF -->
-						<!-- IF mobrow.true_detection > 0 --><span class="mobtruedetection" title="True Detection"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span><!-- ENDIF -->
-
+						<!-- IF mobrow.links > 0 --><span class="mobaggro moblinks" title="Links">Links</span><!-- ENDIF -->
 						<br /><a href="https://ffxiclopedia.fandom.com/wiki/{mobrow.name}" target="_new">FFXIclopedia</a>
 					</div>
 				</dt>

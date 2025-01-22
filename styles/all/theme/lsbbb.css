@@ -71,27 +71,63 @@
 }
 
 /**
+* Item pages
+*/
+
+span.itemflag, span.mobaggro {
+    font-size: 0.8em;
+    padding: 0px 3px;
+    border-radius: 7px;
+    white-space: nowrap;
+}
+
+.itemrare, .aggrosound {
+    border: 1px solid #7d8910;
+    background-color: #ebe712;
+    color: #7d8910;
+}
+
+.aggrosight {
+    border: 1px solid #1e3d3d;
+    background-color: #70a6be;
+    color: #1e3d3d;
+}
+
+.itemex, .moblinks {
+    border: 1px solid #108920;
+    background-color: #19eb12;
+    color: #108920;
+}
+
+.itemnosale, .itemnodelivery, .itemnoauction, .aggrolowhp {
+    border: 1px solid #AA0000;
+    background-color: #ff9494;
+    color: #AA0000;
+}
+
+.itemcanequip,
+.itemcantradenpc,
+.itemcanuse,
+.itemlinkshell,
+.itemscroll,
+.iteminscribable,
+.itemmailtoaccount,
+.itemmoggarden,
+.itemmysterybox,
+.itemwallhanging,
+.aggromagic {
+    border: 1px solid #105289;
+    background-color: #12A3EB;
+    color: #ffffff;
+}
+
+/**
  * Mob pages
  */
 .droprow img {
     height: 16px;
     width: 16px;
     padding: 0 5px 0 0;
-}
-
-span.mobaggro {
-    color: #aa0000;
-    padding: 0 2px;
-}
-
-span.moblinks {
-    color: #aa0000;
-    padding: 0 2px;
-}
-
-span.mobtruedetection {
-    color: #aa0000;
-    padding: 0 2px;
 }
 
 /**

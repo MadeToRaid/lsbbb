@@ -16,6 +16,25 @@ use madetoraid\lsbbb\includes\functions_xi;
  */
 class functions_item
 {
+	public $item_flags = array(
+		'WALLHANGING'		=> 0x0001,
+		'01'				=> 0x0002,
+		'MYSTERY BOX'		=> 0x0004,
+		'MOG GARDEN'		=> 0x0008,
+		'MAIL TO ACCOUNT'	=> 0x0010,
+		'INSCRIBABLE'		=> 0x0020,
+		'NO AUCTION'		=> 0x0040,
+		'SCROLL'			=> 0x0080,
+		'LINKSHELL'			=> 0x0100,
+		'CAN USE'			=> 0x0200,
+		'CAN TRADE NPC'		=> 0x0400,
+		'CAN EQUIP'			=> 0x0800,
+		'NO SALE'			=> 0x1000,
+		'NO DELIVERY'		=> 0x2000,
+		'EX'				=> 0x4000,
+		'RARE'				=> 0x8000,
+	);
+
 	public function __construct()
 	{
 		$this->xi	= new functions_xi();
@@ -49,17 +68,29 @@ class functions_item
 			);
 			$sql = $db->sql_build_query('SELECT', $sql_array);
 
-
 			$result = $db->sql_query($sql);
 			$item_data = (array) $db->sql_fetchrowset($result);
 			$db->sql_freeresult($result);
 
+
 			foreach ($item_data as $item) {
+				$flags = array();
+				foreach($this->item_flags as $flag => $mask) {
+					print "<!-- FLAGTHIS: " . bindec($item['flags']) . '/' . decbin($mask) . "-->";
+					if(bindec($item['flags']) & $mask) {
+						$flags[] = array(
+							'flag' => $flag,
+							'class' => str_replace(' ', '', strtolower($flag))
+						);
+					}
+				}
+				$flags = array_reverse($flags); // Reverse order makes more sense for readability
+
 				$return[] = array(
 					'itemid' => $item['itemid'],
 					'name' => $this->xi->xi_ucwords($item['name']),
 					'sortname' => $this->xi->xi_ucwords($item['sortname']),
-					'flags' => $item['flags'],
+					'flags' => $flags,
 					'parent' => $item['parent'],
 					'category' => $item['category'],
 					'category_id' => $item['category_id'],
