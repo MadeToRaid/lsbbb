@@ -246,6 +246,10 @@ class main_listener implements EventSubscriberInterface
 			'U_LSBBB_PAGE'		=> $this->helper->route('madetoraid_lsbbb_controller_default'),
 			'LSBBB_NAV_INDEX'	=> $this->language->lang('LSBBB_NAV_INDEX'),
 			'LSBBB_NAV_INSTALL' => $this->language->lang('LSBBB_NAV_INSTALL'),
+			'LSBBB_NAV_WORLDMAP' => $this->language->lang('LSBBB_NAV_WORLDMAP'),
+			'LSBBB_NAV_AUCTIONHOUSE' => $this->language->lang('LSBBB_NAV_AUCTIONHOUSE'),
+			'LSBBB_NAV_CHARACTERS' => $this->language->lang('LSBBB_NAV_CHARACTERS'),
+			'LSBBB_NAV_MYLISTINGS' => $this->language->lang('LSBBB_NAV_MYLISTINGS'),
 		]);
 	}
 
@@ -269,7 +273,7 @@ class main_listener implements EventSubscriberInterface
 				$zone_id = substr($event['row']['session_page'], strrpos($event['row']['session_page'], '/' )+1);
 				$event['location'] = $this->language->lang('LSBBB_VIEWING_ZONE') . ': ' . $zone_id;
 				if($event['row']['session_browser'] == 'FINAL FANTASY XI') { $event['location'] .= ' <i class="fa fa-superpowers" aria-hidden="true"></i>'; }
-				$event['location_url'] = $this->helper->route('madetoraid_lsbbb_controller_zone') . $zone_id;
+				$event['location_url'] = $this->helper->route('madetoraid_lsbbb_controller_zone_id', array('zone_id' => $zone_id));
 			} elseif (strrpos($event['row']['session_page'], 'app.' . $this->php_ext . '/xi/char') === 0) {
 				$char_id = substr($event['row']['session_page'], strrpos($event['row']['session_page'], '/' )+1);
 				$event['location'] = $this->language->lang('LSBBB_VIEWING_CHARACTER') . ': ' . $char_id;

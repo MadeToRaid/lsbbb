@@ -1,28 +1,26 @@
 <!-- IF ahrow -->
-		<div class="forabg">
-			<div class="inner">
-				<table class="table1 responsive">
-					<thead>
-						<tr>
-							<th class="name">Sale Date</th>
-							<th class="active">Price</th>
-							<th class="active">Seller</th>
-							<th class="active">Buyer</th>
-						</tr>
-					</thead>
-					<tbody>
-
-<!-- BEGIN ahrow -->
-						<tr class="bg1">
-							<td>{ahrow.sell_date}</td>
-							<td>{ahrow.sale}</td>
-							<td>{ahrow.seller_name}</td>
-							<td>{ahrow.buyer_name}</td>
-						</tr>
-<!-- END ahrow -->
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<script type="text/javascript" src="https://api.ffxiah.com/core/?load=%2Fjs%2Flib%2FAH.js&amp;ver=1.0.0" id="ffxiah-js-js"></script>
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive">
+			<thead>
+				<tr>
+					<th class="name">{L_LSBBB_SALE_DATE}</th>
+					<th class="active">{L_LSBBB_LIST_PRICE}</th>
+					<th class="active">{L_LSBBB_SELLER}</th>
+					<th class="active">{L_LSBBB_BUYER}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN ahrow -->
+				<tr class="bg1">
+					<td>{ahrow.sell_date}</td>
+					<td>{ahrow.sale}</td>
+					<td><a href="{ahrow.seller_url}">{ahrow.seller_name}</a></td>
+					<td><a href="{ahrow.buyer_url}">{ahrow.buyer_name}</a></td>
+				</tr>
+				<!-- END ahrow -->
+			</tbody>
+		</table>
+	</div>
+</div>
 <!-- ENDIF -->

@@ -4,16 +4,15 @@
 		<table class="table1 responsive">
 			<thead>
 				<tr>
-					<th class="name">Name</th>
-					<th class="info">Family</th>
-					<th class="active">Level</th>
+					<th class="name">{L_LSBBB_MOB}</th>
+					<th class="info">{L_LSBBB_FAMILY}</th>
+					<th class="active">{L_LSBBB_LEVEL}</th>
 				</tr>
 			</thead>
 			<tbody>
 				<!-- BEGIN mobrow -->
 				<tr class="<!-- IF mobrow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
-					<td><a href="/xi/zone/{mobrow.zoneid}/mob/{mobrow.groupid}" class="forumtitle">{mobrow.group_name}</a>
-						<!-- IF mobrow.mobtype == 2 --><b>(NM)</b><!-- ENDIF --></td>
+					<td><a href="{mobrow.moburl}" class="forumtitle">{mobrow.group_name}</a><!-- IF mobrow.mobtype == 2 --> <b>({L_LSBBB_NM})</b><!-- ENDIF --></td>
 					<td class="info">{mobrow.super_family_name}</td>
 					<td class="active">{mobrow.minlevel}<!-- IF mobrow.minlevel != mobrow.maxlevel --> - {mobrow.maxlevel}<!-- ENDIF --></td>
 				</tr>

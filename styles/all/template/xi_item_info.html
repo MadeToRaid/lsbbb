@@ -1,52 +1,38 @@
 <!-- IF itemrow -->
-		<div class="forabg">
-			<div class="inner">
-			<ul class="topiclist">
-				<li class="header">
-					<dl class="row-item">
-						<dt class="itemname"><div class="list-inner">Item Name</div></dt>
-						<dd class="zonename">For Sale</dd>
-						<dd class="mobname">Average</dd>
-						<dd class="topics">Base Sell</dd>
-					</dl>
-				</li>
-			</ul>
-			<ul class="topiclist forums">
-
-<!-- BEGIN itemrow -->
-		<li class="row">
-			<dl class="row-item">
-				<dt class="itemname">
-					<div class="list-inner">
-						<span class="forum-image" style="margin-left: -45px; padding-bottom: 10px;"><img src="https://www.madetoraid.com/ffxiimg/icon/{itemrow.itemid}.png" title="{itemrow.item_name}"></span>
-						<a href="/xi/item/{itemrow.itemid}" class="forumtitle">{itemrow.name}</a><!-- IF itemrow.stack --> ({itemrow.stacksize})<!-- ENDIF -->
-						<!-- BEGIN itemrow.flags --><span class="itemflag item{itemrow.flags.class}" title="{itemrow.flags.flag}">{itemrow.flags.flag}</span> <!-- END itemrow.flags -->
-						<!-- IF itemrow.category_id --><br>{itemrow.parent} > <a href="/xi/ah/{itemrow.category_id}">{itemrow.category}</a><!-- ENDIF -->
-						<br /><a href="https://www.ffxiah.com/item/{itemrow.itemid}" target="_new">FFXIAH</a> | <a href="https://ffxiclopedia.fandom.com/wiki/{itemrow.sortname}" target="_new">FFXIclopedia</a>
-					</div>
-				</dt>
+<div class="forabg">
+	<div class="inner">
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="row-item">
+					<dt class="itemname">
+						<div class="list-inner">{L_LSBBB_ITEM}</div>
+					</dt>
+					<dd class="zonename">{L_LSBBB_FOR_SALE}</dd>
+					<dd class="mobname">{L_LSBBB_AVERAGE}</dd>
+					<dd class="topics">{L_LSBBB_BASE_SELL}</dd>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist forums">
+			<!-- BEGIN itemrow -->
+			<li class="row">
+				<dl class="row-item">
+					<dt class="itemname">
+						<div class="list-inner">
+							<span class="forum-image" style="margin-left: -45px; padding-bottom: 10px;"><img src="{LSBBB_URL}/styles/all/theme/images/icon/{itemrow.itemid}.png" title="{itemrow.item_name}"></span>
+							<a href="{LSBBB_ITEM_URL}{itemrow.itemid}" class="forumtitle">{itemrow.name}</a><!-- IF itemrow.stack --> ({itemrow.stacksize})<!-- ENDIF -->
+							<!-- BEGIN itemrow.flags --><span class="itemflag item{itemrow.flags.class}" title="{itemrow.flags.flag}">{itemrow.flags.flag}</span> <!-- END itemrow.flags -->
+							<!-- IF itemrow.category_id --><br>{itemrow.parent} > <a href="{LSBBB_AH_URL}{itemrow.category_id}">{itemrow.category}</a><!-- ENDIF -->
+							<br /><a href="https://www.ffxiah.com/item/{itemrow.itemid}" target="_new">{L_LSBBB_FFXIAH}</a> | <a href="https://ffxiclopedia.fandom.com/wiki/{itemrow.sortname}" target="_new">{L_LSBBB_FFXICLOPEDIA}</a>
+						</div>
+					</dt>
 					<dd class="zonename">{itemrow.for_sale}</dd>
 					<dd class="mobname">{itemrow.avgprice}</dd>
 					<dd class="topics">{itemrow.basesell}</dd>
-			</dl>
-		</li>
-<!-- END itemrow -->
-
-			</ul>
-
-			</div>
-		</div>
-		<script type="text/javascript" src="https://api.ffxiah.com/core/?load=%2Fjs%2Flib%2FAH.js&amp;ver=1.0.0" id="ffxiah-js-js"></script>
-<!-- ELSE -->
-
-
-
-<div class="panel" id="message">
-	<div class="inner">
-	<h2 class="message-title">Information</h2>
-	<p>That item could not be found.</p>
-		</div>
+				</dl>
+			</li>
+			<!-- END itemrow -->
+		</ul>
+	</div>
 </div>
-
-
 <!-- ENDIF -->

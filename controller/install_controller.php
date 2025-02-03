@@ -51,6 +51,18 @@ class install_controller
 	public function handle($page = 'index')
 	{
 		$page_title = $this->language->lang('LSBBB_NAV_INSTALL');
+		
+		$lsbbb_url = generate_board_url() . '/ext/madetoraid/lsbbb';
+		$this->template->assign_vars(array(
+			'LSBBB_URL' 		=> $lsbbb_url,
+			'LSBBB_ITEM_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_item'),
+			'LSBBB_AH_URL'		=> $this->helper->route('madetoraid_lsbbb_controller_ah'),
+			'LSBBB_ZONE_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_zone'),
+			'LSBBB_MOB_URL'		=> $this->helper->route('madetoraid_lsbbb_controller_mob_group'),
+			'LSBBB_LINUX_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_install_page', array('page' => 'linux')),
+			'LSBBB_WINDOWS_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_install_page', array('page' => 'windows')),
+		));
+
 		// Set up navlink
 		$this->template->assign_block_vars('navlinks', array(
 			'FORUM_NAME' => $this->language->lang('LSBBB_PAGE'),
@@ -63,7 +75,7 @@ class install_controller
 		switch($page) {
 			case "windows":
 				$page_title .= ' - ' . $this->language->lang('LSBBB_WINDOWS');
-				page_header($page_title);
+				page_header($page_title, true);
 				$this->template->assign_block_vars('navlinks', array(
 					'FORUM_NAME' => $this->language->lang('LSBBB_WINDOWS'),
 					'U_VIEW_FORUM' => $this->helper->route('madetoraid_lsbbb_controller_install'),
@@ -71,14 +83,14 @@ class install_controller
 				return $this->helper->render('@madetoraid_lsbbb/xi_install_windows.html', 0);
 			case "linux":
 				$page_title .= ' - ' . $this->language->lang('LSBBB_LINUX');
-				page_header($page_title);
+				page_header($page_title, true);
 				$this->template->assign_block_vars('navlinks', array(
 					'FORUM_NAME' => $this->language->lang('LSBBB_LINUX'),
 					'U_VIEW_FORUM' => $this->helper->route('madetoraid_lsbbb_controller_install'),
 				));
 				return $this->helper->render('@madetoraid_lsbbb/xi_install_linux.html', 0);
 			default:
-				page_header($page_title);
+				page_header($page_title, true);
 				return $this->helper->render('@madetoraid_lsbbb/xi_install_index.html', 0);
 		}
 	}
