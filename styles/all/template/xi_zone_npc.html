@@ -1,36 +1,24 @@
 <!-- IF npcrow -->
-		<div class="forabg">
-			<div class="inner">
-				<table class="table1 responsive">
-					<thead>
-						<tr>
-							<th class="name">Name</th>
-							<th class="info">Location</th>
-							<th class="active">Content Tag</th>
-						</tr>
-					</thead>
-					<tbody>
-<!-- BEGIN npcrow -->
-						<tr class="<!-- IF npcrow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
-							<td>{npcrow.polutils_name}<br><a href="https://ffxiclopedia.fandom.com/wiki/{npcrow.polutils_name}" target="_new">FFXIclopedia</a></td>
-							<td class="info">{npcrow.pos_x}, {npcrow.pos_y}, {npcrow.pos_z}</td>
-							<td class="active">{npcrow.content_tag}</td>
-						</tr>
-<!-- END npcrow -->
-					</tbody>
-				</table>
-			</div>
-		</div>
-<!-- ELSE -->
-
-
-
-<div class="panel" id="message">
+<div class="forabg">
 	<div class="inner">
-	<h2 class="message-title">Information</h2>
-	<p>That item could not be found.</p>
-		</div>
+		<table class="table1 responsive">
+			<thead>
+				<tr>
+					<th class="name">{L_LSBBB_NPC}</th>
+					<th class="info">{L_LSBBB_POSITION}</th>
+					<th class="active">{L_LSBBB_CONTENT_TAG}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN npcrow -->
+				<tr class="<!-- IF npcrow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+					<td>{npcrow.polutils_name}<br><a href="https://ffxiclopedia.fandom.com/wiki/{npcrow.polutils_name}" target="_new">{L_LSBBB_FFXICLOPEDIA}</a></td>
+					<td class="info">{npcrow.pos_x}, {npcrow.pos_y}, {npcrow.pos_z}</td>
+					<td class="active">{npcrow.content_tag}</td>
+				</tr>
+				<!-- END npcrow -->
+			</tbody>
+		</table>
+	</div>
 </div>
-
-
 <!-- ENDIF -->

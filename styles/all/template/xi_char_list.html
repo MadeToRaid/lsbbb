@@ -1,54 +1,41 @@
 <!-- IF charrow -->
-		<div class="forabg">
-			<div class="inner">
-			<ul class="topiclist">
-				<li class="header">
-					<dl class="row-item">
-						<dt class="charname"><div class="list-inner">Character</div></dt>
-						<dd class="topics">Member</dd>
-						<dd class="topics">Last Zone</dd>
-					</dl>
-				</li>
-			</ul>
-			<ul class="topiclist forums">
-
-<!-- BEGIN charrow -->
-		<li class="row">
-			<dl class="row-item">
-				<dt class="charname">
-					<div class="list-inner">
-						<span class="forum-image" style="margin-left: -45px; padding-bottom: 10px;"><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/faces/{charrow.char_image}" title="{itemrow.item_name}"></span>
-						<a href="/xi/char/{charrow.charid}" class="forumtitle">{charrow.charname}</a>
-						<br />{charrow.nation}
-						<!-- IF charrow.nation == "Windurst" -->
-						({charrow.rank_windurst})
-						<!-- ELSEIF charrow.nation == "Bastok" -->
-						({charrow.rank_bastok})
-						<!-- ELSE -->
-						({charrow.rank_sandoria})
-						<!-- ENDIF -->
-					</div>
-				</dt>
+<div class="forabg">
+	<div class="inner">
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="row-item">
+					<dt class="charname">
+						<div class="list-inner">{L_LSBBB_CHARACTER}</div>
+					</dt>
+					<dd class="topics">{L_LSBBB_ACCOUNT}</dd>
+					<dd class="topics">{L_LSBBB_LASTZONE}</dd>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist forums">
+			<!-- BEGIN charrow -->
+			<li class="row">
+				<dl class="row-item">
+					<dt class="charname">
+						<div class="list-inner">
+							<span class="forum-image" style="margin-left: -45px; padding-bottom: 10px;"><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/faces/{charrow.char_image}" title="{itemrow.item_name}"></span>
+							<a href="/xi/char/{charrow.charid}" class="forumtitle">{charrow.charname}</a>
+							<br />{charrow.nation}
+							<!-- IF charrow.nation == "Windurst" -->
+							({charrow.rank_windurst})
+							<!-- ELSEIF charrow.nation == "Bastok" -->
+							({charrow.rank_bastok})
+							<!-- ELSE -->
+							({charrow.rank_sandoria})
+							<!-- ENDIF -->
+						</div>
+					</dt>
 					<dd class="topics">{charrow.username}</dd>
 					<dd class="topics">{charrow.pos_zone}</dd>
-			</dl>
-		</li>
-<!-- END charrow -->
-
-			</ul>
-
-			</div>
-		</div>
-<!-- ELSE -->
-
-
-
-<div class="panel" id="message">
-	<div class="inner">
-	<h2 class="message-title">Information</h2>
-	<p>That character could not be found.</p>
-		</div>
+				</dl>
+			</li>
+			<!-- END charrow -->
+		</ul>
+	</div>
 </div>
-
-
 <!-- ENDIF -->

@@ -6,10 +6,9 @@
 <!-- IF S_USER_LOGGED_IN -->
 <p class="responsive-center time">{CURRENT_TIME}</p><!-- ENDIF -->
 <div class="action-bar compact">
-	<div class="jumpbox dropdown-container dropdown-container-right dropdown-down dropdown-left dropdown-button-control"
-		id="jumpbox">
+	<div class="jumpbox dropdown-container dropdown-container-right dropdown-down dropdown-left dropdown-button-control" id="jumpbox">
 		<span title="Jump to" class="button button-secondary dropdown-trigger dropdown-select">
-			<span>Auction Category</span>
+			<span>{L_LSBBB_AUCTIONCATEGORY}</span>
 			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
 		</span>
 		<div class="dropdown">
@@ -32,9 +31,9 @@
 </div>
 <!-- IF is_category -->
 <!-- IF hide_unlisted -->
-<a href="/xi/ah/{catid}?h=0">Show Unlisted Items</a>
+<a href="/xi/ah/{catid}?h=0">{L_LSBBB_SHOWUNLISTED}</a>
 <!-- ELSE -->
-<a href="/xi/ah/{catid}">Hide Unlisted Items</a>
+<a href="/xi/ah/{catid}">{L_LSBBB_HIDEUNLISTED}</a>
 <!-- ENDIF -->
 <!-- ENDIF -->
 <!-- IF ahrow -->
@@ -44,11 +43,11 @@
 			<li class="header">
 				<dl class="row-item">
 					<dt>
-						<div class="list-inner">Item</div>
+						<div class="list-inner">{L_LSBBB_ITEM}</div>
 					</dt>
-					<dd class="topics">Level</dd>
-					<dd class="topics">For Sale</dd>
-					<dd class="topics">Average</dd>
+					<dd class="topics">{L_LSBBB_LEVEL}</dd>
+					<dd class="topics">{L_LSBBB_FOR_SALE}</dd>
+					<dd class="topics">{L_LSBBB_AVERAGE}</dd>
 				</dl>
 			</li>
 		</ul>
@@ -58,23 +57,19 @@
 				<dl class="row-item">
 					<dt>
 						<div class="list-inner">
-							<span class="forum-image" style="margin-left: -45px; padding-bottom: 10px;"><img
-									src="https://www.madetoraid.com/ffxiimg/icon/{ahrow.itemid}.png"
-									title="{ahrow.name}"></span>
+							<span class="forum-image" style="margin-left: -45px; padding-bottom: 10px;"><img src="https://www.madetoraid.com/ffxiimg/icon/{ahrow.itemid}.png" title="{ahrow.name}"></span>
 							<a href="/xi/item/{ahrow.itemid}" class="forumtitle">{ahrow.name}</a>
 							<!-- IF ahrow.stack -->({ahrow.stacksize})<!-- ENDIF -->
 							<br /><a href="/xi/ah/{ahrow.catid}">{ahrow.category}</a>
 							<!-- IF catid == 999 -->
 							<form action="" method="post" id="return{ahrow.ahid}" style="display: block; float: right;">
 								<input type="hidden" name="returnid" value="{ahrow.ahid}">
-								<a class="button" title="Return Item" onclick="returnItem({ahrow.ahid});">
-									<span>Return Item</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+								<a class="button" title="{LSBBB_RETURN_ITEM}" onclick="returnItem({ahrow.ahid});">
+									<span>{L_LSBBB_RETURN_ITEM}</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
 								</a>
 							</form>
 							<!-- ENDIF -->
-							<br /><a href="https://www.ffxiah.com/item/{ahrow.itemid}" target="_new">FFXIAH</a> | <a
-								href="https://ffxiclopedia.fandom.com/wiki/{ahrow.sortname}"
-								target="_new">FFXIclopedia</a>
+							<br /><a href="https://www.ffxiah.com/item/{ahrow.itemid}" target="_new">{L_LSBBB_FFXIAH}</a> | <a href="https://ffxiclopedia.fandom.com/wiki/{ahrow.sortname}" target="_new">{L_LSBBB_FFXICLOPEDIA}</a>
 						</div>
 					</dt>
 					<dd class="topics">{ahrow.level}</dd>
@@ -90,17 +85,10 @@
 <script type="text/javascript" src="https://api.ffxiah.com/core/?load=%2Fjs%2Flib%2FAH.js&amp;ver=1.0.0" id="ffxiah-js-js"></script>
 <script type="text/javascript">
 	function returnItem(ahid) {
-			if(window.confirm("Do you really want to return this item?")) {
-					document.getElementById("return" + ahid).submit();
-			};
+		if (window.confirm("{LA_LSBBB_RETURN_CONFIRM}")) {
+			document.getElementById("return" + ahid).submit();
+		};
 	};
 </script>
-<!-- ELSE -->
-<div class="panel" id="message">
-	<div class="inner">
-		<h2 class="message-title">Information</h2>
-		<p>The auction house category you selected is empty or does not exist.</p>
-	</div>
-</div>
 <!-- ENDIF -->
 {% include 'overall_footer.html' %}

@@ -5,46 +5,27 @@
 			<li class="header">
 				<dl class="row-item">
 					<dt class="itemname">
-						<div class="list-inner">Mob Name</div>
+						<div class="list-inner">{L_LSBBB_MOB}</div>
 					</dt>
-					<dd class="zonename">Zone</dd>
-					<dd class="mobname">Level</dd>
-					<dd class="topics">Family</dd>
+					<dd class="zonename">{L_LSBBB_ZONE}</dd>
+					<dd class="mobname">{L_LSBBB_LEVEL}</dd>
+					<dd class="topics">{L_LSBBB_FAMILY}</dd>
 				</dl>
 			</li>
 		</ul>
 		<ul class="topiclist forums">
 			<!-- BEGIN mobrow -->
-			<!--
-				'name' => $this->xi->xi_ucwords($mob['name']),
-				'zone' => str_replace('_', ' ', $mob['zone']),
-				'groupid' => $mob['groupid'],
-				'zoneid' => $mob['zoneid'],
-				'familyid' => $mob['familyid'],
-				'family' => $mob['family'],
-				'mjob' => $mob['mjob'],
-				'sjob' => $mob['sjob'],
-				'aggro' => $mob['aggro'],
-				'true_detection' => $mob['true_detection'],
-				'links' => $mob['links'],
-				'mobtype' => $mob['mobtype'],
-				'flag' => $mob['flag'],
-				'respawntime' => $mob['respawntime'],
-				'spawntype' => $mob['spawntype'],
-				'minlevel' => $mob['minlevel'],
-				'maxlevel' => $mob['maxlevel'],
-			-->
 			<dl class="row-item">
 				<dt class="itemname">
 					<div class="list-inner">
-						<a href="/xi/zone/{mobrow.zoneid}/mob/{mobrow.groupid}" class="forumtitle">{mobrow.name}</a>
+						<a href="{mobrow.moburl}" class="forumtitle">{mobrow.name}</a>
 						<!-- IF mobrow.aggro > 0 -->
 						<!-- BEGIN mobrow.detects -->
 						<span class="mobaggro aggro{mobrow.detects.class}" title="{mobrow.detects.detect}"><!-- IF mobrow.true_detection > 0 -->True <!-- ENDIF -->{mobrow.detects.detect}</span>
-						<!-- END mobrow.detects -->		 
+						<!-- END mobrow.detects -->
 						<!-- ENDIF -->
 						<!-- IF mobrow.links > 0 --><span class="mobaggro moblinks" title="Links">Links</span><!-- ENDIF -->
-						<br /><a href="https://ffxiclopedia.fandom.com/wiki/{mobrow.name}" target="_new">FFXIclopedia</a>
+						<br /><a href="https://ffxiclopedia.fandom.com/wiki/{mobrow.name}" target="_new">{L_LSBBB_FFXICLOPEDIA}</a>
 					</div>
 				</dt>
 				<dd class="zonename"><a href="/xi/zone/{mobrow.zoneid}">{mobrow.zone}</a></dd>

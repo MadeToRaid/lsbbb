@@ -1,39 +1,24 @@
 <!-- IF droprow -->
-		<div class="forabg">
-			<div class="inner">
-				<table class="table1 responsive">
-					<thead>
-						<tr>
-							<th class="name">Zone</th>
-							<th class="info">Mob</th>
-							<th class="active">Rate</th>
-						</tr>
-					</thead>
-					<tbody>
-
-<!-- BEGIN droprow -->
-						<tr class="<!-- IF droprow.rownum is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-							<td><a class="forumtitle" href="/xi/zone/{droprow.zoneid}">{droprow.zone_name}</a></td>
-							<td><a href="/xi/zone/{droprow.zoneid}/mob/{droprow.groupid}">{droprow.mob_name}</a> ({droprow.minLevel} - {droprow.maxLevel})</td>
-							<td>{droprow.rate}%</td>
-						</tr>
-<!-- END droprow -->
-
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<script type="text/javascript" src="https://api.ffxiah.com/core/?load=%2Fjs%2Flib%2FAH.js&amp;ver=1.0.0" id="ffxiah-js-js"></script>
-<!-- ELSE -->
-
-
-
-<div class="panel" id="message">
+<div class="forabg">
 	<div class="inner">
-	<h2 class="message-title">Information</h2>
-	<p>That item could not be found.</p>
-		</div>
+		<table class="table1 responsive">
+			<thead>
+				<tr>
+					<th class="name">{L_LSBBB_ZONE}</th>
+					<th class="info">{L_LSBBB_MOB}</th>
+					<th class="active">{L_LSBBB_RATE}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN droprow -->
+				<tr class="<!-- IF droprow.rownum is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+					<td><a class="forumtitle" href="/xi/zone/{droprow.zoneid}">{droprow.zone_name}</a></td>
+					<td><a href="/xi/zone/{droprow.zoneid}/mob/{droprow.groupid}">{droprow.mob_name}</a> ({droprow.minLevel} - {droprow.maxLevel})</td>
+					<td>{droprow.rate}%</td>
+				</tr>
+				<!-- END droprow -->
+			</tbody>
+		</table>
+	</div>
 </div>
-
-
 <!-- ENDIF -->

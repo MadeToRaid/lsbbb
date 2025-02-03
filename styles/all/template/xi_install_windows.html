@@ -1,6 +1,6 @@
 {% include 'overall_header.html' %}
 
-<h2 class="faq-title">How to connect</h2>
+<h2 class="faq-title">{L_LSBBB_INSTALL}</h2>
 
 <blockquote><strong>⚠️ Note: To be able to update the Final Fantasy XI client - and connect to private servers using the
         most recent
@@ -207,19 +207,37 @@
                             minimize potential setup problems.</li>
                         <li>Execute cmd.exe as an administrator and run
                             <pre>
-                                <code>
-                                    xiloader.exe --server ffxi.madetoraid.com {LSBBB_SERVER}
+                                <code style="language-cmd">
+xiloader.exe --server ffxi.madetoraid.com {LSBBB_SERVER}
                                 </code>
                             </pre>
                             then select the &quot;Login&quot; option by hitting &quot;1&quot; then:
+
+                            <pre>
+                                <code class="language-c">
+ [01/25/25 19:53:40] ==========================================================
+ [01/25/25 19:53:40] DarkStar Boot Loader (c) 2015 DarkStar Team
+ [01/25/25 19:53:40] LandSandBoat Boot Loader (c) 2021-2025 LandSandBoat Team (v1.1.1)
+ [01/25/25 19:53:40] Git Repo   : https://github.com/LandSandBoat/xiloader
+ [01/25/25 19:53:40] Bug Reports: https://github.com/LandSandBoat/xiloader/issues
+ [01/25/25 19:53:40] ==========================================================
+ [01/25/25 19:53:40] Remote server certificate warnings:
+ [01/25/25 19:53:40] The certificate is not correctly signed by the trusted CA
+ [01/25/25 19:53:40] ==========================================================
+ [01/25/25 19:53:40] What would you like to do?
+ [01/25/25 19:53:40]    1.) Login
+ [01/25/25 19:53:40]    2.) Create New Account
+ [01/25/25 19:53:40]    3.) Change Account Password
+ [01/25/25 19:53:40] ==========================================================
+ 
+ Enter a selection: 1
+ 
+ Username: forumusername
+ Password: forumpassword
+                                </code>
+                            </pre>
                         </li>
                     </ul>
-                    <pre>
-                        <code class="lang-txt">
-                            Username: forumusername
-                            Password: forumpassword
-                        </code>
-                    </pre>
                     {SITENAME} Discord: <a href="https://discord.gg/6bsjmgGUsB">https://discord.gg/6bsjmgGUsB</a>
                 </dd>
             </dl>
@@ -260,11 +278,11 @@
                             Open the settings.xml file and set your options as followed (don&#39;t forget to save
                             changes):
                             <pre>
-                                <code class="lang-xml">
-                                    &lt;<span class="hljs-keyword">profile</span> name=<span class="hljs-string">"Username"</span>&gt;
-                                        <span class="hljs-symbol">&lt;args&gt;</span>--server ffxi.madetoraid.com --user Username --pass Password&lt;/<span class="hljs-keyword">args</span>&gt;
-                                        <span class="hljs-symbol">&lt;executable&gt;</span>HDD:\path\<span class="hljs-keyword">to</span>\xiloader.<span class="hljs-keyword">exe</span>&lt;/<span class="hljs-built_in">executable</span>&gt;
-                                    &lt;/<span class="hljs-keyword">profile</span>&gt;
+                                <code class="language-xml">
+&lt;profile name="Made to Raid"&gt;
+    &lt;args&gt;--server ffxi.madetoraid.com --user forumusername --pass forumpassword&lt;/args&gt;
+    &lt;executable&gt;HDD:\path\to\xiloader.exe&lt;/executable&gt;
+&lt;/profile&gt;
                                 </code>
                         </pre>
                             NOTE: If your registered password contains any of the following characters, you will need to
@@ -320,5 +338,11 @@
         </div>
     </div>
 </div>
-
+<script>
+    window.addEventListener('load', function () {
+        hljs.highlightAll();
+    })
+</script>
+{% INCLUDEJS 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js' %}
+{% INCLUDECSS 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/base16/materia.min.css' %}
 {% include 'overall_footer.html' %}

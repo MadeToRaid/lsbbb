@@ -25,7 +25,8 @@ class functions_ah
 			$sql_array = array(
 				'SELECT'	=> 'ah.itemid, ah.stack, ah.seller_name, ah.buyer_name, ah.sell_date, FORMAT(ah.sale, 0) sale,
 					ib.name, ib.sortname, ib.stacksize,
-					ahc.name category, ahc.id catid',
+					ahc.name category, ahc.id catid,
+					c1.charid as sellerid, c2.charid as buyerid',
 				'FROM'		=> array(
 					'xidb.auction_house' => 'ah',
 				),
@@ -37,6 +38,14 @@ class functions_ah
 					array(
 						'FROM'	=> array('xidb.auction_house_categories' => 'ahc'),
 						'ON'	=> 'ib.ah = ahc.id',
+					),
+					array(
+						'FROM'	=> array('xidb.chars' => 'c1'),
+						'ON'	=> 'c1.charname = ah.seller_name'
+					),
+					array(
+						'FROM'	=> array('xidb.chars' => 'c2'),
+						'ON'	=> 'c2.charname = ah.buyer_name'
 					),
 				),
 				'WHERE'		=> 'ah.itemid = ' . (int) $item_id . '
@@ -63,8 +72,10 @@ class functions_ah
 						'seller_name' => $row['seller_name'],
 						'buyer_name' => $row['buyer_name'],
 						'category' => $row['category'],
-						'catid' => $row['catid']
-					);
+						'catid' => $row['catid'],
+						'sellerid' => $row['sellerid'],
+						'buyerid' => $row['buyerid']
+,					);
 				}
 			}
 		}

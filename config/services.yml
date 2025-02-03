@@ -35,6 +35,7 @@ services:
             - '@template'
             - '@language'
             - '@request'
+            - '%core.root_path%'
             - '@user'
 
     madetoraid.lsbbb.controller.zone:

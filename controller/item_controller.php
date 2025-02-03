@@ -74,8 +74,8 @@ class item_controller
 		$this->fish		= new functions_fish();
 
 		$this->template->assign_block_vars('navlinks', array(
-			'FORUM_NAME' => "FFXI",
-			'U_VIEW_FORUM' => append_sid('/xi/'),
+			'FORUM_NAME' => $this->language->lang('LSBBB_NAV_INDEX'),
+			'U_VIEW_FORUM' => append_sid($this->helper->route('madetoraid_lsbbb_controller_default')),
 		));
 	}
 
@@ -88,28 +88,33 @@ class item_controller
 	 */
 	public function handle(int $item_id = 0)
 	{
-
+		$lsbbb_url = generate_board_url() . '/ext/madetoraid/lsbbb';
+		$this->template->assign_vars(array(
+			'LSBBB_URL' 		=> $lsbbb_url,
+			'LSBBB_ITEM_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_item'),
+			'LSBBB_AH_URL'		=> $this->helper->route('madetoraid_lsbbb_controller_ah'),
+			'LSBBB_ZONE_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_zone'),
+			'LSBBB_MOB_URL'		=> $this->helper->route('madetoraid_lsbbb_controller_mob_group'),
+		));
 		$this->template->assign_block_vars('navlinks', array(
-			'FORUM_NAME' => 'Items',
-			'U_VIEW_FORUM' => append_sid('/xi/item/'),
+			'FORUM_NAME' => $this->language->lang('LSBBB_ITEM'),
+			'U_VIEW_FORUM' => append_sid($this->helper->route('madetoraid_lsbbb_controller_item')),
 		));
 
-		$page_title = "Items - ";
+		$page_title = $this->language->lang('LSBBB_ITEM') . " - ";
 		$page_extras = true;
-		$search_term = $this->request->variable('s', 'Kraken');
-
-		//$item_id = $request->variable('i', '0');
-		//$search_term = $request->variable('s', 'Kraken');
+		$search_term = $this->request->variable('s', $this->language->lang('LSBBB_DEFAULT_SEARCH'));
 
 		if (is_numeric($item_id) && $item_id > 0) {
 			$item_data 	= $this->item->xi_get_item($item_id);
-			$recipe_data 	= $this->recipe->xi_get_recipe($item_id);
-			$drop_data 	= $this->item->xi_drop_search($item_id);
-			$fish_data 	= $this->fish->xi_fish_info($item_id);
-			$ah_data 	= $this->ah->xi_auction_history($item_id, 10);
-			$page_title 	.= $item_data[0]['name'];
-
 			if (sizeof($item_data) > 0) {
+				$recipe_data = $this->recipe->xi_get_recipe($item_id);
+				$drop_data 	= $this->item->xi_drop_search($item_id);
+				$fish_data 	= $this->fish->xi_fish_info($item_id);
+				$ah_data 	= $this->ah->xi_auction_history($item_id, 10);
+				$page_title .= $item_data[0]['name'];
+
+
 				foreach ($item_data as $item_row) {
 					$this->template->assign_block_vars('itemrow', $item_row);
 				}
@@ -117,24 +122,29 @@ class item_controller
 					$this->template->assign_block_vars('reciperow', $recipe_row);
 				}
 				foreach ($drop_data as $drop_row) {
+					$drop_row['moburl'] = $this->helper->route('madetoraid_lsbbb_controller_mob_group', array('zone_id' => $drop_row['zoneid'], 'group_id' => $drop_row['groupid']));
 					$this->template->assign_block_vars('droprow', $drop_row);
 				}
 				foreach ($fish_data as $fish_row) {
 					$this->template->assign_block_vars('fishrow', $fish_row);
 				}
 				foreach ($ah_data as $ah_row) {
+					$ah_row['seller_url'] = $this->helper->route('madetoraid_lsbbb_controller_char_name', array('char_id' => $ah_row['sellerid']));
+					$ah_row['buyer_url'] = $this->helper->route('madetoraid_lsbbb_controller_char_name', array('char_id' => $ah_row['buyerid']));
 					$this->template->assign_block_vars('ahrow', $ah_row);
 				}
 				if ($item_data[0]['category']) {
 					$this->template->assign_block_vars('navlinks', array(
 						'FORUM_NAME' => $item_data[0]['category'],
-						'U_VIEW_FORUM' => append_sid('/xi/ah/' . $item_data[0]['category_id']),
+						'U_VIEW_FORUM' => append_sid($this->helper->route('madetoraid_lsbbb_controller_ah_id', array('category_id' => $item_data[0]['category_id']))),
 					));
 				}
 				$this->template->assign_block_vars('navlinks', array(
 					'FORUM_NAME' => $item_data[0]['name'],
-					'U_VIEW_FORUM' => append_sid('/xi/item/' . $item_id),
+					'U_VIEW_FORUM' => append_sid($this->helper->route('madetoraid_lsbbb_controller_item_id', array('item_id' => $item_id))),
 				));
+			} else {
+				redirect($this->helper->route('madetoraid_lsbbb_controller_item'));
 			}
 		} else {
 			$page_title .= $this->xi->xi_ucwords($search_term);
@@ -144,14 +154,14 @@ class item_controller
 			if (sizeof($item_data) > 0) {
 				$this->template->assign_block_vars('navlinks', array(
 					'FORUM_NAME' => ucwords($search_term),
-					'U_VIEW_FORUM' => append_sid('/xi/item/'),
+					'U_VIEW_FORUM' => append_sid($this->helper->route('madetoraid_lsbbb_controller_item')), // TODO: Make this link to a search
 				));
 				foreach ($item_data as $item_row) {
 					$this->template->assign_block_vars('itemrow', $item_row);
 				}
 			} else {
 				$page_extras = false;
-				$page_title .= "Not Found";
+				$page_title .= $this->language->lang('LSBBB_ITEMNOTFOUND');
 			}
 		}
 

@@ -1,63 +1,82 @@
-		<div class="forabg">
-			<div class="inner">
-			<ul class="topiclist">
-				<li class="header recipeheader">
-					<dl class="row-item">
-						<dt><div class="recipe-inner">Recipe</div></dt>
-						<dd class="crystal">Crystal</dd>
-						<dd class="recipe">Ingredients</dd>
-						<dd class="lastpost"><span>Results</span></dd>
-					</dl>
-				</li>
-			</ul>
-			<ul class="topiclist forums recipelist">
-<!-- BEGIN reciperow -->
-				<li class="row reciperow">
-					<dl class="row-item">
-						<dt title="{% if forumrow.S_IS_LINK %}{{ lang('FORUM_LINK') }}{% else %}{{ forumrow.FORUM_FOLDER_IMG_ALT }}{% endif %}">
-							<div class="recipe-inner">
-								<ul class="recipeskills">
-									<!-- IF reciperow.wood --><li><img src="https://www.madetoraid.com/ffxiimg/woodworking.gif">Woodworking {reciperow.wood}</li><!-- ENDIF -->
-									<!-- IF reciperow.smith --><li><img src="https://www.madetoraid.com/ffxiimg/smithing.gif">Smithing {reciperow.smith}</li><!-- ENDIF -->
-									<!-- IF reciperow.gold --><li><img src="https://www.madetoraid.com/ffxiimg/goldsmithing.gif">Goldsmithing {reciperow.gold}</li><!-- ENDIF -->
-									<!-- IF reciperow.cloth --><li><img src="https://www.madetoraid.com/ffxiimg/weaving.gif">Clothcraft {reciperow.cloth}</li><!-- ENDIF -->
-									<!-- IF reciperow.leather --><li><img src="https://www.madetoraid.com/ffxiimg/leathercraft.gif">Leathercraft {reciperow.leather}</li><!-- ENDIF -->
-									<!-- IF reciperow.bone --><li><img src="https://www.madetoraid.com/ffxiimg/bonecraft.gif">Bonecraft {reciperow.bone}</li><!-- ENDIF -->
-									<!-- IF reciperow.alchemy --><li><img src="https://www.madetoraid.com/ffxiimg/alchemy.gif">Alchemy {reciperow.alchemy}</li><!-- ENDIF -->
-									<!-- IF reciperow.cook --><li><img src="https://www.madetoraid.com/ffxiimg/cooking.gif">Cooking {reciperow.cook}</li><!-- ENDIF -->
-								</ul>
-							</div>
-						</dt>
-						<dd class="crystal">
-							<ul class="recipe_ingredients">
-								<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.crystal}.png"><a href="/xi/item.php?i={reciperow.crystal}">{reciperow.crystal_name}</a></li>
+<div class="forabg">
+	<div class="inner">
+		<ul class="topiclist">
+			<li class="header recipeheader">
+				<dl class="row-item">
+					<dt>
+						<div class="recipe-inner">{L_LSBBB_RECIPE}</div>
+					</dt>
+					<dd class="crystal">{L_LSBBB_CRYSTAL}</dd>
+					<dd class="recipe">{L_LSBBB_INGREDIENTS}</dd>
+					<dd class="lastpost"><span>{L_LSBBB_RESULTS}</span></dd>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist forums recipelist">
+			<!-- BEGIN reciperow -->
+			<li class="row reciperow">
+				<dl class="row-item">
+					<dt title="{% if forumrow.S_IS_LINK %}{{ lang('FORUM_LINK') }}{% else %}{{ forumrow.FORUM_FOLDER_IMG_ALT }}{% endif %}">
+						<div class="recipe-inner">
+							<ul class="recipeskills">
+								<!-- IF reciperow.wood -->
+								<li><img src="https://www.madetoraid.com/ffxiimg/woodworking.gif">{L_LSBBB_WOODWORKING} {reciperow.wood}</li><!-- ENDIF -->
+								<!-- IF reciperow.smith -->
+								<li><img src="https://www.madetoraid.com/ffxiimg/smithing.gif">{L_LSBBB_SMITHING} {reciperow.smith}</li><!-- ENDIF -->
+								<!-- IF reciperow.gold -->
+								<li><img src="https://www.madetoraid.com/ffxiimg/goldsmithing.gif">{L_LSBBB_GOLDSMITHING} {reciperow.gold}</li><!-- ENDIF -->
+								<!-- IF reciperow.cloth -->
+								<li><img src="https://www.madetoraid.com/ffxiimg/weaving.gif">{L_LSBBB_CLOTHCRAFT} {reciperow.cloth}</li><!-- ENDIF -->
+								<!-- IF reciperow.leather -->
+								<li><img src="https://www.madetoraid.com/ffxiimg/leathercraft.gif">{L_LSBBB_LEATHWORKING} {reciperow.leather}</li><!-- ENDIF -->
+								<!-- IF reciperow.bone -->
+								<li><img src="https://www.madetoraid.com/ffxiimg/bonecraft.gif">{L_LSBBB_BONECRAFT} {reciperow.bone}</li><!-- ENDIF -->
+								<!-- IF reciperow.alchemy -->
+								<li><img src="https://www.madetoraid.com/ffxiimg/alchemy.gif">{L_LSBBB_ALCHEMY} {reciperow.alchemy}</li><!-- ENDIF -->
+								<!-- IF reciperow.cook -->
+								<li><img src="https://www.madetoraid.com/ffxiimg/cooking.gif">{L_LSBBB_COOKING} {reciperow.cook}</li><!-- ENDIF -->
 							</ul>
-						</dd>
-						<dd class="recipe">
-							<ul class="recipe_ingredients">
-								<!-- IF reciperow.ingredient1 --><li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient1}.png"><a href="/xi/item.php?i={reciperow.ingredient1}">{reciperow.ingredient1_name}</a></li><!-- ENDIF -->
-							<!-- IF reciperow.ingredient2 --><li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient2}.png"><a href="/xi/item.php?i={reciperow.ingredient2}">{reciperow.ingredient2_name}</li></a><!-- ENDIF -->
-							<!-- IF reciperow.ingredient3 --><li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient3}.png"><a href="/xi/item.php?i={reciperow.ingredient3}">{reciperow.ingredient3_name}</li></a><!-- ENDIF -->
-							<!-- IF reciperow.ingredient4 --><li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient4}.png"><a href="/xi/item.php?i={reciperow.ingredient4}">{reciperow.ingredient4_name}</li></a><!-- ENDIF -->
-							<!-- IF reciperow.ingredient5 --><li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient5}.png"><a href="/xi/item.php?i={reciperow.ingredient5}">{reciperow.ingredient5_name}</li></a><!-- ENDIF -->
-							<!-- IF reciperow.ingredient6 --><li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient6}.png"><a href="/xi/item.php?i={reciperow.ingredient6}">{reciperow.ingredient6_name}</li></a><!-- ENDIF -->
-							<!-- IF reciperow.ingredient7 --><li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient7}.png"><a href="/xi/item.php?i={reciperow.ingredient7}">{reciperow.ingredient7_name}</li></a><!-- ENDIF -->
-								<!-- IF reciperow.ingredient8 --><li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient8}.png"><a href="/xi/item.php?i={reciperow.ingredient8}">{reciperow.ingredient8_name}</li></a><!-- ENDIF -->
-							</ul>
-						</dd>
-						<dd class="lastpost">
-							<ul class="recipe_ingredients">
-								<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.result}.png"><a href="/xi/item.php?i={reciperow.result}">{reciperow.result_name}</a><!-- IF reciperow.resultqty > 1 --> ({reciperow.resultqty})<!-- ENDIF --></li>
-								<!-- IF reciperow.resulthq1 != reciperow.result || reciperow.resulthq1qty != reciperow.resultqty --><li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.resulthq1}.png"><a href="/xi/item.php?i={reciperow.resulthq1}">{reciperow.resulthq1_name}</a><!-- IF reciperow.resulthq1qty > 1 --> ({reciperow.resulthq1qty})<!-- ENDIF --></li><!-- ENDIF -->
-								<!-- IF reciperow.resulthq2 != reciperow.resulthq1 || reciperow.resulthq2qty != reciperow.resulthq1qty --><li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.resulthq2}.png"><a href="/xi/item.php?i={reciperow.resulthq2}">{reciperow.resulthq2_name}</a><!-- IF reciperow.resulthq2qty > 1 --> ({reciperow.resulthq2qty})<!-- ENDIF --></li><!-- ENDIF -->
-								<!-- IF reciperow.resulthq3 != reciperow.resulthq3 || reciperow.resulthq3qty != reciperow.resulthq2qty --><li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.resulthq3}.png"><a href="/xi/item.php?i={reciperow.resulthq3}">{reciperow.resulthq3_name}</a><!-- IF reciperow.resulthq3qty > 1 --> ({reciperow.resulthq3qty})<!-- ENDIF --></li><!-- ENDIF -->
-							</ul>
-						</dd>
-					</dl>
-				</li>
-<!-- END reciperow -->
-
-			</ul>
-
-			</div>
-		</div>
+						</div>
+					</dt>
+					<dd class="crystal">
+						<ul class="recipe_ingredients">
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.crystal}.png"><a href="/xi/item.php?i={reciperow.crystal}">{reciperow.crystal_name}</a></li>
+						</ul>
+					</dd>
+					<dd class="recipe">
+						<ul class="recipe_ingredients">
+							<!-- IF reciperow.ingredient1 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient1}.png"><a href="/xi/item.php?i={reciperow.ingredient1}">{reciperow.ingredient1_name}</a></li><!-- ENDIF -->
+							<!-- IF reciperow.ingredient2 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient2}.png"><a href="/xi/item.php?i={reciperow.ingredient2}">{reciperow.ingredient2_name}</li></a><!-- ENDIF -->
+							<!-- IF reciperow.ingredient3 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient3}.png"><a href="/xi/item.php?i={reciperow.ingredient3}">{reciperow.ingredient3_name}</li></a><!-- ENDIF -->
+							<!-- IF reciperow.ingredient4 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient4}.png"><a href="/xi/item.php?i={reciperow.ingredient4}">{reciperow.ingredient4_name}</li></a><!-- ENDIF -->
+							<!-- IF reciperow.ingredient5 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient5}.png"><a href="/xi/item.php?i={reciperow.ingredient5}">{reciperow.ingredient5_name}</li></a><!-- ENDIF -->
+							<!-- IF reciperow.ingredient6 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient6}.png"><a href="/xi/item.php?i={reciperow.ingredient6}">{reciperow.ingredient6_name}</li></a><!-- ENDIF -->
+							<!-- IF reciperow.ingredient7 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient7}.png"><a href="/xi/item.php?i={reciperow.ingredient7}">{reciperow.ingredient7_name}</li></a><!-- ENDIF -->
+							<!-- IF reciperow.ingredient8 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.ingredient8}.png"><a href="/xi/item.php?i={reciperow.ingredient8}">{reciperow.ingredient8_name}</li></a><!-- ENDIF -->
+						</ul>
+					</dd>
+					<dd class="lastpost">
+						<ul class="recipe_ingredients">
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.result}.png"><a href="/xi/item.php?i={reciperow.result}">{reciperow.result_name}</a><!-- IF reciperow.resultqty > 1 --> ({reciperow.resultqty})<!-- ENDIF --></li>
+							<!-- IF reciperow.resulthq1 != reciperow.result || reciperow.resulthq1qty != reciperow.resultqty -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.resulthq1}.png"><a href="/xi/item.php?i={reciperow.resulthq1}">{reciperow.resulthq1_name}</a><!-- IF reciperow.resulthq1qty > 1 --> ({reciperow.resulthq1qty})<!-- ENDIF --></li><!-- ENDIF -->
+							<!-- IF reciperow.resulthq2 != reciperow.resulthq1 || reciperow.resulthq2qty != reciperow.resulthq1qty -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.resulthq2}.png"><a href="/xi/item.php?i={reciperow.resulthq2}">{reciperow.resulthq2_name}</a><!-- IF reciperow.resulthq2qty > 1 --> ({reciperow.resulthq2qty})<!-- ENDIF --></li><!-- ENDIF -->
+							<!-- IF reciperow.resulthq3 != reciperow.resulthq3 || reciperow.resulthq3qty != reciperow.resulthq2qty -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{reciperow.resulthq3}.png"><a href="/xi/item.php?i={reciperow.resulthq3}">{reciperow.resulthq3_name}</a><!-- IF reciperow.resulthq3qty > 1 --> ({reciperow.resulthq3qty})<!-- ENDIF --></li><!-- ENDIF -->
+						</ul>
+					</dd>
+				</dl>
+			</li>
+			<!-- END reciperow -->
+		</ul>
+	</div>
+</div>

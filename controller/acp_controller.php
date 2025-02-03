@@ -1,4 +1,5 @@
 <?php
+
 /**
  * lsbBB - LandSandBoat extension for phpBB
  * @author Ganiman <ganiman@ganiman.com>
@@ -71,17 +72,14 @@ class acp_controller
 		$errors = [];
 
 		// Is the form being submitted to us?
-		if ($this->request->is_set_post('submit'))
-		{
+		if ($this->request->is_set_post('submit')) {
 			// Test if the submitted form is valid
-			if (!check_form_key('madetoraid_lsbbb_acp'))
-			{
+			if (!check_form_key('madetoraid_lsbbb_acp')) {
 				$errors[] = $this->language->lang('FORM_INVALID');
 			}
 
 			// If no errors, process the form data
-			if (empty($errors))
-			{
+			if (empty($errors)) {
 				// Set the options the user configured
 				$this->config->set('madetoraid_lsbbb_goodbye', $this->request->variable('madetoraid_lsbbb_goodbye', 0));
 
@@ -98,12 +96,10 @@ class acp_controller
 
 		// Set output variables for display in the template
 		$this->template->assign_vars([
-			'S_ERROR'		=> $s_errors,
-			'ERROR_MSG'		=> $s_errors ? implode('<br />', $errors) : '',
+			'S_ERROR'				=> $s_errors,
+			'ERROR_MSG'				=> $s_errors ? implode('<br />', $errors) : '',
 
-			'U_ACTION'		=> $this->u_action,
-
-			'MADETORAID_LSBBB_GOODBYE'	=> (bool) $this->config['madetoraid_lsbbb_goodbye'],
+			'U_ACTION'				=> $this->u_action,
 		]);
 	}
 

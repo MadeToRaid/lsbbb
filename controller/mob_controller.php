@@ -1,4 +1,5 @@
 <?php
+
 /**
  * lsbBB - LandSandBoat extension for phpBB
  * @author Ganiman <ganiman@ganiman.com>
@@ -59,41 +60,50 @@ class mob_controller
 	 */
 	public function handle($zone_id, $group_id)
 	{
-
-
-
-		$page_title = "Final Fantasy XI Private Server";
-		$page_extras = true;
+		$lsbbb_url = generate_board_url() . '/ext/madetoraid/lsbbb';
+		$this->template->assign_vars(array(
+			'LSBBB_URL' 		=> $lsbbb_url,
+			'LSBBB_ITEM_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_item'),
+			'LSBBB_AH_URL'		=> $this->helper->route('madetoraid_lsbbb_controller_ah'),
+			'LSBBB_ZONE_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_zone'),
+			'LSBBB_MOB_URL'		=> $this->helper->route('madetoraid_lsbbb_controller_mob_group'),
+		));
 
 		// Get data for the page
 		$mob_data = $this->mob->xi_mob_info($zone_id, $group_id);
-		$drop_data = $this->mob->xi_mob_drops($zone_id, $group_id);
+		if (sizeof($mob_data) > 0) {
+			$drop_data = $this->mob->xi_mob_drops($zone_id, $group_id);
 
-		// Assign data to template vars
-		foreach($mob_data as $mobrow) {
-			$this->template->assign_block_vars('mobrow', $mobrow );
-		}
-		foreach($drop_data as $droprow) {
-			$this->template->assign_block_vars('droprow', $droprow );
-		}
+			// Assign data to template vars
+			foreach ($mob_data as $mobrow) {
+				$mobrow['moburl'] = $this->helper->route('madetoraid_lsbbb_controller_mob_group', array('zone_id' => $zone_id, 'group_id' => $group_id));
+				$this->template->assign_block_vars('mobrow', $mobrow);
+			}
+			foreach ($drop_data as $droprow) {
+				$this->template->assign_block_vars('droprow', $droprow);
+			}
 
-		// Set up navlink
-		$this->template->assign_block_vars('navlinks', array(
-			'FORUM_NAME' => $this->language->lang('LSBBB_PAGE'),
-			'U_VIEW_FORUM' => $this->helper->route('madetoraid_lsbbb_controller_default'),
-		));
-		$this->template->assign_block_vars('navlinks', array(
-			'FORUM_NAME' => $this->language->lang('LSBBB_VANADIEL'),
-			'U_VIEW_FORUM' => $this->helper->route('madetoraid_lsbbb_controller_zone'),
-		));
-		$this->template->assign_block_vars('navlinks', array(
-			'FORUM_NAME' => $mob_data[0]['zone'],
-			'U_VIEW_FORUM' => $this->helper->route('madetoraid_lsbbb_controller_zone') . $zone_id,
-		));
-		$this->template->assign_block_vars('navlinks', array(
-			'FORUM_NAME' => $mob_data[0]['name'],
-			'U_VIEW_FORUM' => $this->helper->route('madetoraid_lsbbb_controller_mob_group', array('zone_id' => $zone_id, 'group_id' => $group_id)),
-		));
+			// Set up navlink
+			$this->template->assign_block_vars('navlinks', array(
+				'FORUM_NAME' => $this->language->lang('LSBBB_PAGE'),
+				'U_VIEW_FORUM' => $this->helper->route('madetoraid_lsbbb_controller_default'),
+			));
+			$this->template->assign_block_vars('navlinks', array(
+				'FORUM_NAME' => $this->language->lang('LSBBB_VANADIEL'),
+				'U_VIEW_FORUM' => $this->helper->route('madetoraid_lsbbb_controller_zone'),
+			));
+			$this->template->assign_block_vars('navlinks', array(
+				'FORUM_NAME' => $mob_data[0]['zone'],
+				'U_VIEW_FORUM' => $this->helper->route('madetoraid_lsbbb_controller_zone') . $zone_id,
+			));
+			$this->template->assign_block_vars('navlinks', array(
+				'FORUM_NAME' => $mob_data[0]['name'],
+				'U_VIEW_FORUM' => $this->helper->route('madetoraid_lsbbb_controller_mob_group', array('zone_id' => $zone_id, 'group_id' => $group_id)),
+			));
+		}
+		else {
+			redirect($this->helper->route('madetoraid_lsbbb_controller_zone_id', array('zone_id' => $zone_id)));
+		}
 		page_header($this->language->lang('LSBBB_MOBGROUP') . ' - ' . $mob_data[0]['name'] . ' (' . $mob_data[0]['zone'] . ')');
 
 		return $this->helper->render('@madetoraid_lsbbb/xi_mob_body.html', $group_id);
