@@ -40,6 +40,12 @@ madetoraid_lsbbb_controller_zone_id:
     requirements:
       zone_id: \d+
 
+madetoraid_lsbbb_controller_npc_id:
+    path: /xi/npc/{npc_id}
+    defaults: { _controller: madetoraid.lsbbb.controller.npc:handle, npc_id: 0 }
+    requirements:
+      npc_id: \d+
+
 madetoraid_lsbbb_controller_mob_group:
     path: /xi/zone/{zone_id}/mob/{group_id}
     defaults: { _controller: madetoraid.lsbbb.controller.mob:handle, zone_id: 0, group_id: 0}

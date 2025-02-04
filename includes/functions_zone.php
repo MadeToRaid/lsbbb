@@ -355,6 +355,7 @@ class functions_zone
 				);
 			}
 		}
+		//print_r($npc_data);
 		return $return;
 	}
 }

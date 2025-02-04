@@ -97,6 +97,10 @@ class zone_controller
 			'LSBBB_ZONE_ROUTE' => $this->helper->route('madetoraid_lsbbb_controller_zone'),
 		));
 		$this->template->assign_block_vars('navlinks', array(
+			'FORUM_NAME' => $this->language->lang('LSBBB_PAGE'),
+			'U_VIEW_FORUM' => $this->helper->route('madetoraid_lsbbb_controller_default'),
+		));
+		$this->template->assign_block_vars('navlinks', array(
 			'FORUM_NAME' => $this->language->lang('LSBBB_VANADIEL'),
 			'U_VIEW_FORUM' => append_sid($this->helper->route('madetoraid_lsbbb_controller_zone')),
 		));
@@ -116,6 +120,7 @@ class zone_controller
 
 				$zone_npc_data = $this->zone->xi_zone_npcs($zone_id);
 				foreach ($zone_npc_data as $npc_row) {
+					$npc_row['npcurl'] = $this->helper->route('madetoraid_lsbbb_controller_npc_id', array('npc_id' => $npc_row['npcid']));
 					$this->template->assign_block_vars('npcrow', $npc_row);
 				}
 
