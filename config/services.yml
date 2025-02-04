@@ -64,6 +64,14 @@ services:
             - '@template'
             - '@language'
 
+    madetoraid.lsbbb.controller.npc:
+        class: madetoraid\lsbbb\controller\npc_controller
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+
     madetoraid.lsbbb.controller.acp:
         class: madetoraid\lsbbb\controller\acp_controller
         arguments:

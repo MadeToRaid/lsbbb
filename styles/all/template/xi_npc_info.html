@@ -1,0 +1,32 @@
+<!-- IF npcrow -->
+<div class="forabg">
+	<div class="inner">
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="row-item">
+					<dt class="itemname">
+						<div class="list-inner">{L_LSBBB_NPC}</div>
+					</dt>
+					<dd class="zonename">{L_LSBBB_ZONE}</dd>
+					<dd class="mobname">{L_LSBBB_CONTENT_TAG}</dd>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist forums">
+			<!-- BEGIN npcrow -->
+			<dl class="row-item">
+				<dt class="itemname">
+					<div class="list-inner">
+						<a href="{mobrow.moburl}" class="forumtitle">{npcrow.polutils_name}</a>
+						<br /><a href="https://ffxiclopedia.fandom.com/wiki/{npcrow.name}" target="_new">{L_LSBBB_FFXICLOPEDIA}</a>
+					</div>
+				</dt>
+				<dd class="zonename"><a href="{LSBBB_ZONE_URL}{npcrow.zoneid}">{ZONE_NAME}</a><br>({npcrow.pos_x} {npcrow.pos_y} {npcrow.pos_z})</dd>
+				<dd class="topics">{npcrow.content_tag}</dd>
+			</dl>
+			</li>
+			<!-- END npcrow -->
+		</ul>
+	</div>
+</div>
+<!-- ENDIF -->
