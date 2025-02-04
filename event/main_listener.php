@@ -278,6 +278,10 @@ class main_listener implements EventSubscriberInterface
 				$char_id = substr($event['row']['session_page'], strrpos($event['row']['session_page'], '/' )+1);
 				$event['location'] = $this->language->lang('LSBBB_VIEWING_CHARACTER') . ': ' . $char_id;
 				$event['location_url'] = $this->helper->route('madetoraid_lsbbb_controller_char') . $char_id;
+			} elseif (strrpos($event['row']['session_page'], 'app.' . $this->php_ext . '/xi/npc') === 0) {
+				$npc_id = substr($event['row']['session_page'], strrpos($event['row']['session_page'], '/' )+1);
+				$event['location'] = $this->language->lang('LSBBB_VIEWING_NPC') . ': ' . $npc_id;
+				$event['location_url'] = $this->helper->route('madetoraid_lsbbb_controller_npc_id', array('npc_id' => $npc_id));
 			} elseif (strrpos($event['row']['session_page'], 'app.' . $this->php_ext . '/xi/install') === 0) {
 				$page = substr($event['row']['session_page'], strrpos($event['row']['session_page'], '/' )+1);
 				$event['location'] = $this->language->lang('LSBBB_VIEWING_INSTALL') . ': ' . $page;
