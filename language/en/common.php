@@ -30,6 +30,10 @@ $lang = array_merge($lang, [
 	'LSBBB_POSITION'			=> 'Position',
 	'LSBBB_CONNECTIONS'			=> 'Connections',
 	'LSBBB_CONTENT_TAG'			=> 'Content Tag',
+	'LSBBB_VIDEOS'				=> 'Videos',
+	'LSBBB_SPAWN'				=> 'Spawn',
+	'LSBBB_MOBID'				=> 'Mob ID',
+	'LSBBB_MOBHEX'				=> 'Mob HEX',
 
 	'LSBBB_SHOWUNLISTED'		=> 'Show Unlisted Items',
 	'LSBBB_HIDEUNLISTED'		=> 'Hide Unlisted Items',
@@ -42,6 +46,7 @@ $lang = array_merge($lang, [
 	'LSBBB_RECORD'				=> 'Record',
 	'LSBBB_NPC'					=> 'NPC',
 	'LSBBB_MOB'					=> 'Mob',
+	'LSBBB_MOB_GROUP'			=> 'Mob Group',
 	'LSBBB_NM'					=> 'NM',
 	'LSBBB_FAMILY'				=> 'Family',
 	'LSBBB_LEVEL'				=> 'Level',
@@ -65,6 +70,7 @@ $lang = array_merge($lang, [
 	'LSBBB_CRYSTAL'				=> 'Crystal',
 	'LSBBB_INGREDIENTS'			=> 'Ingredients',
 	'LSBBB_RESULTS'				=> 'Results',
+	'LSBBB_STEAL'				=> 'Steal',
 
 	'LSBBB_INSTALL_GUIDES'		=> 'Installation Guides',
 	'LSBBB_WINDOWS'				=> 'Windows',

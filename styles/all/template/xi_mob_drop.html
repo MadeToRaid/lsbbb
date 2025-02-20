@@ -12,7 +12,7 @@
 				<!-- BEGIN droprow -->
 				<tr class="droprow <!-- IF droprow.rownum is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 					<td><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/icon/{droprow.itemid}.png"> <a class="forumtitle" href="/xi/item/{droprow.itemid}">{droprow.name}</a></td>
-					<td>{droprow.itemrate}%</td>
+					<td><!-- IF droprow.itemrate != 0 -->{droprow.itemrate}%<!-- ELSE -->{L_LSBBB_STEAL}<!-- ENDIF --></td>
 				</tr>
 				<!-- END droprow -->
 			</tbody>

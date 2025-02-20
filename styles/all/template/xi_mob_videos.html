@@ -1,0 +1,23 @@
+<script language="javascript">
+	<!-- IF LSBBB_YOUTUBE_KEY -->
+	apiKey = '{LSBBB_YOUTUBE_KEY}';
+	<!-- ELSE -->
+	apiKey = false;
+	<!-- ENDIF -->
+</script>
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive">
+			<thead>
+				<tr>
+					<th colspan="2" class="name">{L_LSBBB_VIDEOS}</th>
+					<th class="minmaxbuttons"><button id="minbutton" onclick="collapseVideos()"><i class="fa fa-window-minimize" aria-hidden="true"></i></button> <button id="maxbutton" onclick="collapseVideos()"><i class="fa fa-window-maximize" aria-hidden="true"></i></button></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="mobvideos" class="videorow bg1">
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

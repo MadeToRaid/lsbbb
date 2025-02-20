@@ -31,7 +31,7 @@ class functions_npc
         $return = array();
 
         $sql_array = array(
-            'SELECT'    => 'nl.*, zs.name zone, zs.zoneid',
+            'SELECT'    => 'nl.npcid, nl.name, nl.polutils_name, pos_rot, pos_x, pos_y, pos_z, flag, status, entityflags, content_tag, widescan, zs.name zone, zs.zoneid',
             'FROM'        => array(
                 'xidb.npc_list' => 'nl',
             ),

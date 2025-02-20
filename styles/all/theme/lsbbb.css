@@ -14,6 +14,12 @@
     src: url(Ferrum-wy99.otf);
 }
 
+@media (max-width: 1200px) {
+    dd.mobzone {
+        display: none !important;
+    }
+}
+
 /**
  * Colors for Vana'diel days
  */
@@ -74,14 +80,16 @@
 * Item pages
 */
 
-span.itemflag, span.mobaggro {
+span.itemflag,
+span.mobaggro {
     font-size: 0.8em;
     padding: 0px 3px;
     border-radius: 7px;
     white-space: nowrap;
 }
 
-.itemrare, .aggrosound {
+.itemrare,
+.aggrosound {
     border: 1px solid #7d8910;
     background-color: #ebe712;
     color: #7d8910;
@@ -93,13 +101,17 @@ span.itemflag, span.mobaggro {
     color: #1e3d3d;
 }
 
-.itemex, .moblinks {
+.itemex,
+.moblinks {
     border: 1px solid #108920;
     background-color: #19eb12;
     color: #108920;
 }
 
-.itemnosale, .itemnodelivery, .itemnoauction, .aggrolowhp {
+.itemnosale,
+.itemnodelivery,
+.itemnoauction,
+.aggrolowhp {
     border: 1px solid #AA0000;
     background-color: #ff9494;
     color: #AA0000;
@@ -128,6 +140,50 @@ span.itemflag, span.mobaggro {
     height: 16px;
     width: 16px;
     padding: 0 5px 0 0;
+}
+
+#mobvideos {
+    text-align: center;
+    transition: max-height 0.2s ease-out;
+}
+
+#mobvideos td {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+@media (min-width: 700px) {
+    #mobvideos td {
+        width: 33%;
+        padding-top: 18.57%;
+        margin-top: 10px;
+    }
+}
+
+#mobvideos iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 95%;
+    height: 95%;
+    margin-inline: auto;
+    margin-top: 6px;
+}
+
+.minmaxbuttons {
+    text-align: right;
+}
+
+.minmaxbuttons i {
+    margin: 0px 2px;
+}
+
+#maxbutton {
+    display: none;
 }
 
 /**
@@ -513,4 +569,39 @@ img.tooltip-map {
 
 .censusrace div {
     height: 50px;
+}
+
+
+
+dd.zonename {
+    width: 80px;
+    text-align: center;
+    line-height: 2.2em;
+    font-size: 1.2em;
+}
+
+dd.mobdata, dd.mobzone {
+    width: 150px;
+}
+
+dd.mobposition {
+    width: 200px;
+}
+
+dd.crystal {
+    width: 150px;
+    text-align: left;
+    line-height: 2.0em;
+    font-size: 1.0em;
+}
+
+dd.recipe {
+    width: 250px;
+    text-align: left;
+    line-height: 2.0em;
+    font-size: 1.0em;
+}
+
+ul.topiclist dt.mobname {
+    margin-right: -800px;
 }

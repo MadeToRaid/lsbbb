@@ -1,0 +1,24 @@
+<!-- IF spawnrow -->
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive">
+			<thead>
+				<tr>
+					<th class="name">{L_LSBBB_SPAWN}</th>
+					<th class="info">{L_LSBBB_ZONE}</th>
+					<th class="info">{L_LSBBB_POSITION}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN spawnrow -->
+				<tr class="droprow <!-- IF spawnrow.rownum is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+					<td><a class="forumtitle" href="/xi/mob/{spawnrow.mobid}">{spawnrow.polutils_name}</a> ({spawnrow.mobid}) ({spawnrow.mobhex})</td>
+					<td>{spawnrow.zonename}</td>
+					<td>{spawnrow.pos_x}, {spawnrow.pos_y}, {spawnrow.pos_z}</td>
+				</tr>
+				<!-- END spawnrow -->
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- ENDIF -->
