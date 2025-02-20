@@ -3,9 +3,10 @@
 <!-- IF S_USER_LOGGED_IN -->
 <p class="responsive-center time">{CURRENT_TIME}</p><!-- ENDIF -->
 
-<!-- INCLUDE xi_mob_info.html -->
+<!-- IF LSBBB_ISGROUP --><!-- INCLUDE xi_mob_info.html --><!-- ELSE --><!-- INCLUDE xi_mob_detail.html --><!-- ENDIF -->
 <!-- IF droprow --><!-- INCLUDE xi_mob_drop.html --><!-- ENDIF -->
-
+<!-- IF spawnrow --><!-- INCLUDE xi_mob_spawns.html --><!-- ENDIF -->
+<!-- IF SHOWVIDEOS != false --><!-- INCLUDE xi_mob_videos.html --><!-- ENDIF -->
 <!-- EVENT index_body_forumlist_body_after -->
 
 <!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
@@ -71,4 +72,5 @@
 <!-- ENDIF -->
 
 <!-- EVENT index_body_stat_blocks_after -->
+{% INCLUDEJS '@madetoraid_lsbbb/videos.js' %}
 {% include 'overall_footer.html' %}

@@ -7,9 +7,11 @@
 					<dt class="mobname">
 						<div class="list-inner">{L_LSBBB_MOB}</div>
 					</dt>
-					<dd class="mobzone">{L_LSBBB_ZONE}</dd>
-					<dd class="mobdata">{L_LSBBB_LEVEL}</dd>
-					<dd class="mobdata">{L_LSBBB_FAMILY}</dd>
+					<dd class="mobdata">{L_LSBBB_MOB_GROUP}</dd>
+					<dd class="mobdata">{L_LSBBB_MOBID}</dd>
+					<dd class="mobdata">{L_LSBBB_MOBHEX}</dd>
+					<dd class="mobdata">{L_LSBBB_ZONE}</dd>
+					<dd class="mobposition">{L_LSBBB_POSITION}</dd>
 				</dl>
 			</li>
 		</ul>
@@ -17,7 +19,7 @@
 			<!-- BEGIN mobrow -->
 			<script language="javascript">
 				var mobname = '';
-				if(2 == {mobrow.mobtype} ) {
+				if (2 == { mobrow.mobtype }) {
 					mobname = '{mobrow.name}';
 				}
 			</script>
@@ -34,9 +36,11 @@
 						<br /><a href="https://ffxiclopedia.fandom.com/wiki/{mobrow.name}" target="_new">{L_LSBBB_FFXICLOPEDIA}</a>
 					</div>
 				</dt>
-				<dd class="mobzone"><a href="/xi/zone/{mobrow.zoneid}">{mobrow.zone}</a></dd>
-				<dd class="mobdata">{mobrow.minlevel}<!-- IF mobrow.minlevel != mobrow.maxlevel --> - {mobrow.maxlevel}<!-- ENDIF --></dd>
-				<dd class="mobdata">{mobrow.family}</dd>
+				<dd class="mobdata"><a href="{LSBBB_MOB_GROUP_URL}">{mobrow.groupname}</a></dd>
+				<dd class="mobdata">{mobrow.id}</dd>
+				<dd class="mobdata">{mobrow.hex}</dd>
+				<dd class="mobdata"><a href="/xi/zone/{mobrow.zoneid}">{mobrow.zone}</a></dd>
+				<dd class="mobposition">{mobrow.pos_x}, {mobrow.pos_x}, {mobrow.pos_x}</dd>
 			</dl>
 			</li>
 			<!-- END mobrow -->

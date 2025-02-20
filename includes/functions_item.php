@@ -186,7 +186,6 @@ class functions_item
 					),
 				),
 				'WHERE'		=> 'md.itemRate IS NOT NULL
-					AND md.itemRate > 0
 					AND mg.maxlevel > 0
 					AND ib.itemid = ' . (int) $item_id,
 				'ORDER_BY'	=> 'z.name,rate DESC,ib.name,mg.name',

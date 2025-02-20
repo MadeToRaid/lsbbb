@@ -81,7 +81,9 @@ class acp_controller
 			// If no errors, process the form data
 			if (empty($errors)) {
 				// Set the options the user configured
-				$this->config->set('madetoraid_lsbbb_goodbye', $this->request->variable('madetoraid_lsbbb_goodbye', 0));
+				$this->config->set('madetoraid_lsbbb_youtube_nm', $this->request->variable('madetoraid_lsbbb_youtube_nm', 0));
+				$this->config->set('madetoraid_lsbbb_youtube_bf', $this->request->variable('madetoraid_lsbbb_youtube_bf', 0));
+				$this->config->set('madetoraid_lsbbb_youtube_key', $this->request->variable('madetoraid_lsbbb_youtube_key', ''));
 
 				// Add option settings change action to the admin log
 				$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_ACP_LSBBB_SETTINGS');
@@ -98,7 +100,9 @@ class acp_controller
 		$this->template->assign_vars([
 			'S_ERROR'				=> $s_errors,
 			'ERROR_MSG'				=> $s_errors ? implode('<br />', $errors) : '',
-
+			'LSBBB_YOUTUBE_KEY'		=> $this->config['madetoraid_lsbbb_youtube_key'],
+			'LSBBB_YOUTUBE_NM'		=> $this->config['madetoraid_lsbbb_youtube_nm'],
+			'LSBBB_YOUTUBE_BF'		=> $this->config['madetoraid_lsbbb_youtube_bf'],
 			'U_ACTION'				=> $this->u_action,
 		]);
 	}

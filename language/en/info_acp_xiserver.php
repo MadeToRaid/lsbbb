@@ -1,42 +1,29 @@
 <?php
+
 /**
- *
- * PHPBB XI Server Integration. An extension for the phpBB Forum Software package.
- *
- * @copyright (c) 2025, Ganiman, https://ganiman.com
- * @license GNU General Public License, version 2 (GPL-2.0)
- *
+ * lsbBB - LandSandBoat extension for phpBB
+ * @author Ganiman <ganiman@ganiman.com>
+ * @copyright (c) 2025, Made to Raid, https://madetoraid.com
+ * @license GNU GPL-3.0
  */
 
-if (!defined('IN_PHPBB'))
-{
+if (!defined('IN_PHPBB')) {
 	exit;
 }
 
-if (empty($lang) || !is_array($lang))
-{
+if (empty($lang) || !is_array($lang)) {
 	$lang = [];
 }
 
-// DEVELOPERS PLEASE NOTE
-//
-// All language files should use UTF-8 as their encoding and the files must not contain a BOM.
-//
-// Placeholders can now contain order information, e.g. instead of
-// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
-// translators to re-order the output of data while ensuring it remains correct
-//
-// You do not need this where single placeholders are used, e.g. 'Message %d' is fine
-// equally where a string contains only two placeholders which are used to wrap text
-// in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
-//
-// Some characters you may want to copy&paste:
-// ’ » “ ” …
-//
-
 $lang = array_merge($lang, [
-	'ACP_LSBBB_TITLE'		=> 'LandSandBoat Integration',
-	'ACP_LSBBB'			=> 'lsbBB Settings',
+	'ACP_LSBBB'					=> 'lsbBB Settings',
+	'ACP_LSBBB_TITLE'			=> 'lsbBB',
+	'ACP_LSBBB_YT_SETTINGS'		=> 'YouTube Settings',
+	'ACP_LSBBB_YOUTUBE_KEY'		=> 'Data API Key',
+	'ACP_LSBBB_YOUTUBE_NM'		=> 'Enable NM Videos',
+	'ACP_LSBBB_YOUTUBE_BF'		=> 'Enable Battlefield Videos',
+	'ACP_LSBBB_SETTING_SAVED'	=> 'lsbBB Settings Saved',
+
 
 	'LOG_ACP_LSBBB_SETTINGS'	=> '<strong>lsbBB settings updated</strong>',
 ]);
