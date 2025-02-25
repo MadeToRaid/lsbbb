@@ -69,4 +69,19 @@ madetoraid_lsbbb_controller_char_name:
     requirements:
       char_id: \d+
 
+madetoraid_lsbbb_controller_craft:
+    path: /xi/craft/
+    defaults: { _controller: madetoraid.lsbbb.controller.craft:default }
 
+madetoraid_lsbbb_controller_craft_id:
+    path: /xi/craft/{guild_id}
+    defaults: { _controller: madetoraid.lsbbb.controller.craft:handle, guild_id: 0, craft_rank: 0 }
+    requirements:
+      guild_id: \d+      
+
+madetoraid_lsbbb_controller_craft_id_level:
+    path: /xi/craft/{guild_id}/{level}
+    defaults: { _controller: madetoraid.lsbbb.controller.craft:handle, guild_id: 0, level: 0 }
+    requirements:
+      guild_id: \d+
+      level: \d+
