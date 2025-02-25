@@ -56,6 +56,16 @@ services:
             - '@language'
             - '@user'
 
+    madetoraid.lsbbb.controller.craft:
+        class: madetoraid\lsbbb\controller\craft_controller
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+            - '@pagination'
+            - '@request'
+
     madetoraid.lsbbb.controller.mob:
         class: madetoraid\lsbbb\controller\mob_controller
         arguments:

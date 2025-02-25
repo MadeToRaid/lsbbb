@@ -95,6 +95,8 @@ class item_controller
 			'LSBBB_AH_URL'		=> $this->helper->route('madetoraid_lsbbb_controller_ah'),
 			'LSBBB_ZONE_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_zone'),
 			'LSBBB_MOB_URL'		=> $this->helper->route('madetoraid_lsbbb_controller_mob_group'),
+			'LSBBB_CRAFT_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_craft'),
+
 		));
 		$this->template->assign_block_vars('navlinks', array(
 			'FORUM_NAME' => $this->language->lang('LSBBB_ITEM'),

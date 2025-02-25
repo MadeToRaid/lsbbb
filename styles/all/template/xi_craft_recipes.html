@@ -1,3 +1,19 @@
+<h2 class="forum-title">
+	<a href="{LSBBB_THIS_CRAFT_URL}">{LSBBB_THIS_CRAFT}</a>
+</h2>
+<div class="action-bar bar-top">
+	<!-- IF .pagination or TOTAL_POSTS -->
+	<div class="pagination">
+		{L_LSBBB_TOTAL_RECIPES}: {TOTAL_POSTS}
+		<!-- IF .pagination -->
+		<!-- INCLUDE pagination.html -->
+		<!-- ELSE -->
+		&bull; {PAGE_NUMBER}
+		<!-- ENDIF -->
+	</div>
+	<!-- ENDIF -->
+	<!-- EVENT viewtopic_body_pagination_top_after -->
+</div>
 <div class="forabg">
 	<div class="inner">
 		<ul class="topiclist">
@@ -14,7 +30,7 @@
 		</ul>
 		<ul class="topiclist forums recipelist">
 			<!-- BEGIN reciperow -->
-			<li class="row reciperow">
+			<li class="row reciperow <!-- IF reciperow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
 				<dl class="row-item">
 					<dt title="{% if forumrow.S_IS_LINK %}{{ lang('FORUM_LINK') }}{% else %}{{ forumrow.FORUM_FOLDER_IMG_ALT }}{% endif %}">
 						<div class="recipe-inner">
@@ -79,4 +95,18 @@
 			<!-- END reciperow -->
 		</ul>
 	</div>
+</div>
+<!-- EVENT viewtopic_body_topic_actions_before -->
+<div class="action-bar bar-bottom">
+	<!-- EVENT viewtopic_buttons_bottom_before -->
+	<!-- IF .pagination or TOTAL_POSTS -->
+	<div class="pagination">
+		{TOTAL_POSTS}
+		<!-- IF .pagination -->
+		<!-- INCLUDE pagination.html -->
+		<!-- ELSE -->
+		&bull; {PAGE_NUMBER}
+		<!-- ENDIF -->
+	</div>
+	<!-- ENDIF -->
 </div>
