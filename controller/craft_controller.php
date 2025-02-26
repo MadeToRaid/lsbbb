@@ -124,7 +124,7 @@ class craft_controller
 		} else {
 			redirect($this->helper->route('madetoraid_lsbbb_controller_craft'));
 		}
-		page_header($this->language->lang('LSBBB_CRAFT') . ' - ' . $this->language->lang('LSBBB_' . strtoupper($this->craft->guildcols[$guild_id])));
+		page_header($this->language->lang('LSBBB_CRAFT') . ' - ' . $this->language->lang('LSBBB_' . strtoupper($this->craft->guildcols[$guild_id])) . ' (' . $craft_rank + 1 . '/' . $num_ranks . ')' );
 
 		return $this->helper->render('@madetoraid_lsbbb/xi_craft_body.html', $guild_id);
 	}
