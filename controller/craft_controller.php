@@ -62,6 +62,7 @@ class craft_controller
 
 	public function default()
 	{
+		page_header($this->language->lang('LSBBB_CRAFT'));
 		return $this->helper->render('@madetoraid_lsbbb/xi_craft_body.html', 0);
 	}
 
