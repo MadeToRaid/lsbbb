@@ -23,19 +23,20 @@ class main_listener implements EventSubscriberInterface
 	public static function getSubscribedEvents()
 	{
 		return [
-			'core.user_setup'								=> 'load_language_on_setup',
-			'core.viewonline_overwrite_location'			=> 'viewonline_page',
-			'core.viewonline_modify_sql'					=> 'xi_view_online_modify_sql',
-			//'core.display_forums_modify_template_vars'	=> 'display_forums_modify_template_vars',
-			'core.page_header'								=> 'xi_add_page_header_link',
-			'core.ucp_register_user_row_after'				=> 'xi_create_account',
-			'core.ucp_activate_after'						=> 'xi_activate_account',
-			'core.ucp_profile_reg_details_validate'			=> 'xi_update_password',
-			'core.obtain_users_online_string_sql'			=> 'xi_obtain_users_online_string_sql',
-			//'core.user_format_date_override'				=> 'xi_vanadiel_date'
-			//'core.user_active_flip_after'					=> 'xi_flip_account',
-			//'core.mcp_ban_main'							=> 'xi_ban_account',
-			//'core.make_jumpbox_modify_forum_list'			=> 'xi_jumpbox',
+			'core.user_setup'									=> 'load_language_on_setup',
+			'core.viewonline_overwrite_location'				=> 'viewonline_page',
+			'core.viewonline_modify_sql'						=> 'xi_view_online_modify_sql',
+			//'core.display_forums_modify_template_vars'		=> 'display_forums_modify_template_vars',
+			'core.page_header'									=> 'xi_add_page_header_link',
+			'core.ucp_register_user_row_after'					=> 'xi_create_account',
+			'core.ucp_activate_after'							=> 'xi_activate_account',
+			'core.ucp_profile_reg_details_validate'				=> 'xi_update_password',
+			'core.obtain_users_online_string_sql'				=> 'xi_obtain_users_online_string_sql',
+			//'core.user_format_date_override'					=> 'xi_vanadiel_date'
+			//'core.user_active_flip_after'						=> 'xi_flip_account',
+			//'core.mcp_ban_main'								=> 'xi_ban_account',
+			//'core.make_jumpbox_modify_forum_list'				=> 'xi_jumpbox',
+			'core.memberlist_modify_view_profile_template_vars'	=> 'xi_profile_template_vars',
 		];
 	}
 
@@ -250,7 +251,41 @@ class main_listener implements EventSubscriberInterface
 			'LSBBB_NAV_AUCTIONHOUSE' => $this->language->lang('LSBBB_NAV_AUCTIONHOUSE'),
 			'LSBBB_NAV_CHARACTERS' => $this->language->lang('LSBBB_NAV_CHARACTERS'),
 			'LSBBB_NAV_MYLISTINGS' => $this->language->lang('LSBBB_NAV_MYLISTINGS'),
+			'LSBBB_JOBS_URL' => $this->helper->route('madetoraid_lsbbb_controller_job'),
 		]);
+	}
+
+	public function xi_profile_template_vars($event)
+	{
+		global $db;
+		$user_id = $this->symfony_request->query->get('u');
+
+		$xi_sql_ary  = array(
+			'SELECT'	=> 'c.charid, c.charname, c.accid',
+			'FROM'		=> array(
+				'xidb.chars' => 'c',
+			),
+			'LEFT_JOIN' => array(
+				array(
+					'FROM'	=> array('xidb.accounts' => 'a'),
+					'ON'	=> 'a.id = c.accid',
+				),
+				array(
+					'FROM'	=> array('forums.phpbb_users' => 'pu'),
+					'ON'	=> 'pu.user_email = a.registration_email',
+				),
+			),
+			'WHERE'		=> 'pu.user_id = ' . (int) $user_id,
+		);
+		$result = $db->sql_query($db->sql_build_query('SELECT', $xi_sql_ary));
+		$char_records = $db->sql_fetchrowset($result);
+		
+		foreach($char_records as $char) {
+			$this->template->assign_block_vars('charrow', array(
+				'CHARACTER_NAME' => $char['charname'],
+				'CHARACTER_URL' => $this->helper->route('madetoraid_lsbbb_controller_char') . $char['charid'],
+			));
+		}
 	}
 
 	/**
@@ -271,6 +306,9 @@ class main_listener implements EventSubscriberInterface
 				$event['location_url'] = $this->helper->route('madetoraid_lsbbb_controller_item') . $item_id;
 			} elseif (strrpos($event['row']['session_page'], 'app.' . $this->php_ext . '/xi/zone') === 0) {
 				$zone_id = substr($event['row']['session_page'], strrpos($event['row']['session_page'], '/' )+1);
+				if($zone_id == '') {
+					$zone_id = 0;
+				}
 				$event['location'] = $this->language->lang('LSBBB_VIEWING_ZONE') . ': ' . $zone_id;
 				if($event['row']['session_browser'] == 'FINAL FANTASY XI') { $event['location'] .= ' <i class="fa fa-superpowers" aria-hidden="true"></i>'; }
 				$event['location_url'] = $this->helper->route('madetoraid_lsbbb_controller_zone_id', array('zone_id' => $zone_id));

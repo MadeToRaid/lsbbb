@@ -118,6 +118,13 @@ class zone_controller
 					$this->template->assign_block_vars('bcnmrow', $bcnm_row);
 				}
 
+				$zone_instance_data = $this->zone->xi_zone_instance_info($zone_id);
+				foreach ($zone_instance_data as $instance_row) {
+					$instance_row['entrance_zone_name'] = $this->language->lang($instance_row['entrance_zone_name']);
+					$instance_row['zone_url'] = $this->helper->route('madetoraid_lsbbb_controller_zone_id', array('zone_id' => $instance_row['entrance_zone_id']));
+					$this->template->assign_block_vars('instancerow', $instance_row);
+				}
+
 				$zone_npc_data = $this->zone->xi_zone_npcs($zone_id);
 				foreach ($zone_npc_data as $npc_row) {
 					$npc_row['npcurl'] = $this->helper->route('madetoraid_lsbbb_controller_npc_id', array('npc_id' => $npc_row['npcid']));

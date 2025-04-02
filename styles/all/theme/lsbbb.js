@@ -7,8 +7,8 @@
 
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  let expires = "expires="+ d.toUTCString();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
@@ -16,7 +16,7 @@ function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
+  for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
     while (c.charAt(0) == ' ') {
       c = c.substring(1);
@@ -28,6 +28,21 @@ function getCookie(cname) {
   return "";
 }
 
+/* Table sort */
+const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+
+const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
+  v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+)(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+
+// do the work...
+document.querySelectorAll('.sortable th').forEach(th => th.addEventListener('click', (() => {
+  const table = th.closest('table');
+  const tbody = table.querySelector('.sortable tbody');
+  Array.from(tbody.querySelectorAll('tr'))
+    .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+    .forEach(tr => tbody.appendChild(tr));
+})));
 
 
 /**
@@ -104,53 +119,53 @@ function appendVanadielTime() {
  * @todo Clean this up and turn into a funciton 
  */
 
-var mapthumbs = document.getElementById("mapthumbs");
-if (!!mapthumbs) {
-  var mapimgs = mapthumbs.getElementsByClassName("mapimg");
-}
-else {
-  var mapimgs = [];
-}
-var modalimg = document.getElementById("modalimg");
-var modalimglink = document.getElementById("modalimglink");
-var mapmodal = document.getElementById("mapmodal");
-var maptooltip = document.getElementById('maptooltip');
-var maptooltipimg = document.getElementById('maptooltipimg');
-var counter = 0;
-
-for (let i = 0; i < mapimgs.length; i++) {
-  let mapimg = mapimgs[i];
-  mapimg.addEventListener("click", function () {
-    modalimg.src = this.src;
-    modalimglink.href = this.src;
-    mapmodal.style.display = "block";
-  });
-  /*
-        mapimg.addEventListener("mouseover",function(){
-      maptooltipimg.src=this.src;
-                  maptooltip.style.visibility = "visible";
-    });
-  */
-}
-
-var span = document.getElementsByClassName("mapclose")[0];
-if (!!span) {
-  span.onclick = function () {
-    mapmodal.style.display = "none";
-  }
-}
-if (!!mapmodal) {
-  mapmodal.onclick = function () {
-    mapmodal.style.display = "none";
-  }
-}
-
-document.addEventListener('keydown', function (e) {
-  let keyCode = e.keyCode;
-  if (keyCode === 27) {//keycode is an Integer, not a String
-    mapmodal.style.display = "none";
-  }
-});
+//var mapthumbs = document.getElementById("mapthumbs");
+//if (!!mapthumbs) {
+//  var mapimgs = mapthumbs.getElementsByClassName("mapimg");
+//}
+//else {
+//  var mapimgs = [];
+//}
+//var modalimg = document.getElementById("modalimg");
+//var modalimglink = document.getElementById("modalimglink");
+//var mapmodal = document.getElementById("mapmodal");
+//var maptooltip = document.getElementById('maptooltip');
+//var maptooltipimg = document.getElementById('maptooltipimg');
+//var counter = 0;
+//
+//for (let i = 0; i < mapimgs.length; i++) {
+//  let mapimg = mapimgs[i];
+//  mapimg.addEventListener("click", function () {
+//    modalimg.src = this.src;
+//    modalimglink.href = this.src;
+//    mapmodal.style.display = "block";
+//  });
+//  /*
+//        mapimg.addEventListener("mouseover",function(){
+//      maptooltipimg.src=this.src;
+//                  maptooltip.style.visibility = "visible";
+//    });
+//  */
+//}
+//
+//var span = document.getElementsByClassName("mapclose")[0];
+//if (!!span) {
+//  span.onclick = function () {
+//    mapmodal.style.display = "none";
+//  }
+//}
+//if (!!mapmodal) {
+//  mapmodal.onclick = function () {
+//    mapmodal.style.display = "none";
+//  }
+//}
+//
+//document.addEventListener('keydown', function (e) {
+//  let keyCode = e.keyCode;
+//  if (keyCode === 27) {//keycode is an Integer, not a String
+//    mapmodal.style.display = "none";
+//  }
+//});
 
 /*
 let mapToolTip = document.getElementById('maptooltip');
@@ -161,6 +176,114 @@ function toolTipXY(e) {
     mapToolTip.style.left = (x + 20) + 'px';
 };
 */
+
+
+
+
+
+
+
+
+
+const images = document.querySelectorAll("img.mapimg");
+let imgIndex
+let imgSrc;
+// get images src onclick
+images.forEach((img, i) => {
+  img.addEventListener("click", (e) => {
+    imgSrc = e.target.src;
+    //run modal function
+    imgModal(imgSrc);
+    //index of the next image
+    imgIndex = i;
+  });
+});
+//creating the modal
+let imgModal = (src) => {
+  const modal = document.createElement("div");
+  modal.setAttribute("class", "modal");
+  //add modal to the parent element 
+  document.querySelector("body").append(modal);
+  //adding image to modal
+  const newImage = document.createElement("img");
+  newImage.setAttribute("src", src);
+  //creating the close button
+  const closeBtn = document.createElement("i");
+  closeBtn.setAttribute("class", "fa fa-times mapclose");
+  //close function
+  closeBtn.onclick = () => {
+    modal.remove();
+  };
+  //next and previous buttons
+  const nextBtn = document.createElement("i");
+  nextBtn.setAttribute("class", "fa fa-arrow-right nextbtn");
+  // change the src of current image to the src of next image
+  nextBtn.onclick = () => {
+    newImage.setAttribute("src", nextImg())
+  };
+  const prevBtn = document.createElement("i");
+  prevBtn.setAttribute("class", "fa fa-arrow-left prevbtn");
+  // change the src of current image to the src of pevious image
+  prevBtn.onclick = () => {
+    newImage.setAttribute("src", prevImg())
+  }
+  modal.append(closeBtn, prevBtn, newImage, nextBtn);
+  document.addEventListener('keydown', function (e) {
+    let keyCode = e.keyCode;
+    if (keyCode === 27) {//keycode is an Integer, not a String
+      modal.remove();
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    let keyCode = e.keyCode;
+    if (keyCode === 37) {//keycode is an Integer, not a String
+      newImage.setAttribute("src", prevImg())
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    let keyCode = e.keyCode;
+    if (keyCode === 39) {//keycode is an Integer, not a String
+      newImage.setAttribute("src", nextImg())
+    }
+  });
+};
+
+//next image function
+let nextImg = () => {
+  imgIndex++;
+  //check if it is the the last image
+  if (imgIndex >= images.length) {
+    imgIndex = 0
+  }
+  //return src of the new image
+  return images[imgIndex].src;
+};
+//previous image function
+let prevImg = () => {
+  imgIndex--;
+  console.log(imgIndex);
+  //check if it is the first image
+  if (imgIndex < 0) {
+    imgIndex = images.length - 1
+  }
+  //return src of previous image
+  return images[imgIndex].src
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**

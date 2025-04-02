@@ -1,0 +1,25 @@
+<!-- IF bazaarrow -->
+<h3 class="first">{L_LSBBB_BAZAAR}</h3>
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive sortable">
+			<thead>
+				<tr>
+					<th class="info">{L_LSBBB_ITEM}</th>
+					<th class="info">{L_LSBBB_QUANTITY}</th>
+					<th class="info">{L_LSBBB_LIST_PRICE}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN bazaarrow -->
+				<tr class="bazaarrow <!-- IF bazaarrow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+					<td class="info"><img src="{LSBBB_URL}/styles/all/theme/images/icon/{bazaarrow.itemid}.png" title="{bazaarrow.item_name}"><a href="{bazaarrow.item_url}">{bazaarrow.item_name}</a></td>
+					<td class="info">{bazaarrow.quantity}</td>
+					<td class="info">{bazaarrow.price}</td>
+				</tr>
+				<!-- END bazaarrow -->
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- ENDIF -->

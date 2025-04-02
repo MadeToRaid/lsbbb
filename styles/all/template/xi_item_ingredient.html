@@ -1,0 +1,82 @@
+<div class="forabg">
+	<div class="inner">
+		<ul class="topiclist">
+			<li class="header recipeheader">
+				<dl class="row-item">
+					<dt>
+						<div class="recipe-inner">{L_LSBBB_INRECIPE}</div>
+					</dt>
+					<dd class="crystal">{L_LSBBB_CRYSTAL}</dd>
+					<dd class="recipe">{L_LSBBB_INGREDIENTS}</dd>
+					<dd class="lastpost"><span>{L_LSBBB_RESULTS}</span></dd>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist forums recipelist">
+			<!-- BEGIN ingredientrow -->
+			<li class="row reciperow">
+				<dl class="row-item">
+					<dt title="{% if forumrow.S_IS_LINK %}{{ lang('FORUM_LINK') }}{% else %}{{ forumrow.FORUM_FOLDER_IMG_ALT }}{% endif %}">
+						<div class="recipe-inner">
+							<ul class="recipeskills">
+								<!-- IF ingredientrow.wood -->
+								<li><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/woodworking.gif"><a href="{LSBBB_CRAFT_URL}1">{L_LSBBB_WOOD}</a> {ingredientrow.wood}</li><!-- ENDIF -->
+								<!-- IF ingredientrow.smith -->
+								<li><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/smithing.gif"><a href="{LSBBB_CRAFT_URL}2">{L_LSBBB_SMITH}</a> {ingredientrow.smith}</li><!-- ENDIF -->
+								<!-- IF ingredientrow.gold -->
+								<li><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/goldsmithing.gif"><a href="{LSBBB_CRAFT_URL}3">{L_LSBBB_GOLD}</a> {ingredientrow.gold}</li><!-- ENDIF -->
+								<!-- IF ingredientrow.cloth -->
+								<li><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/weaving.gif"><a href="{LSBBB_CRAFT_URL}4">{L_LSBBB_CLOTH}</a> {ingredientrow.cloth}</li><!-- ENDIF -->
+								<!-- IF ingredientrow.leather -->
+								<li><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/leathercraft.gif"><a href="{LSBBB_CRAFT_URL}5">{L_LSBBB_LEATHER}</a> {ingredientrow.leather}</li><!-- ENDIF -->
+								<!-- IF ingredientrow.bone -->
+								<li><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/bonecraft.gif"><a href="{LSBBB_CRAFT_URL}6">{L_LSBBB_BONE}</a> {ingredientrow.bone}</li><!-- ENDIF -->
+								<!-- IF ingredientrow.alchemy -->
+								<li><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/alchemy.gif"><a href="{LSBBB_CRAFT_URL}7">{L_LSBBB_ALCHEMY}</a> {ingredientrow.alchemy}</li><!-- ENDIF -->
+								<!-- IF ingredientrow.cook -->
+								<li><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/cooking.gif"><a href="{LSBBB_CRAFT_URL}8">{L_LSBBB_COOK}</a> {ingredientrow.cook}</li><!-- ENDIF -->
+							</ul>
+						</div>
+					</dt>
+					<dd class="crystal">
+						<ul class="recipe_ingredients">
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.crystal}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.crystal}">{ingredientrow.crystal_name}</a></li>
+						</ul>
+					</dd>
+					<dd class="recipe">
+						<ul class="recipe_ingredients">
+							<!-- IF ingredientrow.ingredient1 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.ingredient1}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.ingredient1}">{ingredientrow.ingredient1_name}</a></li><!-- ENDIF -->
+							<!-- IF ingredientrow.ingredient2 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.ingredient2}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.ingredient2}">{ingredientrow.ingredient2_name}</li></a><!-- ENDIF -->
+							<!-- IF ingredientrow.ingredient3 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.ingredient3}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.ingredient3}">{ingredientrow.ingredient3_name}</li></a><!-- ENDIF -->
+							<!-- IF ingredientrow.ingredient4 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.ingredient4}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.ingredient4}">{ingredientrow.ingredient4_name}</li></a><!-- ENDIF -->
+							<!-- IF ingredientrow.ingredient5 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.ingredient5}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.ingredient5}">{ingredientrow.ingredient5_name}</li></a><!-- ENDIF -->
+							<!-- IF ingredientrow.ingredient6 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.ingredient6}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.ingredient6}">{ingredientrow.ingredient6_name}</li></a><!-- ENDIF -->
+							<!-- IF ingredientrow.ingredient7 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.ingredient7}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.ingredient7}">{ingredientrow.ingredient7_name}</li></a><!-- ENDIF -->
+							<!-- IF ingredientrow.ingredient8 -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.ingredient8}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.ingredient8}">{ingredientrow.ingredient8_name}</li></a><!-- ENDIF -->
+						</ul>
+					</dd>
+					<dd class="lastpost">
+						<ul class="recipe_ingredients">
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.result}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.result}">{ingredientrow.result_name}</a><!-- IF ingredientrow.resultqty > 1 --> ({ingredientrow.resultqty})<!-- ENDIF --></li>
+							<!-- IF ingredientrow.resulthq1 != ingredientrow.result || ingredientrow.resulthq1qty != ingredientrow.resultqty -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.resulthq1}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.resulthq1}">{ingredientrow.resulthq1_name}</a><!-- IF ingredientrow.resulthq1qty > 1 --> ({ingredientrow.resulthq1qty})<!-- ENDIF --></li><!-- ENDIF -->
+							<!-- IF ingredientrow.resulthq2 != ingredientrow.resulthq1 || ingredientrow.resulthq2qty != ingredientrow.resulthq1qty -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.resulthq2}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.resulthq2}">{ingredientrow.resulthq2_name}</a><!-- IF ingredientrow.resulthq2qty > 1 --> ({ingredientrow.resulthq2qty})<!-- ENDIF --></li><!-- ENDIF -->
+							<!-- IF ingredientrow.resulthq3 != ingredientrow.resulthq3 || ingredientrow.resulthq3qty != ingredientrow.resulthq2qty -->
+							<li><img src="https://www.madetoraid.com/ffxiimg/icon/{ingredientrow.resulthq3}.png"><a href="{LSBBB_ITEM_URL}{ingredientrow.resulthq3}">{ingredientrow.resulthq3_name}</a><!-- IF ingredientrow.resulthq3qty > 1 --> ({ingredientrow.resulthq3qty})<!-- ENDIF --></li><!-- ENDIF -->
+						</ul>
+					</dd>
+				</dl>
+			</li>
+			<!-- END ingredientrow -->
+		</ul>
+	</div>
+</div>

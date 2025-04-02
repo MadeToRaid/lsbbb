@@ -85,3 +85,13 @@ madetoraid_lsbbb_controller_craft_id_level:
     requirements:
       guild_id: \d+
       level: \d+
+
+madetoraid_lsbbb_controller_job:
+    path: /xi/job/
+    defaults: { _controller: madetoraid.lsbbb.controller.job:default }
+
+madetoraid_lsbbb_controller_job_id:
+    path: /xi/job/{job_id}
+    defaults: { _controller: madetoraid.lsbbb.controller.job:handle, job_id: 0 }
+    requirements:
+      job_id: \d+  

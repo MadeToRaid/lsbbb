@@ -111,6 +111,7 @@ class item_controller
 			$item_data 	= $this->item->xi_get_item($item_id);
 			if (sizeof($item_data) > 0) {
 				$recipe_data = $this->recipe->xi_get_recipe($item_id);
+				$ingredient_data = $this->recipe->xi_get_ingredient($item_id);
 				$drop_data 	= $this->item->xi_drop_search($item_id);
 				$fish_data 	= $this->fish->xi_fish_info($item_id);
 				$ah_data 	= $this->ah->xi_auction_history($item_id, 10);
@@ -122,6 +123,9 @@ class item_controller
 				}
 				foreach ($recipe_data as $recipe_row) {
 					$this->template->assign_block_vars('reciperow', $recipe_row);
+				}
+				foreach ($ingredient_data as $ingredient_row) {
+					$this->template->assign_block_vars('ingredientrow', $ingredient_row);
 				}
 				foreach ($drop_data as $drop_row) {
 					$drop_row['moburl'] = $this->helper->route('madetoraid_lsbbb_controller_mob_group', array('zone_id' => $drop_row['zoneid'], 'group_id' => $drop_row['groupid']));

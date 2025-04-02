@@ -4,11 +4,161 @@
 	<!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME}</span><!-- ENDIF -->
 </p>
 <!-- IF S_USER_LOGGED_IN -->
-<p class="responsive-center time">{CURRENT_TIME}</p><!-- ENDIF -->
-
+<p class="responsive-center time">{CURRENT_TIME}</p>
+<!-- ENDIF -->
 
 <!-- IF charprofile -->
-<!-- INCLUDE xi_char_profile.html -->
+<!-- IF chardata -->
+<!-- BEGIN chardata -->
+<div class="post has-profile bg2<!-- IF chardata.session_key --> online<!-- ENDIF -->">
+	<div class="inner">
+		<dl class="postprofile">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+					<img src="https://www.madetoraid.com/ffxiimg/faces/{chardata.char_image}" title="{chardata.charname}" alt="Character image">
+				</div>
+				<strong>{chardata.charname}</strong>
+			</dt>
+			<dd>{chardata.mainjob}{chardata.mlvl}<!-- IF chardata.slvl -->/{chardata.subjob}{chardata.slvl}<!-- ENDIF --></dd>
+			<dd>{chardata.nationname} (<!-- IF chardata.nation == 0 -->{chardata.rank_sandoria}<!-- ELSEIF chardata.nation == 1 -->{chardata.rank_bastok}<!-- ELSE -->{chardata.rank_windurst}<!-- ENDIF -->)</dd>
+			<dd>{chardata.title}</dd>
+			<!-- IF chardata.primaryls_name -->
+			<dd style="color: {chardata.primaryls_color};">&#9673; {chardata.primaryls_name}</dd><!-- ENDIF -->
+			<!-- IF chardata.secondaryls_name -->
+			<dd style="color: {chardata.secondaryls_color};">&#9673; {chardata.secondaryls_name}</dd><!-- ENDIF -->
+			<dd class="chargear">
+				<table class="geartable">
+					<tbody>
+						<tr>
+							<td><!-- IF chardata.mainid --><a href="{LSBBB_ITEM_URL}{chardata.mainid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.mainid}.png" title="{chardata.mainname}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.subid --><a href="{LSBBB_ITEM_URL}{chardata.subid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.subid}.png" title="{chardata.subname}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.rangeid --><a href="{LSBBB_ITEM_URL}{chardata.rangeid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.rangeid}.png" title="{chardata.rangename}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.ammoid --><a href="{LSBBB_ITEM_URL}{chardata.ammoid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.ammoid}.png" title="{chardata.ammoname}"></a><!-- ENDIF --></td>
+						</tr>
+						<tr>
+							<td><!-- IF chardata.headid --><a href="{LSBBB_ITEM_URL}{chardata.headid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.headid}.png" title="{chardata.headname}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.neckid --><a href="{LSBBB_ITEM_URL}{chardata.neckid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.neckid}.png" title="{chardata.neckname}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.ear1id --><a href="{LSBBB_ITEM_URL}{chardata.ear1id}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.ear1id}.png" title="{chardata.ear1name}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.ear2id --><a href="{LSBBB_ITEM_URL}{chardata.ear2id}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.ear2id}.png" title="{chardata.ear2name}"></a><!-- ENDIF --></td>
+						</tr>
+						<tr>
+						<tr>
+							<td><!-- IF chardata.bodyid --><a href="{LSBBB_ITEM_URL}{chardata.bodyid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.bodyid}.png" title="{chardata.bodyname}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.handsid --><a href="{LSBBB_ITEM_URL}{chardata.handsid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.handsid}.png" title="{chardata.handsname}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.ring1id --><a href="{LSBBB_ITEM_URL}{chardata.ring1id}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.ring1id}.png" title="{chardata.ring1name}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.ring2id --><a href="{LSBBB_ITEM_URL}{chardata.ring2id}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.ring2id}.png" title="{chardata.ring2name}"></a><!-- ENDIF --></td>
+						</tr>
+						<tr>
+						<tr>
+							<td><!-- IF chardata.backid --><a href="{LSBBB_ITEM_URL}{chardata.backid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.backid}.png" title="{chardata.backname}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.waistid --><a href="{LSBBB_ITEM_URL}{chardata.waistid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.waistid}.png" title="{chardata.waistname}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.legsid --><a href="{LSBBB_ITEM_URL}{chardata.legsid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.legsid}.png" title="{chardata.legsname}"></a><!-- ENDIF --></td>
+							<td><!-- IF chardata.feetid --><a href="{LSBBB_ITEM_URL}{chardata.feetid}"><img src="https://www.madetoraid.com/ffxiimg/icon/{chardata.feetid}.png" title="{chardata.feetname}"></a><!-- ENDIF --></td>
+						</tr>
+					</tbody>
+				</table>
+			</dd>
+
+		</dl>
+
+		<div class="postbody">
+			<div>
+				<h3 class="first">Jobs</h3>
+				<div class="forabg">
+					<div class="inner">
+						<table class="table1 responsive jobtable">
+							<thead>
+								<tr>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}1"><img src="{LSBBB_URL}/icon/12511.png"></a> {L_LSBBB_WAR}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}2"><img src="{LSBBB_URL}/icon/12512.png"></a> {L_LSBBB_MNK}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}3"><img src="{LSBBB_URL}/icon/13855.png"></a> {L_LSBBB_WHM}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}4"><img src="{LSBBB_URL}/icon/13856.png"></a> {L_LSBBB_BLM}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}5"><img src="{LSBBB_URL}/icon/12513.png"></a> {L_LSBBB_RDM}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}6"><img src="{LSBBB_URL}/icon/12514.png"></a> {L_LSBBB_THF}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}7"><img src="{LSBBB_URL}/icon/12515.png"></a> {L_LSBBB_PLD}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}8"><img src="{LSBBB_URL}/icon/12516.png"></a> {L_LSBBB_DRK}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}9"><img src="{LSBBB_URL}/icon/12517.png"></a> {L_LSBBB_BST}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}10"><img src="{LSBBB_URL}/icon/13857.png"></a> {L_LSBBB_BRD}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}11"><img src="{LSBBB_URL}/icon/12518.png"></a> {L_LSBBB_RNG}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}12"><img src="{LSBBB_URL}/icon/13868.png"></a> {L_LSBBB_SAM}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}13"><img src="{LSBBB_URL}/icon/13869.png"></a> {L_LSBBB_NIN}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}14"><img src="{LSBBB_URL}/icon/12519.png"></a> {L_LSBBB_DRG}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}15"><img src="{LSBBB_URL}/icon/12520.png"></a> {L_LSBBB_SMN}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}16"><img src="{LSBBB_URL}/icon/15265.png"></a> {L_LSBBB_BLU}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}17"><img src="{LSBBB_URL}/icon/15266.png"></a> {L_LSBBB_COR}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}18"><img src="{LSBBB_URL}/icon/15267.png"></a> {L_LSBBB_PUP}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}19"><img src="{LSBBB_URL}/icon/16138.png"></a> {L_LSBBB_DNC}</th>
+									<th><a class="jobicon" href="{LSBBB_JOB_URL}20"><img src="{LSBBB_URL}/icon/16140.png"></a> {L_LSBBB_SCH}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="bg1">
+									<td>{chardata.war}</td>
+									<td>{chardata.mnk}</td>
+									<td>{chardata.whm}</td>
+									<td>{chardata.blm}</td>
+									<td>{chardata.rdm}</td>
+									<td>{chardata.thf}</td>
+									<td>{chardata.pld}</td>
+									<td>{chardata.drk}</td>
+									<td>{chardata.bst}</td>
+									<td>{chardata.brd}</td>
+									<td>{chardata.rng}</td>
+									<td>{chardata.sam}</td>
+									<td>{chardata.nin}</td>
+									<td>{chardata.drg}</td>
+									<td>{chardata.smn}</td>
+									<td>{chardata.blu}</td>
+									<td>{chardata.cor}</td>
+									<td>{chardata.pup}</td>
+									<td>{chardata.dnc}</td>
+									<td>{chardata.sch}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<h3 class="first">Crafts</h3>
+				<div class="forabg">
+					<div class="inner">
+						<table class="table1 responsive jobtable">
+							<thead>
+								<tr>
+									<th><img src="{LSBBB_URL}/styles/all/theme/images/fishing.gif">{L_LSBBB_FSH}</th>
+									<th><img src="{LSBBB_URL}/styles/all/theme/images/woodworking.gif">{L_LSBBB_CRP}</th>
+									<th><img src="{LSBBB_URL}/styles/all/theme/images/smithing.gif">{L_LSBBB_BSM}</th>
+									<th><img src="{LSBBB_URL}/styles/all/theme/images/goldsmithing.gif">{L_LSBBB_GSM}</th>
+									<th><img src="{LSBBB_URL}/styles/all/theme/images/weaving.gif">{L_LSBBB_WVR}</th>
+									<th><img src="{LSBBB_URL}/styles/all/theme/images/leathercraft.gif">{L_LSBBB_LTW}</th>
+									<th><img src="{LSBBB_URL}/styles/all/theme/images/bonecraft.gif">{L_LSBBB_BNC}</th>
+									<th><img src="{LSBBB_URL}/styles/all/theme/images/alchemy.gif">{L_LSBBB_ALC}</th>
+									<th><img src="{LSBBB_URL}/styles/all/theme/images/cooking.gif">{L_LSBBB_CUL}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="bg1">
+									<td>{chardata.guild_fishing}</td>
+									<td>{chardata.guild_woodworking}</td>
+									<td>{chardata.guild_smithing}</td>
+									<td>{chardata.guild_goldsmithing}</td>
+									<td>{chardata.guild_weaving}</td>
+									<td>{chardata.guild_leathercraft}</td>
+									<td>{chardata.guild_bonecraft}</td>
+									<td>{chardata.guild_alchemy}</td>
+									<td>{chardata.guild_cooking}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- INCLUDE xi_char_bazaar.html -->
+				<!-- INCLUDE xi_char_records.html -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END chardata -->
+<!-- ENDIF -->
 <!-- ELSE -->
 <!-- INCLUDE xi_char_list.html -->
 <!-- ENDIF -->
@@ -17,19 +167,15 @@
 
 <!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
 <form method="post" action="{S_LOGIN_ACTION}" class="headerspace">
-	<h3><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a><!-- IF S_REGISTER_ENABLED -->&nbsp; &bull; &nbsp;<a
-			href="{U_REGISTER}">{L_REGISTER}</a><!-- ENDIF --></h3>
+	<h3><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a><!-- IF S_REGISTER_ENABLED -->&nbsp; &bull; &nbsp;<a href="{U_REGISTER}">{L_REGISTER}</a><!-- ENDIF --></h3>
 	<fieldset class="quick-login">
-		<label for="username"><span>{L_USERNAME}{L_COLON}</span> <input type="text" tabindex="1" name="username"
-				id="username" size="10" class="inputbox" title="{L_USERNAME}" autocomplete="username" /></label>
-		<label for="password"><span>{L_PASSWORD}{L_COLON}</span> <input type="password" tabindex="2" name="password"
-				id="password" size="10" class="inputbox" title="{L_PASSWORD}" autocomplete="current-password" /></label>
+		<label for="username"><span>{L_USERNAME}{L_COLON}</span> <input type="text" tabindex="1" name="username" id="username" size="10" class="inputbox" title="{L_USERNAME}" autocomplete="username" /></label>
+		<label for="password"><span>{L_PASSWORD}{L_COLON}</span> <input type="password" tabindex="2" name="password" id="password" size="10" class="inputbox" title="{L_PASSWORD}" autocomplete="current-password" /></label>
 		<!-- IF U_SEND_PASSWORD -->
 		<a href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a>
 		<!-- ENDIF -->
 		<!-- IF S_AUTOLOGIN_ENABLED -->
-		<span class="responsive-hide">|</span> <label for="autologin">{L_LOG_ME_IN} <input type="checkbox" tabindex="4"
-				name="autologin" id="autologin" /></label>
+		<span class="responsive-hide">|</span> <label for="autologin">{L_LOG_ME_IN} <input type="checkbox" tabindex="4" name="autologin" id="autologin" /></label>
 		<!-- ENDIF -->
 		<input type="submit" tabindex="5" name="login" value="{L_LOGIN}" class="button2" />
 		{S_LOGIN_REDIRECT}

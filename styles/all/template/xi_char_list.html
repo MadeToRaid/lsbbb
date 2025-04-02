@@ -1,41 +1,40 @@
 <!-- IF charrow -->
 <div class="forabg">
 	<div class="inner">
-		<ul class="topiclist">
-			<li class="header">
-				<dl class="row-item">
-					<dt class="charname">
-						<div class="list-inner">{L_LSBBB_CHARACTER}</div>
-					</dt>
-					<dd class="topics">{L_LSBBB_ACCOUNT}</dd>
-					<dd class="topics">{L_LSBBB_LASTZONE}</dd>
-				</dl>
-			</li>
-		</ul>
-		<ul class="topiclist forums">
-			<!-- BEGIN charrow -->
-			<li class="row">
-				<dl class="row-item">
-					<dt class="charname">
-						<div class="list-inner">
-							<span class="forum-image" style="margin-left: -45px; padding-bottom: 10px;"><img src="/ext/madetoraid/lsbbb/styles/all/theme/images/faces/{charrow.char_image}" title="{itemrow.item_name}"></span>
-							<a href="/xi/char/{charrow.charid}" class="forumtitle">{charrow.charname}</a>
-							<br />{charrow.nation}
-							<!-- IF charrow.nation == "Windurst" -->
-							({charrow.rank_windurst})
-							<!-- ELSEIF charrow.nation == "Bastok" -->
-							({charrow.rank_bastok})
-							<!-- ELSE -->
-							({charrow.rank_sandoria})
-							<!-- ENDIF -->
-						</div>
-					</dt>
-					<dd class="topics">{charrow.username}</dd>
-					<dd class="topics">{charrow.pos_zone}</dd>
-				</dl>
-			</li>
-			<!-- END charrow -->
-		</ul>
+		<table class="table1 responsive characterlist sortable">
+			<thead>
+				<tr>
+					<th class="info">{L_LSBBB_CHARACTER}</th>
+					<th class="info">{L_LSBBB_NATION}</th>
+					<th class="info">{L_LSBBB_ACCOUNT}</th>
+					<th class="info">{L_LSBBB_LASTZONE}</th>
+					<th class="info">{L_LSBBB_LASTUPDATE}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN charrow -->
+				<tr class="charrow <!-- IF charrow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+					<td class="info">
+						<img src="/ext/madetoraid/lsbbb/styles/all/theme/images/faces/{charrow.char_image}" title="{charrow.charname}">
+						<a href="/xi/char/{charrow.charid}" class="forumtitle">{charrow.charname}</a>
+					</td>
+					<td class="info">
+						{charrow.nation}
+						<!-- IF charrow.nation == "Windurst" -->
+						({charrow.rank_windurst})
+						<!-- ELSEIF charrow.nation == "Bastok" -->
+						({charrow.rank_bastok})
+						<!-- ELSE -->
+						({charrow.rank_sandoria})
+						<!-- ENDIF -->
+					</td>
+					<td class="info"><a href="/memberlist.php?mode=viewprofile&u={charrow.forumid}">{charrow.username}</a></td>
+					<td class="info"><a href="{charrow.zone_url}">{charrow.zone_name}</a></td>
+					<td class="info">{charrow.lastupdate}</td>
+				</tr>
+				<!-- END charrow -->
+			</tbody>
+		</table>
 	</div>
 </div>
 <!-- ENDIF -->
