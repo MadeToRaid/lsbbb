@@ -10,6 +10,8 @@
 namespace madetoraid\lsbbb\controller;
 
 use madetoraid\lsbbb\includes\functions_char;
+use DateTime;
+use DateTimeZone;
 
 /**
  * PHPBB XI Server Integration char controller.
@@ -65,6 +67,8 @@ class char_controller
 	public function handle($char_id = 0)
 	{
 		$this->language->add_lang('common', 'madetoraid/lsbbb');
+		$this->language->add_lang('zone', 'madetoraid/lsbbb');
+
 		$page_title = $this->language->lang('LSBBB_CHARACTERS');
 
 		$lsbbb_url = generate_board_url() . '/ext/madetoraid/lsbbb';
@@ -75,9 +79,9 @@ class char_controller
 			'LSBBB_ZONE_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_zone'),
 			'LSBBB_MOB_URL'		=> $this->helper->route('madetoraid_lsbbb_controller_mob_group'),
 			'LSBBB_CHAR_URL'	=> $this->helper->route('madetoraid_lsbbb_controller_char'),
+			'LSBBB_JOB_URL'		=> $this->helper->route('madetoraid_lsbbb_controller_job'),
 		));
 
-		$char_data = $this->char->xi_char_search();
 		$this->template->assign_block_vars('navlinks', array(
 			'FORUM_NAME' => $this->language->lang('LSBBB_PAGE'),
 			'U_VIEW_FORUM' => append_sid($this->helper->route('madetoraid_lsbbb_controller_default')),
@@ -91,6 +95,8 @@ class char_controller
 			if (isset($char_data['charname'])) {
 				$linkshell_data = $this->char->xi_char_linkshells($char_id);
 				$equip_data = $this->char->xi_char_equipment($char_id);
+				$char_records = $this->char->char_bcnm_records($char_data['charname']);
+				$char_bazaar = $this->char->char_bazaar_items($char_id);
 				$skillstemp = explode(',', $char_data['skills']);
 				foreach ($skillstemp as $s) {
 					$k = explode('|', $s);
@@ -146,6 +152,16 @@ class char_controller
 				$page_title .= ' - ' . $char_data['charname'];
 				$this->template->assign_block_vars('chardata', $char_data);
 				$this->template->assign_block_vars('linkshelldata', $linkshell_data);
+				foreach($char_records as $record) {
+					$record['zone_name'] = $this->language->lang($record['zone_name']);
+					$record['zone_url'] = $this->helper->route('madetoraid_lsbbb_controller_zone_id', array('zone_id' => $record['zoneid']));
+					$this->template->assign_block_vars('recordrow', $record);
+				}
+				foreach($char_bazaar as $bazaar) {
+					$bazaar['item_img'] = $this->helper->route('madetoraid_lsbbb_controller_item_id', array('item_id' => $bazaar['itemid']));
+					$bazaar['item_url'] = $this->helper->route('madetoraid_lsbbb_controller_item_id', array('item_id' => $bazaar['itemid']));
+					$this->template->assign_block_vars('bazaarrow', $bazaar);
+				}
 				$this->template->assign_vars(array('charprofile' => true));
 				$this->template->assign_block_vars('navlinks', array(
 					'FORUM_NAME' => $char_data['charname'],
@@ -156,8 +172,17 @@ class char_controller
 				redirect($this->helper->route('madetoraid_lsbbb_controller_char'));
 			}
 		} else {
+			$char_data = $this->char->xi_char_search();
 			if (sizeof($char_data) > 0) {
 				foreach ($char_data as $char_row) {
+					$char_row['zone_name'] = $this->language->lang($char_row['zone_name']);
+					$char_row['zone_url'] = $this->helper->route('madetoraid_lsbbb_controller_zone_id', array('zone_id' => $char_row['zone_id']));
+
+					$updatetimezone = new DateTimeZone('UTC');
+					$updatetime = new DateTime($char_row['lastupdate'], $updatetimezone);
+					$updatetime->setTimezone($this->user->timezone);
+					//$char_row['lastupdate'] = $updatetime->format('D M j, Y g:i a');
+					$char_row['lastupdate'] = $updatetime->format('Y-m-d H:i:s T');
 					$this->template->assign_block_vars('charrow', $char_row);
 				}
 			} else {

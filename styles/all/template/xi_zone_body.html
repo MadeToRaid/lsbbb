@@ -3,13 +3,29 @@
 <p class="{S_CONTENT_FLOW_END} responsive-center time<!-- IF S_USER_LOGGED_IN --> rightside<!-- ENDIF -->"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME}<!-- ENDIF --></p>
 <!-- IF S_USER_LOGGED_IN --><p class="responsive-center time">{CURRENT_TIME}</p><!-- ENDIF -->
 
-<h1 class="xi-zone-name">{ZONE_NAME}</h1>
-<!-- IF allzonesrow --><!-- INCLUDE xi_world_map.html --><!-- ENDIF -->
-<!-- IF maprow --><!-- INCLUDE xi_zone_map.html --><!-- ENDIF -->
-<!-- IF linkrow --><!-- INCLUDE xi_zone_connections.html --><!-- ENDIF -->
-<!-- IF bcnmrow --><!-- INCLUDE xi_zone_bcnm.html --><!-- ENDIF -->
-<!-- IF npcrow --><!-- INCLUDE xi_zone_npc.html --><!-- ENDIF -->
-<!-- IF mobrow --><!-- INCLUDE xi_zone_mob.html --><!-- ENDIF -->
+<h2 class="topic-title">{ZONE_NAME}</h2>
+<!-- IF allzonesrow -->
+<!-- INCLUDE xi_world_map.html -->
+<!-- ELSE --> 
+
+<div class="post has-profile bg2<!-- IF chardata.session_key --> online<!-- ENDIF -->">
+	<div class="inner">
+		<dl class="postprofile">
+			<!-- IF maprow --><dd><!-- INCLUDE xi_zone_map.html --></dd><!-- ENDIF -->
+		</dl>
+		<div class="postbody">
+			<div>
+				<!-- IF linkrow --><!-- INCLUDE xi_zone_connections.html --><!-- ENDIF -->
+				<!-- IF bcnmrow --><!-- INCLUDE xi_zone_bcnm.html --><!-- ENDIF -->
+				<!-- IF instancerow --><!-- INCLUDE xi_zone_instance.html --><!-- ENDIF -->
+				<!-- IF npcrow --><!-- INCLUDE xi_zone_npc.html --><!-- ENDIF -->
+				<!-- IF mobrow --><!-- INCLUDE xi_zone_mob.html --><!-- ENDIF -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ENDIF -->
+
 <div class="maptooltip"><img></div>
 <!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
 	<form method="post" action="{S_LOGIN_ACTION}" class="headerspace">

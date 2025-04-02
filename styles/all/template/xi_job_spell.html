@@ -1,0 +1,36 @@
+<!-- IF spellrow -->
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive spelltable">
+			<thead>
+				<tr>
+					<th>{L_LSBBB_SPELL}</th>
+					<th>{L_LSBBB_LEVEL}</th>
+					<th>{L_LSBBB_ELEMENT}</th>
+					<th>{L_LSBBB_VALID_TARGET}</th>
+					<th>{L_LSBBB_CAST_TIME}</th>
+					<th>{L_LSBBB_RECAST_TIME}</th>
+					<th>{L_LSBBB_RANGE}</th>
+					<th>{L_LSBBB_AOE}</th>
+					<th>{L_LSBBB_CONTENT_TAG}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN spellrow -->
+				<tr class="<!-- IF spellrow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+					<td><!-- IF spellrow.itemid --><a href="{spellrow.item_url}">{spellrow.name}</a><!-- ELSE -->{spellrow.name}<!-- ENDIF --></td>
+					<td>{spellrow.level}</td>
+					<td><!-- IF spellrow.element --><img src="{LSBBB_URL}/styles/all/theme/images/element{spellrow.element}.png"><!-- ENDIF --></td>
+					<td><!-- IF spellrow.validtargets == 1 -->{L_LSBBB_SELF}<!-- ELSEIF spellrow.validtargets == 2 -->{L_LSBBB_PARTY_MEMBER}<!-- ELSEIF spellrow.validtargets == 3  -->{L_LSBBB_PARTY_MEMBER}<!-- ELSEIF spellrow.validtargets == 4 -->{L_LSBBB_MOB}<!-- ELSEIF spellrow.validtargets == 32 -->{L_LSBBB_KO}<!-- ELSEIF spellrow.validtargets == 91 -->{L_LSBBB_PC}<!-- ELSEIF spellrow.validtargets == 95 -->{L_LSBBB_ANY}<!-- ELSE -->{spellrow.validtargets}<!-- ENDIF --></td>
+					<td>{spellrow.casttime}</td>
+					<td>{spellrow.recasttime}</td>
+					<td>{spellrow.range}</td>
+					<td><!-- IF spellrow.aoe == 1 -->{L_LSBBB_RADIUS}</i><!-- ELSEIF spellrow.aoe == 6 -->{L_LSBBB_DIFFUSION}<!-- ELSEIF spellrow.aoe == 5 -->{L_LSBBB_RADIUS}<!-- ELSEIF spellrow.aoe == 4 -->{L_LSBBB_ACCESSION}<!-- ELSEIF spellrow.aoe == 3 -->{L_LSBBB_MANIFESTATION}<!-- ELSEIF spellrow.aoe == 2 -->{L_LSBBB_CONE}<!-- ELSEIF spellrow.aoe > 0 -->{spellrow.aoe}<!-- ENDIF --></td>
+					<td>{spellrow.content_tag}</td>
+				</tr>
+				<!-- END spellrow -->
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- ENDIF -->

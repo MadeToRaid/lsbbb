@@ -1,0 +1,32 @@
+<!-- IF abilityrow -->
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive abilitytable">
+			<thead>
+				<tr>
+					<th>{L_LSBBB_ABILITY}</th>
+					<th>{L_LSBBB_LEVEL}</th>
+					<th>{L_LSBBB_VALID_TARGET}</th>
+					<th>{L_LSBBB_RECAST_TIME}</th>
+					<th>{L_LSBBB_RANGE}</th>
+					<th>{L_LSBBB_AOE}</th>
+					<th>{L_LSBBB_CONTENT_TAG}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN abilityrow -->
+				<tr class="<!-- IF abilityrow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+					<td>{abilityrow.name}</a></td>
+					<td>{abilityrow.level}</td>
+					<td><!-- IF abilityrow.validtarget == 1 -->{L_LSBBB_SELF}<!-- ELSEIF abilityrow.validtarget == 3 -->{L_LSBBB_PARTY_MEMBER}<!-- ELSEIF abilityrow.validtarget == 4 -->{L_LSBBB_MOB}<!-- ELSEIF abilityrow.validtarget == 35 -->{L_LSBBB_KO}<!-- ELSEIF abilityrow.validtarget == 257 -->{L_LSBBB_PET}<!-- ELSE -->{abilityrow.validtarget}<!-- ENDIF --></td>
+					<td>{abilityrow.recasttime}</td>
+					<td>{abilityrow.range}</td>
+					<td><!-- IF abilityrow.isaoe == 1 --><i class="fa fa-check" aria-hidden="true"></i><!-- ENDIF --></td>
+					<td>{abilityrow.content_tag}</td>
+				</tr>
+				<!-- END abilityrow -->
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- ENDIF -->

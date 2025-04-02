@@ -66,6 +66,14 @@ services:
             - '@pagination'
             - '@request'
 
+    madetoraid.lsbbb.controller.job:
+        class: madetoraid\lsbbb\controller\job_controller
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+
     madetoraid.lsbbb.controller.mob:
         class: madetoraid\lsbbb\controller\mob_controller
         arguments:

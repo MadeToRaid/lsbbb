@@ -1,0 +1,26 @@
+<!-- IF traitrow -->
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive spelltable">
+			<thead>
+				<tr>
+					<th>{L_LSBBB_TRAIT}</th>
+					<th>{L_LSBBB_RANK}</th>
+					<th>{L_LSBBB_LEVEL}</th>
+					<th>{L_LSBBB_CONTENT_TAG}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN traitrow -->
+				<tr class="<!-- IF traitrow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+					<td>{traitrow.name}</td>
+					<td>{traitrow.rank}</td>
+					<td>{traitrow.level}</td>
+					<td>{traitrow.content_tag}</td>
+				</tr>
+				<!-- END traitrow -->
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- ENDIF -->

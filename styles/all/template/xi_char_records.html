@@ -1,0 +1,27 @@
+<!-- IF recordrow -->
+<h3 class="first">{L_LSBBB_BATTLEFIELD_RECORDS}</h3>
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive sortable">
+			<thead>
+				<tr>
+					<th class="info">{L_LSBBB_ZONE}</th>
+					<th class="info">{L_LSBBB_BATTLEFIELD}</th>
+					<th class="info">{L_LSBBB_BATTLEFIELD_TIME}</th>
+					<th class="info">{L_LSBBB_PARTY_SIZE}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN recordrow -->
+				<tr class="<!-- IF recordrow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+					<td class="info"><a href="{recordrow.zone_url}">{recordrow.zone_name}</a></td>
+					<td class="info">{recordrow.bcnm_name}</td>
+					<td class="info">{recordrow.fastest_time}</td>
+					<td class="info">{recordrow.fastest_party_size}</td>
+				</tr>
+				<!-- END recordrow -->
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- ENDIF -->

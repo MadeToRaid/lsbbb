@@ -1,5 +1,23 @@
-<li <!-- IF not S_USER_LOGGED_IN -->data-skip-responsive="true"<!-- ELSE -->data-last-responsive="true"<!-- ENDIF -->>
-    <a href="{U_LSBBB_PAGE}" rel="help" title="{LSBBB_NAV_INDEX}" role="menuitem">
-        <i class="icon fa-superpowers fa-fw" aria-hidden="true"></i></i><span>{LSBBB_NAV_INDEX}</span>
+<li id="quick-links" class="quick-links dropdown-container responsive-menu<!-- IF not S_DISPLAY_QUICK_LINKS and not S_DISPLAY_SEARCH --> hidden<!-- ENDIF -->" data-skip-responsive="true">
+    <a href="#" class="dropdown-trigger">
+        <i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>{LSBBB_NAV_INDEX}</span>
     </a>
+    <div class="dropdown">
+        <div class="pointer">
+            <div class="pointer-inner"></div>
+        </div>
+        <ul class="dropdown-contents" role="menu">
+            <li class="separator"></li>
+            <li>
+                <a href="{U_LSBBB_PAGE}" rel="help" title="{LSBBB_NAV_INDEX}" role="menuitem">
+                    <i class="icon fa-superpowers fa-fw" aria-hidden="true"></i><span>{L_LSBBB_NAV_STATS}</span>
+                </a>
+            </li>
+            <li>
+                <a href="{LSBBB_JOBS_URL}" rel="help" title="{LSBBB_JOBS}" role="menuitem">
+                    <i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>{L_LSBBB_JOBS}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </li>

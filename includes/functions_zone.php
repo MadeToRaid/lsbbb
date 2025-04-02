@@ -149,6 +149,51 @@ class functions_zone
 		return $return;
 	}
 
+	public function xi_zone_instance_info($zone_id)
+	{
+		global $db;
+		$xi = new functions_xi();
+		$return = array();
+		$instance_data = array();
+
+		if (is_numeric($zone_id)) {
+			$sql_array = array(
+				'SELECT'	=> 'il.instanceid, il.instance_name, il.entrance_zone, il.time_limit, il.start_x, il.start_y, il.start_z, zs.name entrance_zone_name',
+				'FROM'		=> array(
+					'xidb.instance_list' => 'il',
+				),
+				'LEFT_JOIN'	=> array(
+					array(
+						'FROM'	=> array('xidb.zone_settings' => 'zs'),
+						'ON'	=> 'zs.zoneid = il.entrance_zone',
+					),
+				),
+				'WHERE'		=> 'il.instance_zone = ' . (int) $zone_id,
+			);
+			$sql = $db->sql_build_query('SELECT', $sql_array);
+			$result = $db->sql_query($sql);
+			$instance_data = (array) $db->sql_fetchrowset($result);
+			$db->sql_freeresult($result);
+
+			foreach ($instance_data as $instance) {
+				$entrance_zone_name = strtoupper(str_replace(' ', '_', $instance['entrance_zone_name']));
+				$entrance_zone_name = str_replace('[', '', $entrance_zone_name);
+				$entrance_zone_name = str_replace(']', '', $entrance_zone_name);
+				$return[] = array(
+					'instanceid'			=> (int) $instance['instanceid'],
+					'name'					=> $xi->xi_ucwords($instance['instance_name']),
+					'entrance_zone_id'		=> $instance['entrance_zone'],
+					'entrance_zone_name'	=> $entrance_zone_name,
+					'time_limit'			=> (int) $instance['time_limit'],
+					'start_x'				=> (int) $instance['start_x'],
+					'start_x'				=> (int) $instance['start_y'],
+					'start_x'				=> (int) $instance['start_z'],
+				);
+			}
+		}
+		return $return;
+	}
+
 	public function xi_zone_links($zone_id)
 	{
 		global $db;

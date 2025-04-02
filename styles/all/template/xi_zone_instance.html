@@ -1,0 +1,24 @@
+<!-- IF instancerow -->
+<div class="forabg">
+	<div class="inner">
+		<table class="table1 responsive">
+			<thead>
+				<tr>
+					<th class="name">{L_LSBBB_INSTANCE}</th>
+					<th class="info">{L_LSBBB_ENTRANCE_ZONE}</th>
+					<th class="active">{L_LSBBB_TIME_LIMIT}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN instancerow -->
+				<tr class="<!-- IF instancerow.rownum is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+					<td>{instancerow.name}</a></td>
+					<td class="info"><a href="{instancerow.zone_url}">{instancerow.entrance_zone_name}</a></td>
+					<td class="active">{instancerow.time_limit}</td>
+				</tr>
+				<!-- END instancerow -->
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- ENDIF -->
